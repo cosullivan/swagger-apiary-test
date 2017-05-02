@@ -1,0 +1,274 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Social API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/social/feeds:
+    get:
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SocialFeedId:
+                  type: integer
+                MembershipActivationId:
+                  type: string
+                ContentItemId:
+                  type: string
+                ContactId:
+                  type: string
+                SocialFeedTypeId:
+                  type: string
+                ContactName:
+                  type: string
+                CommentsCount:
+                  type: integer
+                FilesCount:
+                  type: integer
+
+  /api/social/feeds/{socialfeedid}:
+    get:
+      parameters:
+        - name: socialfeedid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SocialFeedId:
+                type: integer
+              MembershipActivationId:
+                type: string
+              ContactId:
+                type: string
+              ContentItemId:
+                type: string
+              ContactName:
+                type: string
+              SocialFeedTypeId:
+                type: string
+              Url:
+                type: string
+              MessageText:
+                type: string
+              EmbedCodeHtml:
+                type: string
+              SocialFeedFileUpload:
+                type: string
+              SocialFeedFiles:
+                type: string
+    post:
+      parameters:
+        - name: socialfeedid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SocialFeedId:
+                type: integer
+              MembershipActivationId:
+                type: string
+              ContactId:
+                type: string
+              ContentItemId:
+                type: string
+              ContactName:
+                type: string
+              SocialFeedTypeId:
+                type: string
+              Url:
+                type: string
+              MessageText:
+                type: string
+              EmbedCodeHtml:
+                type: string
+              SocialFeedFileUpload:
+                type: string
+              SocialFeedFiles:
+                type: string
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SocialFeedId:
+                type: integer
+              MembershipActivationId:
+                type: string
+              ContentItemId:
+                type: string
+              ContactId:
+                type: string
+              SocialFeedTypeId:
+                type: string
+              ContactName:
+                type: string
+              CommentsCount:
+                type: integer
+              FilesCount:
+                type: integer
+
+  /api/social/feeds/{socialfeedid}/comments:
+    get:
+      parameters:
+        - name: socialfeedid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SocialFeedCommentId:
+                  type: integer
+                SocialFeedId:
+                  type: integer
+                CommentBy:
+                  type: integer
+                CommentByContact:
+                  type: string
+                CommentDate:
+                  type: string
+                CommentText:
+                  type: string
+
+  /api/social/feeds/{socialfeedid}/comments/{socialfeedcommentid}:
+    get:
+      parameters:
+        - name: socialfeedid
+          in: path
+          required: true
+          type: string
+        - name: socialfeedcommentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SocialFeedCommentId:
+                type: integer
+              SocialFeedId:
+                type: integer
+              CommentBy:
+                type: integer
+              CommentDate:
+                type: string
+              CommentByContact:
+                type: string
+              CommentText:
+                type: string
+    post:
+      parameters:
+        - name: socialfeedid
+          in: path
+          required: true
+          type: string
+        - name: socialfeedcommentid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SocialFeedCommentId:
+                type: integer
+              SocialFeedId:
+                type: integer
+              CommentBy:
+                type: integer
+              CommentDate:
+                type: string
+              CommentByContact:
+                type: string
+              CommentText:
+                type: string
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SocialFeedCommentId:
+                type: integer
+              SocialFeedId:
+                type: integer
+              CommentBy:
+                type: integer
+              CommentByContact:
+                type: string
+              CommentDate:
+                type: string
+              CommentText:
+                type: string
+
+  /api/social/feeds/{socialfeedid}/like:
+    post:
+      parameters:
+        - name: socialfeedid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/social/feeds/{socialfeedid}/unlike:
+    post:
+      parameters:
+        - name: socialfeedid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Social
+      responses:
+        200:
+          description:
+            "OK"

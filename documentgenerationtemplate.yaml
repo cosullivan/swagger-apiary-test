@@ -1,0 +1,362 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Document Generation Template API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/documentgenerationtemplates:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Instruction:
+                type: string
+              Items:
+                type: string
+
+  /api/documentgenerationtemplates/{documentgenerationtemplateid}:
+    get:
+      parameters:
+        - name: documentgenerationtemplateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DocumentGenerationTemplateId:
+                type: integer
+              AuditId:
+                type: integer
+              DocumentGenerationTypeId:
+                type: string
+              Name:
+                type: string
+              FileId:
+                type: string
+    post:
+      parameters:
+        - name: documentgenerationtemplateid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DocumentGenerationTemplateId:
+                type: integer
+              AuditId:
+                type: integer
+              DocumentGenerationTypeId:
+                type: string
+              Name:
+                type: string
+              FileId:
+                type: string
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DocumentGenerationTemplateId:
+                type: integer
+              DocumentGenerationTypeId:
+                type: string
+              AuditId:
+                type: integer
+              TemplateType:
+                type: string
+              Name:
+                type: string
+              AllowEdit:
+                type: boolean
+              FileId:
+                type: string
+              FileName:
+                type: string
+              FileEditUrl:
+                type: string
+              Actions:
+                type: string
+
+  /api/documentgenerationtemplates/{documentgenerationtemplateid}/{auditid}:
+    delete:
+      parameters:
+        - name: documentgenerationtemplateid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/documentgenerationtemplates/copy/{documentgenerationtemplateid}:
+    get:
+      parameters:
+        - name: documentgenerationtemplateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DocumentGenerationTemplateId:
+                type: integer
+              DocumentGenerationTypeId:
+                type: string
+              AuditId:
+                type: integer
+              TemplateType:
+                type: string
+              Name:
+                type: string
+              AllowEdit:
+                type: boolean
+              FileId:
+                type: string
+              FileName:
+                type: string
+              FileEditUrl:
+                type: string
+              Actions:
+                type: string
+
+  /api/documentgenerationtemplates/download/{documentgenerationtemplateid}/{fileid}:
+    get:
+      parameters:
+        - name: documentgenerationtemplateid
+          in: path
+          required: true
+          type: string
+        - name: fileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/documentgenerationtemplates/lookup/attendeebadge:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/certificate:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/coverletter:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/defaultstatement:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/invoices:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/member:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/salesproposal:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/singleattendeebadge:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/documentgenerationtemplates/lookup/statement:
+    get:
+      tags:
+        - DocumentGenerationTemplate
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string

@@ -1,0 +1,163 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Roles API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/roles:
+    get:
+      tags:
+        - Roles
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                RoleId:
+                  type: integer
+                Name:
+                  type: string
+                UsersCount:
+                  type: integer
+
+  /api/roles/{roleid}:
+    post:
+      parameters:
+        - name: roleid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              RoleId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              RoleTypeId:
+                type: string
+              Areas:
+                type: string
+      tags:
+        - Roles
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              RoleId:
+                type: integer
+              Name:
+                type: string
+              UsersCount:
+                type: integer
+
+  /api/roles/{roleid}/{auditid}:
+    delete:
+      parameters:
+        - name: roleid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Roles
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/roles/{roleid}/{roletypeid}:
+    get:
+      parameters:
+        - name: roleid
+          in: path
+          required: true
+          type: string
+        - name: roletypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Roles
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              RoleId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              RoleTypeId:
+                type: string
+              Areas:
+                type: string
+
+  /api/roles/lookup:
+    get:
+      tags:
+        - Roles
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                RoleId:
+                  type: integer
+                Name:
+                  type: string
+                RoleTypeId:
+                  type: string
+
+  /api/roles/lookup/member:
+    get:
+      tags:
+        - Roles
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                RoleId:
+                  type: integer
+                Name:
+                  type: string
+                RoleTypeId:
+                  type: string

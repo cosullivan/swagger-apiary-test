@@ -1,0 +1,934 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Tenant API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/tenants/{tenantid}/add:
+    get:
+      parameters:
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              UserHostAddress:
+                type: string
+              UserAgent:
+                type: string
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              MembershipTypeId:
+                type: string
+              EndDate:
+                type: string
+              IsActive:
+                type: boolean
+              IsTrial:
+                type: boolean
+              ForInternalUse:
+                type: boolean
+              SendLoginInformation:
+                type: boolean
+              CustomFields:
+                type: string
+    post:
+      parameters:
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              UserHostAddress:
+                type: string
+              UserAgent:
+                type: string
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              MembershipTypeId:
+                type: string
+              EndDate:
+                type: string
+              IsActive:
+                type: boolean
+              IsTrial:
+                type: boolean
+              ForInternalUse:
+                type: boolean
+              SendLoginInformation:
+                type: boolean
+              CustomFields:
+                type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GlobalKey:
+                type: string
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              CreateDate:
+                type: string
+              IsDemo:
+                type: boolean
+              IsActive:
+                type: boolean
+              EditionName:
+                type: string
+              IsSandboxAccount:
+                type: boolean
+              HideDisableTenant:
+                type: boolean
+              HideEnableTenant:
+                type: boolean
+              HideDeleteTenant:
+                type: boolean
+              HideTenantSandboxEnable:
+                type: boolean
+              HideTenantSandboxDisable:
+                type: boolean
+              MasterKey:
+                type: string
+              Actions:
+                type: string
+
+  /api/tenants/{tenantid}/edit:
+    get:
+      parameters:
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              Name:
+                type: string
+              EditionId:
+                type: string
+              ProductId:
+                type: string
+              IsActive:
+                type: boolean
+              IsDemo:
+                type: boolean
+              IsInternalTenant:
+                type: boolean
+              Modules:
+                type: string
+    post:
+      parameters:
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              Name:
+                type: string
+              EditionId:
+                type: string
+              ProductId:
+                type: string
+              IsActive:
+                type: boolean
+              IsDemo:
+                type: boolean
+              IsInternalTenant:
+                type: boolean
+              Modules:
+                type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GlobalKey:
+                type: string
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              CreateDate:
+                type: string
+              IsDemo:
+                type: boolean
+              IsActive:
+                type: boolean
+              EditionName:
+                type: string
+              IsSandboxAccount:
+                type: boolean
+              HideDisableTenant:
+                type: boolean
+              HideEnableTenant:
+                type: boolean
+              HideDeleteTenant:
+                type: boolean
+              HideTenantSandboxEnable:
+                type: boolean
+              HideTenantSandboxDisable:
+                type: boolean
+              MasterKey:
+                type: string
+              Actions:
+                type: string
+
+  /api/tenants/{tenantid}/membership:
+    post:
+      parameters:
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GlobalKey:
+                type: string
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              TenantMembershipType:
+                type: string
+              Membership:
+                type: string
+              MembershipId:
+                type: string
+              OrganizationContactId:
+                type: string
+              OrganizationName:
+                type: string
+              MembershipTypeId:
+                type: string
+              EndDate:
+                type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GlobalKey:
+                type: string
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              CreateDate:
+                type: string
+              IsDemo:
+                type: boolean
+              IsActive:
+                type: boolean
+              EditionName:
+                type: string
+
+  /api/tenants/{tenantid}/view:
+    get:
+      parameters:
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactsCount:
+                type: integer
+              OrgCount:
+                type: integer
+              PersonCount:
+                type: integer
+              StaffCount:
+                type: integer
+
+  /api/tenants/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              EditionId:
+                type: string
+              CreateDateRange:
+                type: string
+              ContactsCountRange:
+                type: string
+              NoLoginSince:
+                type: string
+              IsDemo:
+                type: boolean
+              IsActive:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/tenants/backofficehits:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Screen:
+                  type: string
+                Count:
+                  type: integer
+
+  /api/tenants/currentusers:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ConnectionId:
+                  type: string
+                TenantKey:
+                  type: string
+                LoginId:
+                  type: integer
+                Customer:
+                  type: string
+                User:
+                  type: string
+                OnSince:
+                  type: string
+                ServerName:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/tenants/currentusers/recentpages/{tenantkey}/{loginid}/:
+    get:
+      parameters:
+        - name: tenantkey
+          in: path
+          required: true
+          type: string
+        - name: loginid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantKey:
+                type: string
+              LoginId:
+                type: integer
+              PageViews:
+                type: string
+
+  /api/tenants/delete/{globalkey}/{tenantid}/{masterkey}:
+    delete:
+      parameters:
+        - name: globalkey
+          in: path
+          required: true
+          type: string
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+        - name: masterkey
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tenants/disable/{globalkey}/{tenantid}:
+    get:
+      parameters:
+        - name: globalkey
+          in: path
+          required: true
+          type: string
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tenants/enable/{globalkey}/{tenantid}:
+    get:
+      parameters:
+        - name: globalkey
+          in: path
+          required: true
+          type: string
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tenants/lookup:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                Key:
+                  type: string
+
+  /api/tenants/lookup/logintenant/{loginid}:
+    get:
+      parameters:
+        - name: loginid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/tenants/release:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AppVersionHistoryId:
+                type: integer
+              IsEditable:
+                type: boolean
+              DeploymentDate:
+                type: string
+              Version:
+                type: string
+              Summary:
+                type: string
+              Description:
+                type: string
+              Changes:
+                type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AppVersionHistoryId:
+                type: integer
+              DeploymentDate:
+                type: string
+              Version:
+                type: string
+              Summary:
+                type: string
+
+  /api/tenants/release/{appversionhistoryid}:
+    get:
+      parameters:
+        - name: appversionhistoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AppVersionHistoryId:
+                type: integer
+              IsEditable:
+                type: boolean
+              DeploymentDate:
+                type: string
+              Version:
+                type: string
+              Summary:
+                type: string
+              Description:
+                type: string
+              Changes:
+                type: string
+
+  /api/tenants/releases:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Releases:
+                type: string
+
+  /api/tenants/sandbox/disable/{globalkey}/{tenantid}:
+    get:
+      parameters:
+        - name: globalkey
+          in: path
+          required: true
+          type: string
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GlobalKey:
+                type: string
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              CreateDate:
+                type: string
+              IsDemo:
+                type: boolean
+              IsActive:
+                type: boolean
+              EditionName:
+                type: string
+              IsSandboxAccount:
+                type: boolean
+              HideDisableTenant:
+                type: boolean
+              HideEnableTenant:
+                type: boolean
+              HideDeleteTenant:
+                type: boolean
+              HideTenantSandboxEnable:
+                type: boolean
+              HideTenantSandboxDisable:
+                type: boolean
+              MasterKey:
+                type: string
+              Actions:
+                type: string
+
+  /api/tenants/sandbox/enable/{globalkey}/{tenantid}:
+    get:
+      parameters:
+        - name: globalkey
+          in: path
+          required: true
+          type: string
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GlobalKey:
+                type: string
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              CreateDate:
+                type: string
+              IsDemo:
+                type: boolean
+              IsActive:
+                type: boolean
+              EditionName:
+                type: string
+              IsSandboxAccount:
+                type: boolean
+              HideDisableTenant:
+                type: boolean
+              HideEnableTenant:
+                type: boolean
+              HideDeleteTenant:
+                type: boolean
+              HideTenantSandboxEnable:
+                type: boolean
+              HideTenantSandboxDisable:
+                type: boolean
+              MasterKey:
+                type: string
+              Actions:
+                type: string
+
+  /api/tenants/searchindex/{searchindexid}:
+    get:
+      parameters:
+        - name: searchindexid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SearchIndexId:
+                type: integer
+              IndexName:
+                type: string
+              LastSyncDate:
+                type: string
+              DocumentCount:
+                type: integer
+              DocumentPercentage:
+                type: string
+              StorageSize:
+                type: integer
+              StoragePercentage:
+                type: string
+
+  /api/tenants/searchindex/all:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SearchIndexSyncInfoId:
+                  type: integer
+                IndexName:
+                  type: string
+                SearchIndexTypeId:
+                  type: string
+                Name:
+                  type: string
+                LastSyncDate:
+                  type: string
+                DatabaseDocumentCount:
+                  type: string
+                IndexDocumentCount:
+                  type: string
+                AuditSourceId:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/tenants/searchindex/recreate/{auditsourceid}:
+    get:
+      parameters:
+        - name: auditsourceid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tenants/searchindex/reset/{tenantid}/{searchindextype}:
+    get:
+      parameters:
+        - name: tenantid
+          in: path
+          required: true
+          type: string
+        - name: searchindextype
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tenants/searchindex/runnow:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tenants/switchaccount/{loginid}:
+    get:
+      parameters:
+        - name: loginid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              LoginId:
+                type: integer
+              DefaultTenantId:
+                type: integer
+              DefaultTenantKey:
+                type: string
+    post:
+      parameters:
+        - name: loginid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              LoginId:
+                type: integer
+              DefaultTenantId:
+                type: integer
+              DefaultTenantKey:
+                type: string
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              RedirectToUrl:
+                type: string
+                description: "The URI to redirect to for the new tenant."
+
+  /api/tenants/tenantusers:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Users:
+                type: string
+
+  /api/tenants/unmatch:
+    get:
+      tags:
+        - Tenant
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                GlobalKey:
+                  type: string
+                TenantId:
+                  type: integer
+                Name:
+                  type: string
+                CreateDate:
+                  type: string
+                IsDemo:
+                  type: boolean
+                IsActive:
+                  type: boolean
+                EditionName:
+                  type: string

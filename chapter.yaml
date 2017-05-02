@@ -1,0 +1,259 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Chapter API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/chapters/{chapterid}:
+    get:
+      parameters:
+        - name: chapterid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ChapterId:
+                type: integer
+              AuditId:
+                type: integer
+              OrganizationId:
+                type: integer
+              ChapterName:
+                type: string
+              ChapterDescription:
+                type: string
+              OrganizationContactId:
+                type: string
+              ParentOrganizationId:
+                type: integer
+              PrimaryCalenderId:
+                type: string
+              CalendarDescription:
+                type: string
+              GroupTypeId:
+                type: string
+              PrimaryGroupId:
+                type: string
+              DirectoryId:
+                type: string
+              PreviousDirectoryId:
+                type: string
+              RemoveContactsFromPreviousDirectory:
+                type: boolean
+              Owners:
+                type: string
+    post:
+      parameters:
+        - name: chapterid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ChapterId:
+                type: integer
+              AuditId:
+                type: integer
+              OrganizationId:
+                type: integer
+              ChapterName:
+                type: string
+              ChapterDescription:
+                type: string
+              OrganizationContactId:
+                type: string
+              ParentOrganizationId:
+                type: integer
+              PrimaryCalenderId:
+                type: string
+              CalendarDescription:
+                type: string
+              GroupTypeId:
+                type: string
+              PrimaryGroupId:
+                type: string
+              DirectoryId:
+                type: string
+              PreviousDirectoryId:
+                type: string
+              RemoveContactsFromPreviousDirectory:
+                type: boolean
+              Owners:
+                type: string
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ChapterId:
+                type: integer
+              AuditId:
+                type: integer
+              OrganizationName:
+                type: string
+              ParentOrganizationId:
+                type: integer
+              ParentOrganizationName:
+                type: string
+              City:
+                type: string
+              State:
+                type: string
+
+  /api/chapters/{chapterid}/{auditid}:
+    delete:
+      parameters:
+        - name: chapterid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/chapters/chapters/contacts/lookup:
+    get:
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/chapters/chapters/lookup:
+    get:
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/chapters/childchapters/lookup:
+    get:
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/chapters/items:
+    get:
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ChapterId:
+                  type: integer
+                AuditId:
+                  type: integer
+                OrganizationName:
+                  type: string
+                ParentOrganizationId:
+                  type: integer
+                ParentOrganizationName:
+                  type: string
+                City:
+                  type: string
+                State:
+                  type: string
+
+  /api/chapters/parentchapter/lookup:
+    get:
+      tags:
+        - Chapter
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

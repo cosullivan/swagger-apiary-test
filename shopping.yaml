@@ -1,0 +1,175 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Shopping API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/cart/{cartkey}:
+    get:
+      parameters:
+        - name: cartkey
+          in: path
+          required: true
+          type: string
+      tags:
+        - ShoppingCart
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ShoppingCartId:
+                type: integer
+              CartKey:
+                type: string
+              Items:
+                type: string
+
+  /api/cart/{cartkey}/add:
+    post:
+      parameters:
+        - name: cartkey
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ShoppingCartPurchaseItemId:
+                type: integer
+              ShoppingCartItemTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+              PurchaseId:
+                type: string
+              EventRegistrationId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: integer
+              Price:
+                type: number
+      tags:
+        - ShoppingCart
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/cart/{cartkey}/edit:
+    post:
+      parameters:
+        - name: cartkey
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ShoppingCartPurchaseItemId:
+                type: integer
+              ShoppingCartItemTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+              PurchaseId:
+                type: string
+              EventRegistrationId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: integer
+              Price:
+                type: number
+      tags:
+        - ShoppingCart
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/cart/{cartkey}/remove:
+    post:
+      parameters:
+        - name: cartkey
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ShoppingCartPurchaseItemId:
+                type: integer
+              ShoppingCartItemTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+              PurchaseId:
+                type: string
+              EventRegistrationId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: integer
+              Price:
+                type: number
+      tags:
+        - ShoppingCart
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/cart/{cartkey}/savelater:
+    post:
+      parameters:
+        - name: cartkey
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ShoppingCartPurchaseItemId:
+                type: integer
+              ShoppingCartItemTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+              PurchaseId:
+                type: string
+              EventRegistrationId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: integer
+              Price:
+                type: number
+      tags:
+        - ShoppingCart
+      responses:
+        200:
+          description:
+            "OK"

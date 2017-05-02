@@ -1,0 +1,121 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Signature API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/signatures/{signatureid}:
+    get:
+      parameters:
+        - name: signatureid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Signature
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SignatureId:
+                type: integer
+              Name:
+                type: string
+              SignatureHtml:
+                type: string
+    post:
+      parameters:
+        - name: signatureid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SignatureId:
+                type: integer
+              Name:
+                type: string
+              SignatureHtml:
+                type: string
+      tags:
+        - Signature
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SignatureId:
+                type: integer
+              Name:
+                type: string
+    delete:
+      parameters:
+        - name: signatureid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Signature
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/signatures/items:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Signature
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SignatureId:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/signatures/lookup:
+    get:
+      tags:
+        - Signature
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

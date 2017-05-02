@@ -1,0 +1,467 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Store API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/store/{storeitemid}/preimage/{imageid}:
+    delete:
+      parameters:
+        - name: storeitemid
+          in: path
+          required: true
+          type: string
+        - name: imageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/store/{storeitemid}/preimage/{imageid}/{fileid}:
+    post:
+      parameters:
+        - name: storeitemid
+          in: path
+          required: true
+          type: string
+        - name: imageid
+          in: path
+          required: true
+          type: string
+        - name: fileid
+          in: path
+          required: true
+          type: string
+        - name: imagegalleryitem
+          in: body
+          required: false
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              FileId:
+                type: integer
+              Url:
+                type: string
+              Title:
+                type: string
+              Caption:
+                type: string
+              CropX:
+                type: integer
+              CropY:
+                type: integer
+              CropHeight:
+                type: integer
+              CropWidth:
+                type: integer
+              StoreItemId:
+                type: integer
+              OldImageId:
+                type: integer
+              OldFileId:
+                type: integer
+              GalleryOrder:
+                type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              Url:
+                type: string
+              Title:
+                type: string
+              Caption:
+                type: string
+
+  /api/store/{storeitemid}/preimage/order:
+    post:
+      parameters:
+        - name: storeitemid
+          in: path
+          required: true
+          type: string
+        - name: imageids
+          in: body
+          required: false
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/store/lookup/storeitems:
+    get:
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/store/storeitems:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/store/storeitems/{storeitemid}:
+    get:
+      parameters:
+        - name: storeitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              StoreItemId:
+                type: integer
+              Name:
+                type: string
+              SaleableItemId:
+                type: string
+              CategoryItemId:
+                type: string
+              Description:
+                type: string
+              ShortDescription:
+                type: string
+              AvailableDate:
+                type: string
+              EndDate:
+                type: string
+              InventoryRemaining:
+                type: string
+              IsActive:
+                type: boolean
+              Price:
+                type: number
+              MinimumQuantity:
+                type: string
+              TrackInventory:
+                type: boolean
+              AllowBackorder:
+                type: boolean
+              Images:
+                type: string
+    delete:
+      parameters:
+        - name: storeitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/store/storeitems/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              StoreItemId:
+                type: integer
+              Name:
+                type: string
+              SaleableItemId:
+                type: string
+              CategoryItemId:
+                type: string
+              Description:
+                type: string
+              ShortDescription:
+                type: string
+              AvailableDate:
+                type: string
+              EndDate:
+                type: string
+              InventoryRemaining:
+                type: string
+              IsActive:
+                type: boolean
+              Price:
+                type: number
+              MinimumQuantity:
+                type: string
+              TrackInventory:
+                type: boolean
+              AllowBackorder:
+                type: boolean
+              Images:
+                type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/store/storeitems/saveorder:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            type: array
+            items:
+              properties:
+                StoreItemId:
+                  type: integer
+                Category:
+                  type: string
+                ProductName:
+                  type: string
+                Price:
+                  type: number
+                IsActive:
+                  type: boolean
+                Active:
+                  type: string
+                DisplayOrder:
+                  type: string
+                Actions:
+                  type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/store/storeorders:
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/store/storeorders/{storepurchaseid}:
+    get:
+      parameters:
+        - name: storepurchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              StorePurchaseId:
+                type: integer
+              ContactName:
+                type: string
+              PurchaseDate:
+                type: string
+              Address:
+                type: string
+              PurchaseStatusId:
+                type: string
+              Notes:
+                type: string
+              OrderStoreItemList:
+                type: string
+    post:
+      parameters:
+        - name: storepurchaseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              StorePurchaseId:
+                type: integer
+              ContactName:
+                type: string
+              PurchaseDate:
+                type: string
+              Address:
+                type: string
+              PurchaseStatusId:
+                type: string
+              Notes:
+                type: string
+              OrderStoreItemList:
+                type: string
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/store/storesettings:
+    get:
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PrimaryDomain:
+                type: string
+              RelativePath:
+                type: string
+              EntireUrl:
+                type: string
+              StoreDescription:
+                type: string
+              ExemptTaxOnShipping:
+                type: boolean
+              IncludeNonTaxableItemsInTaxableShippingAmmount:
+                type: boolean
+              Width:
+                type: integer
+              Height:
+                type: integer
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PrimaryDomain:
+                type: string
+              RelativePath:
+                type: string
+              EntireUrl:
+                type: string
+              StoreDescription:
+                type: string
+              ExemptTaxOnShipping:
+                type: boolean
+              IncludeNonTaxableItemsInTaxableShippingAmmount:
+                type: boolean
+              Width:
+                type: integer
+              Height:
+                type: integer
+      tags:
+        - Store
+      responses:
+        200:
+          description:
+            "OK"

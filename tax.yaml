@@ -1,0 +1,730 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Tax API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/taxes/producttaxcategories:
+    get:
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ProductTaxCategoryId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/taxes/producttaxcategory:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              ProductTaxCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProductTaxCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Actions:
+                type: string
+
+  /api/taxes/producttaxcategory/{producttaxcategoryid}:
+    get:
+      parameters:
+        - name: producttaxcategoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              ProductTaxCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              TaxRegions:
+                type: string
+    post:
+      parameters:
+        - name: producttaxcategoryid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              ProductTaxCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              TaxRegions:
+                type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProductTaxCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Actions:
+                type: string
+
+  /api/taxes/producttaxcategory/{producttaxcategoryid}/{auditid}:
+    delete:
+      parameters:
+        - name: producttaxcategoryid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/taxes/producttaxcategory/lookup:
+    get:
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/taxes/taxitem/{taxitemid}:
+    get:
+      parameters:
+        - name: taxitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Rate:
+                type: string
+              FlatAmount:
+                type: string
+              PayableAccountId:
+                type: integer
+    post:
+      parameters:
+        - name: taxitemid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaxItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Rate:
+                type: string
+              FlatAmount:
+                type: string
+              PayableAccountId:
+                type: integer
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Rate:
+                type: number
+              FlatAmount:
+                type: number
+              PayableAccountId:
+                type: integer
+              Actions:
+                type: string
+
+  /api/taxes/taxitem/{taxitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: taxitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/taxes/taxitem/lookup:
+    get:
+      parameters:
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/taxes/taxitems:
+    get:
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TaxItemId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Rate:
+                  type: number
+                FlatAmount:
+                  type: number
+                PayableAccountId:
+                  type: integer
+                Actions:
+                  type: string
+
+  /api/taxes/taxregion/{taxregionid}:
+    get:
+      parameters:
+        - name: taxregionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxRegionId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              ProductTaxCategories:
+                type: string
+    post:
+      parameters:
+        - name: taxregionid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaxRegionId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              ProductTaxCategories:
+                type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxRegionId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Actions:
+                type: string
+
+  /api/taxes/taxregion/{taxregionid}/{auditid}:
+    delete:
+      parameters:
+        - name: taxregionid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/taxes/taxregion/lookup:
+    get:
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/taxes/taxregions:
+    get:
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TaxRegionId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/taxes/taxrules:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TaxRegionId:
+                type: string
+              ProductTaxCategoryId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/taxes/taxrules/{taxregionproducttaxcategoryid}:
+    get:
+      parameters:
+        - name: taxregionproducttaxcategoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxRegionProductTaxCategoryId:
+                type: integer
+              TaxRegionId:
+                type: string
+              ProductTaxCategoryId:
+                type: string
+    post:
+      parameters:
+        - name: taxregionproducttaxcategoryid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaxRegionProductTaxCategoryId:
+                type: integer
+              TaxRegionId:
+                type: string
+              ProductTaxCategoryId:
+                type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxRegionProductTaxCategoryId:
+                type: integer
+              TaxRegionId:
+                type: integer
+              ProductTaxCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              RegionName:
+                type: string
+              ProductTaxCategoryName:
+                type: string
+              Actions:
+                type: string
+
+  /api/taxes/taxrules/{taxregionproducttaxcategoryid}/{auditid}:
+    delete:
+      parameters:
+        - name: taxregionproducttaxcategoryid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/taxes/taxset/{taxsetid}:
+    get:
+      parameters:
+        - name: taxsetid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxSetId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              TaxRegionId:
+                type: string
+              TaxSetItems:
+                type: string
+    post:
+      parameters:
+        - name: taxsetid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaxSetId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              TaxRegionId:
+                type: string
+              TaxSetItems:
+                type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaxSetId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              CombinedRate:
+                type: number
+              CombinedFlatAmount:
+                type: number
+              TaxItemCount:
+                type: integer
+              Region:
+                type: string
+              Actions:
+                type: string
+
+  /api/taxes/taxset/{taxsetid}/{auditid}:
+    delete:
+      parameters:
+        - name: taxsetid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/taxes/taxset/lookup:
+    get:
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/taxes/taxsets:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Tax
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TaxSetId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                CombinedRate:
+                  type: number
+                CombinedFlatAmount:
+                  type: number
+                TaxItemCount:
+                  type: integer
+                Region:
+                  type: string
+                Actions:
+                  type: string

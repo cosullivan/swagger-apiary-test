@@ -1,0 +1,393 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Summary Info API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/summary/droppedmemberships/{id}:
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/membershipmonthly:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              NewMemberships:
+                type: string
+              RenewedMemberships:
+                type: string
+              DroppedMemberships:
+                type: string
+              TotalMemberships:
+                type: string
+              MembershipTypes:
+                type: string
+
+  /api/summary/membershipstypedistribution/{id}:
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/newmemberships/{id}:
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/newprojectsthismonth:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/newprojectsthisyear:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/overallmembershipstats:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Name:
+                  type: string
+                Value:
+                  type: string
+                Hint:
+                  type: string
+
+  /api/summary/overallorgstats:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Name:
+                  type: string
+                Value:
+                  type: string
+                Hint:
+                  type: string
+
+  /api/summary/overallstats:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ShouldNotifyDebuggerOfWaitCompletion:
+                type: boolean
+              Id:
+                type: integer
+              CurrentId:
+                type: string
+              Exception:
+                type: string
+              Status:
+                type: string
+              IsCanceled:
+                type: boolean
+              IsCompleted:
+                type: boolean
+              CreationOptions:
+                type: string
+              System.IAsyncResult.AsyncWaitHandle:
+                type: string
+              AsyncState:
+                type: string
+              System.IAsyncResult.CompletedSynchronously:
+                type: boolean
+              Factory:
+                type: string
+              CompletedTask:
+                type: string
+              IsFaulted:
+                type: boolean
+              SavedStateForNextReplica:
+                type: string
+              SavedStateFromPreviousReplica:
+                type: string
+              HandedOverChildReplica:
+                type: string
+              Result:
+                type: string
+              Factory:
+                type: string
+
+  /api/summary/projectsactivecurrentmonth:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Name:
+                  type: string
+                Value:
+                  type: string
+                Hint:
+                  type: string
+
+  /api/summary/projectscompletedthismonth:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/projectscompletedthisyear:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/renewedmemberships:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/salesfunnelstatscurrentyear:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Name:
+                  type: string
+                Value:
+                  type: string
+                Hint:
+                  type: string
+
+  /api/summary/saleswinsbymonth:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/tenantdashboardstats:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ShouldNotifyDebuggerOfWaitCompletion:
+                type: boolean
+              Id:
+                type: integer
+              CurrentId:
+                type: string
+              Exception:
+                type: string
+              Status:
+                type: string
+              IsCanceled:
+                type: boolean
+              IsCompleted:
+                type: boolean
+              CreationOptions:
+                type: string
+              System.IAsyncResult.AsyncWaitHandle:
+                type: string
+              AsyncState:
+                type: string
+              System.IAsyncResult.CompletedSynchronously:
+                type: boolean
+              Factory:
+                type: string
+              CompletedTask:
+                type: string
+              IsFaulted:
+                type: boolean
+              SavedStateForNextReplica:
+                type: string
+              SavedStateFromPreviousReplica:
+                type: string
+              HandedOverChildReplica:
+                type: string
+              Result:
+                type: string
+              Factory:
+                type: string
+
+  /api/summary/totalmemberships/{id}:
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string
+
+  /api/summary/wins by sales person:
+    get:
+      tags:
+        - SummaryInfo
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              series:
+                type: string
+              data:
+                type: string

@@ -1,0 +1,194 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Calendary API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/calendars/{calendarid}:
+    get:
+      parameters:
+        - name: calendarid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Calendar
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CalendarId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              AllowPublicSubmission:
+                type: boolean
+              AllowMemberSubmission:
+                type: boolean
+              GroupId:
+                type: string
+              IsActive:
+                type: boolean
+    post:
+      parameters:
+        - name: calendarid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CalendarId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              AllowPublicSubmission:
+                type: boolean
+              AllowMemberSubmission:
+                type: boolean
+              GroupId:
+                type: string
+              IsActive:
+                type: boolean
+      tags:
+        - Calendar
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CalendarId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              GroupName:
+                type: string
+              IsActive:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/calendars/{calendarid}/{auditid}:
+    delete:
+      parameters:
+        - name: calendarid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Calendar
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/calendars/items:
+    get:
+      tags:
+        - Calendar
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CalendarId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                GroupName:
+                  type: string
+                IsActive:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/calendars/lookup:
+    get:
+      tags:
+        - Calendar
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/calendars/lookup/chapters/{chapterid}:
+    get:
+      parameters:
+        - name: chapterid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Calendar
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                CalendarDescription:
+                  type: string

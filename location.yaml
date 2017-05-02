@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Location API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/locations/locations/{locationid}:
+    post:
+      parameters:
+        - name: locationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              LocationId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+      tags:
+        - Location
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/locations/locations/lookup:
+    get:
+      tags:
+        - Location
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

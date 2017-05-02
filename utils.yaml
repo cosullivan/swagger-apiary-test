@@ -1,0 +1,220 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Utils API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/utils/email/validate:
+    post:
+      parameters:
+        - name: data
+          in: body
+          description: "Email data to validate"
+          required: false
+          schema:
+            properties:
+              emailAddress:
+                type: string
+      tags:
+        - Utils
+      description:
+        "Validates email address entered in public modules"
+      responses:
+        200:
+          description:
+            "Json value with email validation data"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string
+
+  /api/utils/error/{errorcode}:
+    get:
+      parameters:
+        - name: errorcode
+          in: path
+          description: "Http error code"
+          required: true
+          type: string
+      tags:
+        - Utils
+      description:
+        "Throws an error code so we can see the response"
+      responses:
+        200:
+          description:
+            "The error code"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/utils/health/backgroundprocessing:
+    get:
+      tags:
+        - Utils
+      description:
+        "Checks in on hangfire operation"
+      responses:
+        200:
+          description:
+            "200 if successfully stored data"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/utils/health/backgroundprocessing/fixup:
+    get:
+      tags:
+        - Utils
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/utils/health/serviceavailability/{servicename}:
+    get:
+      parameters:
+        - name: servicename
+          in: path
+          required: true
+          type: string
+      tags:
+        - Utils
+      description:
+        "Checks in on external service"
+      responses:
+        200:
+          description:
+            "200 if successfully stored data"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/utils/refund/validate:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              RefundDate:
+                type: string
+              Notes:
+                type: string
+              ContactId:
+                type: integer
+              EPaymentTransactionId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactName:
+                type: string
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              PaymentAmount:
+                type: number
+              RefundItems:
+                type: string
+      tags:
+        - Utils
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string
+
+  /api/utils/successplanprogress:
+    get:
+      tags:
+        - Utils
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ItemProgress:
+                type: string
+              OngoingSuccess:
+                type: string
+              DiscoveryPercentage:
+                type: integer
+              PlanningPercentage:
+                type: integer
+              DesignPercentage:
+                type: integer
+              LaunchPlanPercentage:
+                type: integer
+              LaunchPercentage:
+                type: integer
+              SuccessPercentage:
+                type: integer

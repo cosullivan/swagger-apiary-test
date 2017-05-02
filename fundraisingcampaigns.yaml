@@ -1,0 +1,942 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Fundraising Campaigns API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/base:
+    get:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              Actions:
+                type: string
+              EventDetailAuditId:
+                type: string
+              HashedId:
+                type: string
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/fundraisingdonations:
+    post:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              FundraisingCampaignId:
+                type: integer
+              PurchaseId:
+                type: string
+              SaleableItemId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              Amount:
+                type: string
+              PurchaseDate:
+                type: string
+              PledgedDonations:
+                type: boolean
+              NonPledgedDonations:
+                type: boolean
+              OneTimeDonations:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/fundraisingdonations/exporttoexcel:
+    post:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/fundraisingdonors:
+    post:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              FundraisingCampaignId:
+                type: integer
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              TotalGiftAmount:
+                type: string
+              ViaPledge:
+                type: boolean
+              NonPledgedDonations:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/fundraisingdonorsquery:
+    get:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/fundraisingpledges:
+    post:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              FundraisingCampaignId:
+                type: integer
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              PledgeAmount:
+                type: string
+              SaleableItems:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              Status:
+                type: string
+              HasRemainingCommitment:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/general:
+    get:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              CampaignBasicDetails:
+                type: string
+              PledgesStats:
+                type: string
+
+  /api/fundraisingcampaigns/{fundraisingcampaignid}/setup:
+    get:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              AuditId:
+                type: integer
+              AllowInvoicing:
+                type: boolean
+              CollectDonorName:
+                type: boolean
+              CollectDonorMessage:
+                type: boolean
+              AllowOnBehalfDonations:
+                type: boolean
+              PublicDonationLink:
+                type: string
+              Terms:
+                type: string
+              Items:
+                type: string
+    post:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              AuditId:
+                type: integer
+              AllowInvoicing:
+                type: boolean
+              CollectDonorName:
+                type: boolean
+              CollectDonorMessage:
+                type: boolean
+              AllowOnBehalfDonations:
+                type: boolean
+              PublicDonationLink:
+                type: string
+              Terms:
+                type: string
+              Items:
+                type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              AuditId:
+                type: integer
+              AllowInvoicing:
+                type: boolean
+              CollectDonorName:
+                type: boolean
+              CollectDonorMessage:
+                type: boolean
+              AllowOnBehalfDonations:
+                type: boolean
+              PublicDonationLink:
+                type: string
+              Terms:
+                type: string
+              Items:
+                type: string
+
+  /api/fundraisingcampaigns/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              Criteria:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              CampaignStatus:
+                type: string
+              FutureCampaigns:
+                type: boolean
+              CurrentCampaigns:
+                type: boolean
+              IsMetGoal:
+                type: boolean
+              ActiveDateBetween:
+                type: string
+              StartDateBetween:
+                type: string
+              EndDateBetween:
+                type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/fundraisingcampaigns/all/{fundraisingcampaignid}:
+    get:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ReCaptchaResponse:
+                type: string
+              DisableReCaptchaCheck:
+                type: boolean
+              FundraisingCampaignId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              Description:
+                type: string
+              GoalAmount:
+                type: string
+              GoalHours:
+                type: string
+              ContactId:
+                type: string
+              PrimaryContact:
+                type: string
+              ReceiptTemplateId:
+                type: string
+              ThankYouTemplateId:
+                type: string
+              FundraisingStatusId:
+                type: string
+              AllowPledges:
+                type: boolean
+              AllowInvoicing:
+                type: boolean
+              CollectDonorName:
+                type: boolean
+              CollectDonorMessage:
+                type: boolean
+              AllowOnBehalfDonations:
+                type: boolean
+              AllowAccountCreation:
+                type: boolean
+              Terms:
+                type: string
+    post:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ReCaptchaResponse:
+                type: string
+              DisableReCaptchaCheck:
+                type: boolean
+              FundraisingCampaignId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              Description:
+                type: string
+              GoalAmount:
+                type: string
+              GoalHours:
+                type: string
+              ContactId:
+                type: string
+              PrimaryContact:
+                type: string
+              ReceiptTemplateId:
+                type: string
+              ThankYouTemplateId:
+                type: string
+              FundraisingStatusId:
+                type: string
+              AllowPledges:
+                type: boolean
+              AllowInvoicing:
+                type: boolean
+              CollectDonorName:
+                type: boolean
+              CollectDonorMessage:
+                type: boolean
+              AllowOnBehalfDonations:
+                type: boolean
+              AllowAccountCreation:
+                type: boolean
+              Terms:
+                type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              HashedId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              GoalAmount:
+                type: string
+              Status:
+                type: string
+              ContactName:
+                type: string
+              NumberOfPledges:
+                type: integer
+              DollarsPledged:
+                type: string
+              Actions:
+                type: string
+
+  /api/fundraisingcampaigns/all/{fundraisingcampaignid}/{auditid}:
+    delete:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/fundraisingcampaigns/all/lookup:
+    get:
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/fundraisingcampaigns/donationdetails/{fundraisingcampaignid}/{contactid}/{purchaseid}/{saleableitemid}:
+    post:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+        - name: saleableitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              ContactId:
+                type: integer
+              PurchaseId:
+                type: integer
+              SaleableItemId:
+                type: integer
+              DonorName:
+                type: string
+              Description:
+                type: string
+              Total:
+                type: number
+              Type:
+                type: string
+              PurchaseDate:
+                type: string
+              FrequencyType:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              Message:
+                type: string
+              TributeContact:
+                type: string
+              RecognitionName:
+                type: string
+              IsRecurringOrPledge:
+                type: boolean
+              IsPaid:
+                type: boolean
+
+  /api/fundraisingcampaigns/fundraisingitems/{fundraisingcampaignid}:
+    get:
+      parameters:
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/fundraisingcampaigns/fundraisingitems/lookup:
+    get:
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/fundraisingcampaigns/fundraisingpledges/edit:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FundraisingDonationScheduleId:
+                type: integer
+              AuditId:
+                type: integer
+              FundraisingCampaignId:
+                type: integer
+              ContactId:
+                type: integer
+              PrimaryContactId:
+                type: string
+              ContactName:
+                type: string
+              EmailAddress:
+                type: string
+              EmailAddressField:
+                type: string
+              EmailAddressType:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              TotalAmount:
+                type: number
+              DonationScheduleStatusId:
+                type: string
+              RecurringAmount:
+                type: string
+              ScheduledBillingId:
+                type: string
+              TributeContactId:
+                type: string
+              TributeName:
+                type: string
+              RecognitionName:
+                type: string
+              PledgeItems:
+                type: string
+              PurchasesPlaced:
+                type: boolean
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingCampaignId:
+                type: integer
+              FundraisingDonationScheduleId:
+                type: integer
+              ContactName:
+                type: string
+              PrimaryContactName:
+                type: string
+              FrequencyType:
+                type: string
+              PledgeAmount:
+                type: number
+              RecurringAmount:
+                type: number
+              PaidAmount:
+                type: number
+              RemainingAmount:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              Status:
+                type: string
+              Actions:
+                type: string
+
+  /api/fundraisingcampaigns/fundraisingpledges/edit/{fundraisingdonationscheduleid}:
+    get:
+      parameters:
+        - name: fundraisingdonationscheduleid
+          in: path
+          required: true
+          type: string
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FundraisingDonationScheduleId:
+                type: integer
+              AuditId:
+                type: integer
+              FundraisingCampaignId:
+                type: integer
+              ContactId:
+                type: integer
+              PrimaryContactId:
+                type: string
+              ContactName:
+                type: string
+              EmailAddress:
+                type: string
+              EmailAddressField:
+                type: string
+              EmailAddressType:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              TotalAmount:
+                type: number
+              DonationScheduleStatusId:
+                type: string
+              RecurringAmount:
+                type: string
+              ScheduledBillingId:
+                type: string
+              TributeContactId:
+                type: string
+              TributeName:
+                type: string
+              RecognitionName:
+                type: string
+              PledgeItems:
+                type: string
+              PurchasesPlaced:
+                type: boolean
+
+  /api/fundraisingcampaigns/fundraisingstats:
+    get:
+      tags:
+        - FundraisingCampaigns
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Name:
+                  type: string
+                Value:
+                  type: string
+                Hint:
+                  type: string

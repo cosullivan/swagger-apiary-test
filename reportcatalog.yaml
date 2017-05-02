@@ -1,0 +1,229 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Report Catalog API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/reporting:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+        - name: category
+          in: query
+          required: false
+          type: string
+      tags:
+        - ReportCatalog
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              ReportCategoryId:
+                type: string
+              IsCustom:
+                type: boolean
+              IsPrivate:
+                type: boolean
+              IsFavorite:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - ReportCatalog
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/reporting/{reportid}/{auditid}:
+    delete:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportCatalog
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/reporting/add:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Name:
+                type: string
+              Description:
+                type: string
+      tags:
+        - ReportCatalog
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImageUrl:
+                type: string
+              ReportId:
+                type: integer
+              AuditId:
+                type: integer
+              IsSystem:
+                type: boolean
+              Name:
+                type: string
+              Description:
+                type: string
+              ReportTypeId:
+                type: string
+              ReportCategoryId:
+                type: string
+              DateAdded:
+                type: string
+              LastUsed:
+                type: string
+              IsFavorite:
+                type: boolean
+              Path:
+                type: string
+              IsPrivateForUser:
+                type: boolean
+              CreatedBy:
+                type: integer
+              Parameters:
+                type: string
+              Actions:
+                type: string
+
+  /api/reporting/contactreports:
+    post:
+      parameters:
+        - name: options
+          in: body
+          required: false
+        - name: category
+          in: query
+          required: false
+          type: string
+      tags:
+        - ReportCatalog
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ImageUrl:
+                  type: string
+                ReportId:
+                  type: integer
+                AuditId:
+                  type: integer
+                IsSystem:
+                  type: boolean
+                Name:
+                  type: string
+                Description:
+                  type: string
+                ReportTypeId:
+                  type: string
+                Path:
+                  type: string
+    get:
+      tags:
+        - ReportCatalog
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ImageUrl:
+                  type: string
+                ReportId:
+                  type: integer
+                AuditId:
+                  type: integer
+                IsSystem:
+                  type: boolean
+                Name:
+                  type: string
+                Description:
+                  type: string
+                ReportTypeId:
+                  type: string
+                Path:
+                  type: string

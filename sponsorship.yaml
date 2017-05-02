@@ -1,0 +1,349 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Sponsorship API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/sponsorships/sponsors:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              SponsorId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/sponsorships/sponsors/{sponsorid}:
+    get:
+      parameters:
+        - name: sponsorid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SponsorId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              SponsorshipTypeId:
+                type: integer
+              Price:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+    post:
+      parameters:
+        - name: sponsorid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SponsorId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              SponsorshipTypeId:
+                type: integer
+              Price:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SponsorId:
+                type: integer
+              SponsorName:
+                type: string
+              Level:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              Price:
+                type: number
+              Actions:
+                type: string
+
+  /api/sponsorships/sponsors/{sponsorid}/{auditid}:
+    delete:
+      parameters:
+        - name: sponsorid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sponsorships/sponsors/banners/{sponsorid}:
+    get:
+      parameters:
+        - name: sponsorid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SponsorId:
+                type: integer
+              Banners:
+                type: string
+
+  /api/sponsorships/types:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SponsorshipTypeId:
+                  type: integer
+                SponsorshipLevel:
+                  type: string
+                BenefitPackage:
+                  type: string
+                Price:
+                  type: number
+                TotalQuantity:
+                  type: integer
+                CurrentlyActive:
+                  type: boolean
+
+  /api/sponsorships/types/{sponsorshiptypeid}:
+    get:
+      parameters:
+        - name: sponsorshiptypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SponsorshipTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              SponsorBenefitId:
+                type: string
+              MaxQuantity:
+                type: integer
+              LengthInMonths:
+                type: string
+              SaleableItem:
+                type: string
+    post:
+      parameters:
+        - name: sponsorshiptypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SponsorshipTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              SponsorBenefitId:
+                type: string
+              MaxQuantity:
+                type: integer
+              LengthInMonths:
+                type: string
+              SaleableItem:
+                type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SponsorshipTypeId:
+                type: integer
+              SponsorshipLevel:
+                type: string
+              BenefitPackage:
+                type: string
+              Price:
+                type: number
+              TotalQuantity:
+                type: integer
+              CurrentlyActive:
+                type: boolean
+
+  /api/sponsorships/types/{sponsorshiptypeid}/{auditid}:
+    delete:
+      parameters:
+        - name: sponsorshiptypeid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sponsorships/types/lookup:
+    get:
+      tags:
+        - Sponsorship
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string

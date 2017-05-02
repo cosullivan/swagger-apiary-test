@@ -1,0 +1,109 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Referral API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/referralsource:
+    get:
+      tags:
+        - Referral
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ReferralSourceId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                CssColor:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/referralsource/{referralsourceid}:
+    get:
+      parameters:
+        - name: referralsourceid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Referral
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ReferralSourceId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+    post:
+      parameters:
+        - name: referralsourceid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ReferralSourceId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+      tags:
+        - Referral
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ReferralSourceId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: referralsourceid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Referral
+      responses:
+        200:
+          description:
+            "OK"

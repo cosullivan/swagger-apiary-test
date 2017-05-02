@@ -1,0 +1,406 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Widget API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/widget:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/business_new:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/dashboardmetrics:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              WidgetData:
+                type: string
+
+  /api/widget/events_upcoming:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/find_businesses:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/gatewayinfo/{paymentgatewayid}/{paymentgateways}/{contactid}/{hashedcontactid}:
+    get:
+      parameters:
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+        - name: paymentgateways
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: hashedcontactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/loginstatus:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/paymentprofiles/{contactid}/{paymentgatewayid}/{paymentgateways}/{hashedcontactid}/{allowbanks}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+        - name: paymentgateways
+          in: path
+          required: true
+          type: string
+        - name: hashedcontactid
+          in: path
+          required: true
+          type: string
+        - name: allowbanks
+          in: path
+          required: true
+          type: string
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/preauth:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/preferences/update:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              WidgetData:
+                type: string
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/scheduledbillings/{contactid}/{organizationid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: organizationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/sponsorships:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/test:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/widget/web_content:
+    get:
+      tags:
+        - Widget
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean

@@ -1,0 +1,242 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Tag Entry API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/tags/contact/{contactid}:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: tag
+          in: body
+          required: false
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TagId:
+                type: integer
+              Tag:
+                type: string
+    delete:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: tagid
+          in: query
+          required: false
+          type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tags/contact/lookup:
+    get:
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/tags/project/{projectid}:
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: tag
+          in: body
+          required: false
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TagId:
+                type: integer
+              Tag:
+                type: string
+    delete:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: tagid
+          in: query
+          required: false
+          type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tags/resource/{resourceid}:
+    post:
+      parameters:
+        - name: resourceid
+          in: path
+          required: true
+          type: string
+        - name: tag
+          in: body
+          required: false
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TagId:
+                type: integer
+              Tag:
+                type: string
+    delete:
+      parameters:
+        - name: resourceid
+          in: path
+          required: true
+          type: string
+        - name: tagid
+          in: query
+          required: false
+          type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tags/salesopportunity/{salesopportunityid}:
+    post:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+        - name: tag
+          in: body
+          required: false
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TagId:
+                type: integer
+              Tag:
+                type: string
+    delete:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+        - name: tagid
+          in: query
+          required: false
+          type: integer
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tags/search/{search}:
+    get:
+      parameters:
+        - name: search
+          in: path
+          required: true
+          type: string
+      tags:
+        - TagEntry
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TagId:
+                  type: integer
+                Tag:
+                  type: string

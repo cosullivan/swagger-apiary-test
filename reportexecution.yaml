@@ -1,0 +1,6982 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Report Execution API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/reportexecution/accomplishmentreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/accomplishmentreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+
+  /api/reportexecution/accountreceivable:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ReportDate:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              IncomeAccountId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/accountreceivable/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ReportDate:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              IncomeAccountId:
+                type: string
+
+  /api/reportexecution/accountreceivabledetail:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ReportDate:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              IncomeAccountId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/accountreceivabledetail/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ReportDate:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              IncomeAccountId:
+                type: string
+
+  /api/reportexecution/billingactivityreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              TransactionSourceId:
+                type: string
+              TransactionDateBetween:
+                type: string
+              CreateDateBetween:
+                type: string
+              AccountId:
+                type: string
+              MembershipTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+              CategoryTypeId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/billingactivityreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              TransactionSourceId:
+                type: string
+              TransactionDateBetween:
+                type: string
+              CreateDateBetween:
+                type: string
+              AccountId:
+                type: string
+              MembershipTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+              CategoryTypeId:
+                type: string
+
+  /api/reportexecution/certificationreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Status:
+                type: string
+              StartDateBetween:
+                type: string
+              CompletedDateBetween:
+                type: string
+              CreditsRemainingBetween:
+                type: string
+              CertificationTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/certificationreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Status:
+                type: string
+              StartDateBetween:
+                type: string
+              CompletedDateBetween:
+                type: string
+              CreditsRemainingBetween:
+                type: string
+              CertificationTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+
+  /api/reportexecution/communicationreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/communicationreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              FromContact:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              Tags:
+                type: string
+              ContactId:
+                type: string
+              DateRange:
+                type: string
+
+  /api/reportexecution/contactlistcommitteereport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              DateRange:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/contactlistcommitteereport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              DateRange:
+                type: string
+
+  /api/reportexecution/contactreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              MembershipStatus:
+                type: string
+              MembershipType:
+                type: string
+              ContactType:
+                type: string
+              ContactId:
+                type: string
+              GroupId:
+                type: string
+              Tags:
+                type: string
+              DateRange:
+                type: string
+              DirectoryId:
+                type: string
+              StateProvince:
+                type: string
+              PrimaryRep:
+                type: boolean
+              ActiveReps:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/contactreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              MembershipStatus:
+                type: string
+              MembershipType:
+                type: string
+              ContactType:
+                type: string
+              ContactId:
+                type: string
+              GroupId:
+                type: string
+              Tags:
+                type: string
+              DateRange:
+                type: string
+              DirectoryId:
+                type: string
+              StateProvince:
+                type: string
+              PrimaryRep:
+                type: boolean
+              ActiveReps:
+                type: boolean
+
+  /api/reportexecution/creditreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              IssuedDateRange:
+                type: string
+              UsedDateRange:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              IsOpen:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/creditreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              IssuedDateRange:
+                type: string
+              UsedDateRange:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              IsOpen:
+                type: boolean
+
+  /api/reportexecution/depositsummaryreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/depositsummaryreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              AccountId:
+                type: string
+              Type:
+                type: integer
+
+  /api/reportexecution/droppedmembershipreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              MembershipTypeId:
+                type: string
+              SalesContactId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/droppedmembershipreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              MembershipTypeId:
+                type: string
+              SalesContactId:
+                type: string
+
+  /api/reportexecution/eventactivity:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              Contacts:
+                type: string
+              DateRange:
+                type: string
+              IsContact:
+                type: boolean
+              Events:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/eventactivity/{reportid}/{contactid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              Contacts:
+                type: string
+              DateRange:
+                type: string
+              IsContact:
+                type: boolean
+              Events:
+                type: string
+
+  /api/reportexecution/eventattendeereport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              Categories:
+                type: string
+              Calendar:
+                type: string
+              Groups:
+                type: string
+              Events:
+                type: string
+              IsContact:
+                type: boolean
+              EventAttendeeStatusId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/eventattendeereport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              Categories:
+                type: string
+              Calendar:
+                type: string
+              Groups:
+                type: string
+              Events:
+                type: string
+              IsContact:
+                type: boolean
+              EventAttendeeStatusId:
+                type: string
+
+  /api/reportexecution/eventdiscountreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              EventId:
+                type: string
+              IsContact:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/eventdiscountreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              EventId:
+                type: string
+              IsContact:
+                type: boolean
+
+  /api/reportexecution/eventsessionsreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              EventId:
+                type: string
+              EventSessionId:
+                type: string
+              EventTimeslotId:
+                type: string
+              IsContact:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/eventsessionsreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              EventId:
+                type: string
+              EventSessionId:
+                type: string
+              EventTimeslotId:
+                type: string
+              IsContact:
+                type: boolean
+
+  /api/reportexecution/eventsponsorshipbycontactreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              Categories:
+                type: string
+              Calendars:
+                type: string
+              Events:
+                type: string
+              IsContact:
+                type: boolean
+
+  /api/reportexecution/eventsponsorshipreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Sponsor:
+                type: string
+              ContactId:
+                type: string
+              DateRange:
+                type: string
+              Categories:
+                type: string
+              Calendar:
+                type: string
+              IsContact:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/eventsponsorshipreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Sponsor:
+                type: string
+              ContactId:
+                type: string
+              DateRange:
+                type: string
+              Categories:
+                type: string
+              Calendar:
+                type: string
+              IsContact:
+                type: boolean
+
+  /api/reportexecution/eventsponsorshipreportbycontact:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              Categories:
+                type: string
+              Calendars:
+                type: string
+              Events:
+                type: string
+              IsContact:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/exhibitoractivityreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ExhibitorName:
+                type: string
+              EventDateRange:
+                type: string
+              ExhibitorTypeId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/exhibitoractivityreport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ExhibitorName:
+                type: string
+              EventDateRange:
+                type: string
+              ExhibitorTypeId:
+                type: string
+
+  /api/reportexecution/formresponsereport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              FormId:
+                type: string
+              Contact:
+                type: string
+              ContactId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/formresponsereport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              FormId:
+                type: string
+              Contact:
+                type: string
+              ContactId:
+                type: string
+
+  /api/reportexecution/fundraisinghistorybydonorreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ContactId:
+                type: string
+              Contact:
+                type: string
+              DonationDateBetween:
+                type: string
+              PledgeStartDateBetween:
+                type: string
+              PledgeCreatedDateBetween:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/fundraisinghistorybydonorreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ContactId:
+                type: string
+              Contact:
+                type: string
+              DonationDateBetween:
+                type: string
+              PledgeStartDateBetween:
+                type: string
+              PledgeCreatedDateBetween:
+                type: string
+
+  /api/reportexecution/inquiryreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/inquiryreport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+
+  /api/reportexecution/invalidemailreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              DateRange:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/invalidemailreport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              DateRange:
+                type: string
+
+  /api/reportexecution/membershipreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              MembershipTypeId:
+                type: string
+              MembershipStatusId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/membershipreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              MembershipTypeId:
+                type: string
+              MembershipStatusId:
+                type: string
+
+  /api/reportexecution/membershipsales:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/membershipsales/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SalesContactId:
+                type: string
+              Status:
+                type: string
+              MembershipTypeId:
+                type: string
+              DateRange:
+                type: string
+
+  /api/reportexecution/newmembershipreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              MembershipTypeId:
+                type: string
+              MembershipStatusId:
+                type: string
+              DateRange:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/newmembershipreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              MembershipTypeId:
+                type: string
+              MembershipStatusId:
+                type: string
+              DateRange:
+                type: string
+
+  /api/reportexecution/openinvoicereport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/openinvoicereport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              InvoiceDate:
+                type: string
+              SaleableItemType:
+                type: string
+              Status:
+                type: string
+
+  /api/reportexecution/paymentprocessingreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/paymentprocessingreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+
+  /api/reportexecution/pledgesreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              FundraisingCampaignId:
+                type: string
+              GiftDesignation:
+                type: string
+              TributeName:
+                type: string
+              PledgeCreatedDateBetween:
+                type: string
+              PledgeStartDateBetween:
+                type: string
+              IsPledge:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/pledgesreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              FundraisingCampaignId:
+                type: string
+              GiftDesignation:
+                type: string
+              TributeName:
+                type: string
+              PledgeCreatedDateBetween:
+                type: string
+              PledgeStartDateBetween:
+                type: string
+              IsPledge:
+                type: boolean
+
+  /api/reportexecution/projectreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/projectreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ProjectTypeId:
+                type: string
+              ProjectStatusType:
+                type: string
+              Category:
+                type: string
+              CompletedTaskTypeId:
+                type: string
+              IncompletedTaskTypeId:
+                type: string
+              NoCommunicationSince:
+                type: integer
+              OwnerContactId:
+                type: string
+              CommunicationDateRange:
+                type: string
+              ActivityDateRange:
+                type: string
+              ProjectStartDate:
+                type: string
+              PastEstimatedCompletion:
+                type: boolean
+
+  /api/reportexecution/projectsstartedbyquarter:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Year:
+                type: integer
+              ProjectStatusType:
+                type: string
+              Category:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/projectsstartedbyquarter/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Year:
+                type: integer
+              ProjectStatusType:
+                type: string
+              Category:
+                type: string
+
+  /api/reportexecution/projectsummary:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ProjectStatusType:
+                type: string
+              ProjectTypeId:
+                type: string
+              Category:
+                type: string
+              ActivityDateRange:
+                type: string
+              ProjectStartDate:
+                type: string
+              ProjectEndDate:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/projectsummary/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ProjectStatusType:
+                type: string
+              ProjectTypeId:
+                type: string
+              Category:
+                type: string
+              ActivityDateRange:
+                type: string
+              ProjectStartDate:
+                type: string
+              ProjectEndDate:
+                type: string
+
+  /api/reportexecution/recognizedincomereport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Month:
+                type: integer
+              Year:
+                type: integer
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/recognizedincomereport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Month:
+                type: integer
+              Year:
+                type: integer
+
+  /api/reportexecution/refundreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/refundreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+
+  /api/reportexecution/removereportfromfavorites/{reportid}:
+    post:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/reportexecution/renewalmembershipreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              RenewalMonth:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/renewalmembershipreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              RenewalMonth:
+                type: string
+
+  /api/reportexecution/reportaddcontactstolist:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ReportType:
+                type: string
+              ReportModel:
+                type: string
+              Contacts:
+                type: string
+              GroupId:
+                type: integer
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/reportexecution/reportemail:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              reportResults:
+                type: string
+              ReportType:
+                type: string
+              ReportModel:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Title:
+                type: string
+              EmailBody:
+                type: string
+              SignatureId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              ReportFormat:
+                type: string
+              DocumentFormat:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/reportexecution/revenuerecognitionreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ReportDate:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/revenuerecognitionreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ReportDate:
+                type: string
+
+  /api/reportexecution/salesbyaccountreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/salesbyaccountreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              MemberJoinDateRange:
+                type: string
+              MembershipTypeId:
+                type: string
+              AccountId:
+                type: string
+
+  /api/reportexecution/salesbymemberreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/salesbymemberreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SaleDateRange:
+                type: string
+              MemberJoinDateRange:
+                type: string
+              CreateDateRange:
+                type: string
+
+  /api/reportexecution/salesopportunityreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SalesPerson:
+                type: string
+              Status:
+                type: string
+              Stage:
+                type: string
+              Source:
+                type: string
+              Category:
+                type: string
+              CreatedDateRange:
+                type: string
+              DateRange:
+                type: string
+              EstimatedCloseDateRange:
+                type: string
+              Probability:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/salesopportunityreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SalesPerson:
+                type: string
+              Status:
+                type: string
+              Stage:
+                type: string
+              Source:
+                type: string
+              Category:
+                type: string
+              CreatedDateRange:
+                type: string
+              DateRange:
+                type: string
+              EstimatedCloseDateRange:
+                type: string
+              Probability:
+                type: string
+
+  /api/reportexecution/salesproposalreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/salesproposalreport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SalesRep:
+                type: string
+              Category:
+                type: string
+              Stage:
+                type: string
+              Discount:
+                type: string
+              Template:
+                type: string
+              ValidUntilDateRange:
+                type: string
+              CreatedDateRange:
+                type: string
+              AcceptedDateRange:
+                type: string
+              IsAccepted:
+                type: boolean
+
+  /api/reportexecution/salesprospectivereport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/salesprospectivereport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SalesPerson:
+                type: string
+              Status:
+                type: string
+              Stage:
+                type: string
+              Source:
+                type: string
+              Category:
+                type: string
+
+  /api/reportexecution/salestimelinereport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/salestimelinereport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SalesPerson:
+                type: string
+              Status:
+                type: string
+              Stage:
+                type: string
+              Source:
+                type: string
+              Category:
+                type: string
+              DateRange:
+                type: string
+
+  /api/reportexecution/salestimelinesummaryreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/salestimelinesummaryreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              SalesPerson:
+                type: string
+              Status:
+                type: string
+              Stage:
+                type: string
+              Source:
+                type: string
+              Category:
+                type: string
+              TimelineDateRange:
+                type: string
+
+  /api/reportexecution/savereport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ReportId:
+                type: integer
+              AuditId:
+                type: integer
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsPrivate:
+                type: boolean
+              CallerModel:
+                type: string
+                description: "The base report that the user has configured. Will end up being vm.model in our current UI Engine"
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/reportexecution/scheduledbillingreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Month:
+                type: integer
+              MonthDateRange:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              MembershipTypeId:
+                type: string
+              OriginalBillDateBetween:
+                type: string
+              RenewalMonth:
+                type: string
+              MembershipStartDateBetween:
+                type: string
+              SaleableItemTypeId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/scheduledbillingreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Month:
+                type: integer
+              MonthDateRange:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              MembershipTypeId:
+                type: string
+              OriginalBillDateBetween:
+                type: string
+              RenewalMonth:
+                type: string
+              MembershipStartDateBetween:
+                type: string
+              SaleableItemTypeId:
+                type: string
+
+  /api/reportexecution/setreportasfavorite/{reportid}:
+    post:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/reportexecution/storedpaymentprofilereport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              PaymentGatewayType:
+                type: string
+              PaymentGateway:
+                type: string
+              LastSuccessfulPaymentDate:
+                type: string
+              ProfileCreatedDate:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/storedpaymentprofilereport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              PaymentGatewayType:
+                type: string
+              PaymentGateway:
+                type: string
+              LastSuccessfulPaymentDate:
+                type: string
+              ProfileCreatedDate:
+                type: string
+
+  /api/reportexecution/storeorderpurchasesreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ContactId:
+                type: string
+              StoreItemId:
+                type: string
+              Contact:
+                type: string
+              PurchaseDateBetween:
+                type: string
+              StoreItem:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/storeorderpurchasesreport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ContactId:
+                type: string
+              StoreItemId:
+                type: string
+              Contact:
+                type: string
+              PurchaseDateBetween:
+                type: string
+              StoreItem:
+                type: string
+
+  /api/reportexecution/storeproductreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              StoreItemId:
+                type: string
+              PurchaseDateBetween:
+                type: string
+              StoreItem:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/storeproductreport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              StoreItemId:
+                type: string
+              PurchaseDateBetween:
+                type: string
+              StoreItem:
+                type: string
+
+  /api/reportexecution/taskitemreport:
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: false
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/taskitemreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ProjectName:
+                type: string
+              ProjectId:
+                type: string
+              ContactId:
+                type: string
+              TaskPriority:
+                type: string
+              ProjectTypeId:
+                type: string
+              TaskTypeId:
+                type: string
+              Category:
+                type: string
+              StartDateRange:
+                type: string
+              DueDateRange:
+                type: string
+              CompletedDateRange:
+                type: string
+              PercentComplete:
+                type: string
+              OnlyShowIncomplete:
+                type: boolean
+
+  /api/reportexecution/taxbilledreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              StateProvince:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/taxbilledreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              StateProvince:
+                type: string
+
+  /api/reportexecution/totalspendbycontactreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              PurchaseDateRange:
+                type: string
+              CategoryItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/totalspendbycontactreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              PurchaseDateRange:
+                type: string
+              CategoryItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              SaleableItemId:
+                type: string
+
+  /api/reportexecution/unsubscribedcontactreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ContactEmail:
+                type: string
+              GroupId:
+                type: string
+              OptOutDateRange:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/unsubscribedcontactreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              ContactEmail:
+                type: string
+              GroupId:
+                type: string
+              OptOutDateRange:
+                type: string
+
+  /api/reportexecution/webcontentactivityreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              ContentStatusId:
+                type: string
+              ContentTypeId:
+                type: string
+              PublishStartDateBetween:
+                type: string
+              PublishEndDateBetween:
+                type: string
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/webcontentactivityreport/{reportid}:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              Contact:
+                type: string
+              ContactId:
+                type: string
+              ContentStatusId:
+                type: string
+              ContentTypeId:
+                type: string
+              PublishStartDateBetween:
+                type: string
+              PublishEndDateBetween:
+                type: string
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+
+  /api/reportexecution/writeoffreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/writeoffreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              DateRange:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+
+  /api/reportexecution/сollectionreport:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              CreatedDateBetween:
+                type: string
+              InvoiceDateBetween:
+                type: string
+              DueDateBetween:
+                type: string
+              MembershipType:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              SalesRep:
+                type: string
+              IsOverdue:
+                type: boolean
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/reportexecution/сollectionreport/{reportid}/:
+    get:
+      parameters:
+        - name: reportid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ReportExecution
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Title:
+                type: string
+              IsFavorite:
+                type: boolean
+              FilterItems:
+                type: string
+              Fields:
+                type: string
+              GroupByFields:
+                type: string
+              OrderByField:
+                type: string
+              OrderByDirectionField:
+                type: string
+              DisplayMode:
+                type: string
+              ReportId:
+                type: string
+              Path:
+                type: string
+              CustomReportName:
+                type: string
+              Description:
+                type: string
+              IsCustom:
+                type: boolean
+                description: "Is this a customer/tenant specific report"
+              IsPrivate:
+                type: boolean
+                description: "Is this a report only for a specific user"
+              AuditId:
+                type: integer
+              ReportType:
+                type: string
+              ReportCharts:
+                type: string
+              ReportHasNotContactIdField:
+                type: boolean
+              CreatedDateBetween:
+                type: string
+              InvoiceDateBetween:
+                type: string
+              DueDateBetween:
+                type: string
+              MembershipType:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              SalesRep:
+                type: string
+              IsOverdue:
+                type: boolean

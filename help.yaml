@@ -1,0 +1,160 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Help API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/help/{screenkey}:
+    get:
+      parameters:
+        - name: screenkey
+          in: path
+          required: true
+          type: string
+      tags:
+        - Help
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Self:
+                type: string
+              Id:
+                type: string
+              UniqueId:
+                type: string
+              ScreenKey:
+                type: string
+                description: "If this topic is tied to a specific screen - most will be at first"
+              Title:
+                type: string
+                description: "Title of screen"
+              SummaryHtml:
+                type: string
+                description: "The summary help text we want to display about this topic - what the screen is for or what the topic is about"
+              DetailHtml:
+                type: string
+                description: "The detailed content for the topic. If this is a screen there won't be anything here  most likely - it will be in the FieldHelpText and Summary."
+              FieldHelpText:
+                type: string
+                description: "For each field have some seperate HTML text"
+              RelatedTopics:
+                type: string
+                description: "Link to other documents - string is what to display, Guid is the document ID"
+              RelatedLinks:
+                type: string
+                description: "Link to externals URLs, e.g. videos, pages, etc."
+              Comments:
+                type: string
+                description: "List of comments"
+              Edits:
+                type: string
+                description: "List of edits"
+    post:
+      parameters:
+        - name: screenkey
+          in: path
+          required: true
+          type: string
+        - name: topicviewmodel
+          in: body
+          required: false
+          schema:
+            properties:
+              UniqueId:
+                type: string
+              ScreenKey:
+                type: string
+              Title:
+                type: string
+              SummaryHtml:
+                type: string
+              DetailHtml:
+                type: string
+              FieldHelpText:
+                type: string
+                description: "For each field have some seperate HTML text"
+              RelatedTopics:
+                type: string
+                description: "Link to other documents - string is what to display, Guid is the document ID"
+              RelatedLinks:
+                type: string
+                description: "Link to externals URLs, e.g. videos, pages, etc."
+      tags:
+        - Help
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ScreenKey:
+                type: string
+              HasHelpTopic:
+                type: boolean
+              HelpTopicEditDateTime:
+                type: string
+
+  /api/help/all:
+    get:
+      tags:
+        - Help
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ScreenKey:
+                  type: string
+                HasHelpTopic:
+                  type: boolean
+                HelpTopicEditDateTime:
+                  type: string
+
+  /api/help/items/{screenkey}:
+    get:
+      parameters:
+        - name: screenkey
+          in: path
+          required: true
+          type: string
+      tags:
+        - Help
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              UniqueId:
+                type: string
+              ScreenKey:
+                type: string
+              Title:
+                type: string
+              SummaryHtml:
+                type: string
+              DetailHtml:
+                type: string
+              FieldHelpText:
+                type: string
+                description: "For each field have some seperate HTML text"
+              RelatedTopics:
+                type: string
+                description: "Link to other documents - string is what to display, Guid is the document ID"
+              RelatedLinks:
+                type: string
+                description: "Link to externals URLs, e.g. videos, pages, etc."

@@ -1,0 +1,1096 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Ticket API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/tickets:
+    post:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TicketId:
+                  type: integer
+                TicketHashedId:
+                  type: string
+                CustomerContactId:
+                  type: string
+                CustomerOrganizationContactId:
+                  type: string
+                TicketStatusType:
+                  type: string
+                TicketType:
+                  type: string
+                Customer:
+                  type: string
+                Subject:
+                  type: string
+                TicketResolutionType:
+                  type: string
+                SystemPriorityType:
+                  type: string
+                DueDate:
+                  type: string
+                LastCommunication:
+                  type: string
+                CommunicationsNumber:
+                  type: integer
+                Actions:
+                  type: string
+
+  /api/tickets/{ticketid}:
+    get:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketId:
+                type: integer
+              Customer:
+                type: string
+              ContactId:
+                type: string
+              OrganizationContactId:
+                type: string
+              AssignedToContactId:
+                type: string
+              TicketTypeId:
+                type: string
+              TicketStatusTypeId:
+                type: integer
+              SystemPriorityTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              DueDate:
+                type: string
+              Subject:
+                type: string
+              Description:
+                type: string
+              CategoryTypeId:
+                type: string
+              AuditId:
+                type: integer
+              InitialCommunicationId:
+                type: string
+              LastCommunicationId:
+                type: string
+    delete:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/assignedcontact/lookup:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/channels:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TicketChannelId:
+                type: integer
+              SystemTicketChannelTypeId:
+                type: string
+              IncomingEmailBoxName:
+                type: string
+              DefaultTicketStatusTypeId:
+                type: string
+              DefaultAssignedToContactId:
+                type: string
+              DefaultCategoryItemId:
+                type: string
+              FormId:
+                type: string
+              IsActive:
+                type: boolean
+              CategoryType:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketChannelId:
+                type: integer
+              SystemTicketChannelTypeId:
+                type: string
+              IncomingEmailAddress:
+                type: string
+              DefaultTicketStatusType:
+                type: string
+              DefaultAssignedToContact:
+                type: string
+              DefaultCategoryItem:
+                type: string
+              Form:
+                type: string
+              IsActive:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/tickets/channels/{ticketchannelid}:
+    get:
+      parameters:
+        - name: ticketchannelid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketChannelId:
+                type: integer
+              SystemTicketChannelTypeId:
+                type: string
+              IncomingEmailBoxName:
+                type: string
+              DefaultTicketStatusTypeId:
+                type: string
+              DefaultAssignedToContactId:
+                type: string
+              DefaultCategoryItemId:
+                type: string
+              FormId:
+                type: string
+              IsActive:
+                type: boolean
+              CategoryType:
+                type: string
+    delete:
+      parameters:
+        - name: ticketchannelid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/channels/{ticketid}/details:
+    get:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketId:
+                type: integer
+              GeneralInfo:
+                type: string
+              TicketCommentsList:
+                type: string
+              TicketCommunications:
+                type: string
+
+  /api/tickets/channels/get:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TicketChannelId:
+                  type: integer
+                SystemTicketChannelTypeId:
+                  type: string
+                IncomingEmailAddress:
+                  type: string
+                DefaultTicketStatusType:
+                  type: string
+                DefaultAssignedToContact:
+                  type: string
+                DefaultCategoryItem:
+                  type: string
+                Form:
+                  type: string
+                IsActive:
+                  type: boolean
+                Actions:
+                  type: string
+    post:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TicketChannelId:
+                  type: integer
+                SystemTicketChannelTypeId:
+                  type: string
+                IncomingEmailAddress:
+                  type: string
+                DefaultTicketStatusType:
+                  type: string
+                DefaultAssignedToContact:
+                  type: string
+                DefaultCategoryItem:
+                  type: string
+                Form:
+                  type: string
+                IsActive:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/tickets/details/{ticketid}/addnote:
+    post:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TicketId:
+                type: integer
+              Subject:
+                type: string
+              Body:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Subject:
+                type: string
+              Comment_:
+                type: string
+
+  /api/tickets/details/{ticketid}/addreply:
+    get:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              TicketId:
+                type: integer
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+    post:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              TicketId:
+                type: integer
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FromContact:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              CommunicationDate:
+                type: string
+
+  /api/tickets/load:
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              AssignedToContactId:
+                type: string
+              TicketTypeId:
+                type: string
+              DueDate:
+                type: string
+              ClosedDate:
+                type: string
+              TicketStatusTypeId:
+                type: string
+              TicketChannelId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/tickets/resolutiontypes:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TicketResolutionTypeId:
+                  type: integer
+                Name:
+                  type: string
+                SystemTicketResolutionTypeId:
+                  type: string
+                TicketResolutionType:
+                  type: string
+                Actions:
+                  type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TicketResolutionTypeId:
+                type: integer
+              Name:
+                type: string
+              SystemTicketResolutionTypeId:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketResolutionTypeId:
+                type: integer
+              Name:
+                type: string
+              SystemTicketResolutionTypeId:
+                type: string
+              TicketResolutionType:
+                type: string
+              Actions:
+                type: string
+
+  /api/tickets/resolutiontypes/{ticketresolutiontypeid}:
+    get:
+      parameters:
+        - name: ticketresolutiontypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketResolutionTypeId:
+                type: integer
+              Name:
+                type: string
+              SystemTicketResolutionTypeId:
+                type: string
+    delete:
+      parameters:
+        - name: ticketresolutiontypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/resolutiontypes/lookup:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/tickets/statustypes:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TicketStatusTypeId:
+                  type: integer
+                Name:
+                  type: string
+                SystemTicketStatusTypeId:
+                  type: string
+                TicketStatusType:
+                  type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TicketStatusTypeId:
+                type: integer
+              Name:
+                type: string
+              SystemTicketStatusTypeId:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketStatusTypeId:
+                type: integer
+              Name:
+                type: string
+              SystemTicketStatusTypeId:
+                type: string
+              TicketStatusType:
+                type: string
+
+  /api/tickets/statustypes/{ticketstatustypeid}:
+    get:
+      parameters:
+        - name: ticketstatustypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketStatusTypeId:
+                type: integer
+              Name:
+                type: string
+              SystemTicketStatusTypeId:
+                type: string
+
+  /api/tickets/statustypes/all/lookup:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/tickets/statustypes/lookup:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/tickets/ticketchannels/lookup:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/tickets:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TicketId:
+                type: integer
+              Customer:
+                type: string
+              ContactId:
+                type: string
+              OrganizationContactId:
+                type: string
+              AssignedToContactId:
+                type: string
+              TicketTypeId:
+                type: string
+              TicketStatusTypeId:
+                type: integer
+              SystemPriorityTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              DueDate:
+                type: string
+              Subject:
+                type: string
+              Description:
+                type: string
+              CategoryTypeId:
+                type: string
+              AuditId:
+                type: integer
+              InitialCommunicationId:
+                type: string
+              LastCommunicationId:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketId:
+                type: integer
+              TicketHashedId:
+                type: string
+              CustomerContactId:
+                type: string
+              CustomerOrganizationContactId:
+                type: string
+              TicketStatusType:
+                type: string
+              TicketType:
+                type: string
+              Customer:
+                type: string
+              Subject:
+                type: string
+              TicketResolutionType:
+                type: string
+              SystemPriorityType:
+                type: string
+              DueDate:
+                type: string
+              LastCommunication:
+                type: string
+              CommunicationsNumber:
+                type: integer
+              Actions:
+                type: string
+
+  /api/tickets/tickets/pending:
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/tickets/tickets/pending/{ticketid}:
+    delete:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/tickets/pending/{ticketid}/open:
+    get:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/tickets/pending/{ticketid}/otherclosed:
+    get:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketId:
+                type: integer
+              Items:
+                type: string
+
+  /api/tickets/tickets/pending/{ticketid}/otheropen:
+    get:
+      parameters:
+        - name: ticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketId:
+                type: integer
+              Items:
+                type: string
+
+  /api/tickets/tickets/pending/merge/{parentticketid}/{childticketid}:
+    get:
+      parameters:
+        - name: parentticketid
+          in: path
+          required: true
+          type: string
+        - name: childticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/tickets/pending/mergeandreopen/{parentticketid}/{childticketid}:
+    get:
+      parameters:
+        - name: parentticketid
+          in: path
+          required: true
+          type: string
+        - name: childticketid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/types:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TicketTypeId:
+                  type: integer
+                TenantId:
+                  type: integer
+                Name:
+                  type: string
+                Actions:
+                  type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TicketTypeId:
+                type: integer
+              Name:
+                type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketTypeId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Actions:
+                type: string
+
+  /api/tickets/types/{tickettypeid}:
+    get:
+      parameters:
+        - name: tickettypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TicketTypeId:
+                type: integer
+              Name:
+                type: string
+    delete:
+      parameters:
+        - name: tickettypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/tickets/types/lookup:
+    get:
+      tags:
+        - Ticket
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

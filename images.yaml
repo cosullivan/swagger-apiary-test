@@ -1,0 +1,186 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Images API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/images/file/{fileid}:
+    get:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Images
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/images/image/{imageid}:
+    get:
+      parameters:
+        - name: imageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Images
+      responses:
+        200:
+          description:
+            "OK"
+    post:
+      parameters:
+        - name: imageid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              FileId:
+                type: integer
+              ImageUsageId:
+                type: string
+              SourceType:
+                type: string
+              SourceId:
+                type: integer
+              Url:
+                type: string
+              CropX:
+                type: integer
+              CropY:
+                type: integer
+              CropHeight:
+                type: string
+              CropWidth:
+                type: string
+              Caption:
+                type: string
+      tags:
+        - Images
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              FileId:
+                type: integer
+              SourceType:
+                type: string
+              SourceId:
+                type: integer
+              Url:
+                type: string
+              CropX:
+                type: integer
+              CropY:
+                type: integer
+              CropHeight:
+                type: string
+              CropWidth:
+                type: string
+              Height:
+                type: string
+              Width:
+                type: string
+              Caption:
+                type: string
+    delete:
+      parameters:
+        - name: imageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Images
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/images/upload/{foldertype}/{objectid}:
+    post:
+      parameters:
+        - name: foldertype
+          in: path
+          required: true
+          type: string
+        - name: objectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Images
+      description:
+        "This is mainly just used by the client image uploader - at least so far"
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              FileId:
+                type: integer
+              SourceType:
+                type: string
+              SourceId:
+                type: integer
+              Url:
+                type: string
+              CropX:
+                type: integer
+              CropY:
+                type: integer
+              CropHeight:
+                type: string
+              CropWidth:
+                type: string
+              Height:
+                type: string
+              Width:
+                type: string
+              Caption:
+                type: string
+
+  /api/images/usage/{imageusageid}:
+    get:
+      parameters:
+        - name: imageusageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Images
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MaxWidth:
+                type: string
+              MaxHeight:
+                type: string
+              AspectRatio:
+                type: string

@@ -1,0 +1,1926 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Sales API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/sales:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              SalesStageId:
+                type: string
+              Tags:
+                type: string
+              CreatedDateBetween:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/sales/{salesopportunityid}:
+    get:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactDisplayName:
+                type: string
+              ContactId:
+                type: integer
+              CommunicationId:
+                type: integer
+              TenantId:
+                type: integer
+              SalesSourceId:
+                type: string
+              SalesOpportunityId:
+                type: integer
+              AuditId:
+                type: integer
+              OpportunityName:
+                type: string
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              Probability:
+                type: string
+              SalesStageId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              CreatedDate:
+                type: string
+              Created:
+                type: string
+              EndDate:
+                type: string
+    post:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactDisplayName:
+                type: string
+              ContactId:
+                type: integer
+              CommunicationId:
+                type: integer
+              TenantId:
+                type: integer
+              SalesSourceId:
+                type: string
+              SalesOpportunityId:
+                type: integer
+              AuditId:
+                type: integer
+              OpportunityName:
+                type: string
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              Probability:
+                type: string
+              SalesStageId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              CreatedDate:
+                type: string
+              Created:
+                type: string
+              EndDate:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              LastContactDate:
+                type: string
+              SalesStageName:
+                type: string
+              LastTimelineName:
+                type: string
+              TaskCount:
+                type: integer
+                description: "Tasks associated with this contact that are due today or due in the past and not yet completed"
+              SalesContactName:
+                type: string
+              ImageUrl:
+                type: string
+              SalesOpportunityStatus:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+
+  /api/sales/{salesopportunityid}/{auditid}:
+    delete:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/autoreminderrule:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SalesAutoReminderRuleId:
+                  type: string
+                Description:
+                  type: string
+                Days:
+                  type: integer
+                DueDateOffset:
+                  type: integer
+                SalesStageId:
+                  type: string
+                Stage:
+                  type: string
+                SalesOpportunityStatusId:
+                  type: string
+                Status:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/sales/autoreminderrule/{salesautoreminderruleid}:
+    get:
+      parameters:
+        - name: salesautoreminderruleid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesAutoReminderRuleId:
+                type: string
+              Description:
+                type: string
+              Days:
+                type: integer
+              DueDateOffset:
+                type: integer
+              SalesStageId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+    post:
+      parameters:
+        - name: salesautoreminderruleid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesAutoReminderRuleId:
+                type: string
+              Description:
+                type: string
+              Days:
+                type: integer
+              DueDateOffset:
+                type: integer
+              SalesStageId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesAutoReminderRuleId:
+                type: string
+              Description:
+                type: string
+              Days:
+                type: integer
+              DueDateOffset:
+                type: integer
+              SalesStageId:
+                type: string
+              Stage:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              Status:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: salesautoreminderruleid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesAutoReminderRuleId:
+                type: string
+              Description:
+                type: string
+              Days:
+                type: integer
+              DueDateOffset:
+                type: integer
+              SalesStageId:
+                type: string
+              Stage:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              Status:
+                type: string
+              Actions:
+                type: string
+
+  /api/sales/categories/{categoryitemid}:
+    get:
+      parameters:
+        - name: categoryitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CategoryItemId:
+                type: integer
+              CategoryTypeId:
+                type: string
+              AuditId:
+                type: integer
+              CategoryListId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+              ParentCategoryId:
+                type: string
+              CategoryItemImage:
+                type: string
+              CategoryListId:
+                type: integer
+              ParentCategoryId:
+                type: string
+    post:
+      parameters:
+        - name: categoryitemid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CategoryItemId:
+                type: integer
+              CategoryTypeId:
+                type: string
+              AuditId:
+                type: integer
+              CategoryListId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+              ParentCategoryId:
+                type: string
+              CategoryItemImage:
+                type: string
+              CategoryListId:
+                type: integer
+              ParentCategoryId:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CategoryItemId:
+                type: integer
+              AuditId:
+                type: integer
+              CategoryListId:
+                type: integer
+              Name:
+                type: string
+                description: "The name of the category item."
+              Parent:
+                type: string
+              Description:
+                type: string
+                description: "The description for the category item."
+              Actions:
+                type: string
+
+  /api/sales/categories/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/sales/discounts:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DiscountId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                DiscountAmount:
+                  type: string
+                DiscountPercent:
+                  type: string
+                DiscountNewPrice:
+                  type: string
+                ExpirationDate:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/sales/discounts/{discountid}:
+    get:
+      parameters:
+        - name: discountid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DiscountId:
+                type: integer
+              AuditId:
+                type: integer
+              SystemDiscountTypeId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DiscountTypeId:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              SlidingExpirationDays:
+                type: string
+              DiscountPricing:
+                type: string
+              TotalAvailable:
+                type: integer
+    post:
+      parameters:
+        - name: discountid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DiscountId:
+                type: integer
+              AuditId:
+                type: integer
+              SystemDiscountTypeId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DiscountTypeId:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              SlidingExpirationDays:
+                type: string
+              DiscountPricing:
+                type: string
+              TotalAvailable:
+                type: integer
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DiscountId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DiscountAmount:
+                type: string
+              DiscountPercent:
+                type: string
+              DiscountNewPrice:
+                type: string
+              ExpirationDate:
+                type: string
+              Actions:
+                type: string
+
+  /api/sales/discounts/{discountid}/{auditid}:
+    delete:
+      parameters:
+        - name: discountid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/discounts/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                DiscountAmount:
+                  type: string
+                DiscountPercent:
+                  type: string
+                ExpirationDate:
+                  type: string
+                SlidingExpirationDays:
+                  type: string
+                DiscountNewPrice:
+                  type: string
+
+  /api/sales/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/sales/new/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactDisplayName:
+                type: string
+              ContactId:
+                type: integer
+              CommunicationId:
+                type: integer
+              TenantId:
+                type: integer
+              SalesSourceId:
+                type: string
+              SalesOpportunityId:
+                type: integer
+              AuditId:
+                type: integer
+              OpportunityName:
+                type: string
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              Probability:
+                type: string
+              SalesStageId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              CreatedDate:
+                type: string
+              Created:
+                type: string
+              EndDate:
+                type: string
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactDisplayName:
+                type: string
+              ContactId:
+                type: integer
+              CommunicationId:
+                type: integer
+              TenantId:
+                type: integer
+              SalesSourceId:
+                type: string
+              SalesOpportunityId:
+                type: integer
+              AuditId:
+                type: integer
+              OpportunityName:
+                type: string
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              Probability:
+                type: string
+              SalesStageId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              CreatedDate:
+                type: string
+              Created:
+                type: string
+              EndDate:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              LastContactDate:
+                type: string
+              SalesStageName:
+                type: string
+              LastTimelineName:
+                type: string
+              TaskCount:
+                type: integer
+                description: "Tasks associated with this contact that are due today or due in the past and not yet completed"
+              SalesContactName:
+                type: string
+              ImageUrl:
+                type: string
+              SalesOpportunityStatus:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+
+  /api/sales/opportunity/{salesopportunityid}/proposals/get/{salesproposalid}:
+    get:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+        - name: salesproposalid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesProposalId:
+                type: integer
+              AuditId:
+                type: integer
+              SalesOpportunityId:
+                type: integer
+              Name:
+                type: string
+              ValidUntil:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              TermsOfUseId:
+                type: string
+              MessageTemplateId:
+                type: string
+              Message:
+                type: string
+              IsAccepted:
+                type: boolean
+              ProposalUrl:
+                type: string
+              PurchaseId:
+                type: string
+
+  /api/sales/opportunity/base/{salesopportunityid}:
+    get:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityId:
+                type: integer
+              DisplayName:
+                type: string
+              Name:
+                type: string
+              LoginId:
+                type: string
+              Prefix:
+                type: string
+              FirstName:
+                type: string
+              MiddleName:
+                type: string
+              LastName:
+                type: string
+              Suffix:
+                type: string
+              CommonName:
+                type: string
+              ContactId:
+                type: integer
+              SystemContactTypeId:
+                type: string
+              AuditId:
+                type: integer
+              Tags:
+                type: string
+              OpenTaskCount:
+                type: integer
+              Status:
+                type: string
+              EmailRelayServiceAddress:
+                type: string
+              ProfileImage:
+                type: string
+              Actions:
+                type: string
+              DoNotShowEditName:
+                type: boolean
+
+  /api/sales/opportunity/proposals/{salesopportunityid}:
+    get:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SalesProposalId:
+                  type: integer
+                Name:
+                  type: string
+                ItemCount:
+                  type: integer
+                OneTimeRevenue:
+                  type: number
+                RecurringRevenue:
+                  type: number
+                ValidUntil:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/sales/opportunity/proposals/{salesproposalid}/{auditid}:
+    delete:
+      parameters:
+        - name: salesproposalid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/opportunity/proposals/items/archive/{salesproposalid}:
+    get:
+      parameters:
+        - name: salesproposalid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/opportunity/proposals/items/download/{salesproposalid}:
+    get:
+      parameters:
+        - name: salesproposalid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/sales/opportunity/proposals/items/get/{salesproposalid}:
+    get:
+      parameters:
+        - name: salesproposalid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesProposalId:
+                type: integer
+              MembershipTypeId:
+                type: string
+              OneTimeFeeItems:
+                type: string
+              RecurringFeeItems:
+                type: string
+
+  /api/sales/opportunity/proposals/items/save/{salesproposalid}:
+    post:
+      parameters:
+        - name: salesproposalid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesProposalId:
+                type: integer
+              MembershipTypeId:
+                type: string
+              OneTimeFeeItems:
+                type: string
+              RecurringFeeItems:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesProposalId:
+                type: integer
+              Name:
+                type: string
+              ItemCount:
+                type: integer
+              OneTimeRevenue:
+                type: number
+              RecurringRevenue:
+                type: number
+              ValidUntil:
+                type: string
+              Actions:
+                type: string
+
+  /api/sales/opportunity/proposals/save/{salesproposalid}:
+    post:
+      parameters:
+        - name: salesproposalid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesProposalId:
+                type: integer
+              AuditId:
+                type: integer
+              SalesOpportunityId:
+                type: integer
+              Name:
+                type: string
+              ValidUntil:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              TermsOfUseId:
+                type: string
+              MessageTemplateId:
+                type: string
+              Message:
+                type: string
+              IsAccepted:
+                type: boolean
+              ProposalUrl:
+                type: string
+              PurchaseId:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesProposalId:
+                type: integer
+              Name:
+                type: string
+              ItemCount:
+                type: integer
+              OneTimeRevenue:
+                type: number
+              RecurringRevenue:
+                type: number
+              ValidUntil:
+                type: string
+              Actions:
+                type: string
+
+  /api/sales/opportunity/summary/{salesopportunityid}:
+    get:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactAuditId:
+                type: integer
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              SalesStageId:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              Probability:
+                type: string
+              CreatedDate:
+                type: string
+              SalesOpportunityStatusReasonId:
+                type: string
+              SalesSourceId:
+                type: string
+              EndDate:
+                type: string
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+    post:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesOpportunityId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactAuditId:
+                type: integer
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              SalesStageId:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              Probability:
+                type: string
+              CreatedDate:
+                type: string
+              SalesOpportunityStatusReasonId:
+                type: string
+              SalesSourceId:
+                type: string
+              EndDate:
+                type: string
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactAuditId:
+                type: integer
+              SalesContactId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              SalesOpportunityStatusId:
+                type: string
+              SalesStageId:
+                type: string
+              OneTimeValue:
+                type: string
+              RecurringValue:
+                type: string
+              EstimatedCloseDate:
+                type: string
+              Probability:
+                type: string
+              CreatedDate:
+                type: string
+              SalesOpportunityStatusReasonId:
+                type: string
+              SalesSourceId:
+                type: string
+              EndDate:
+                type: string
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+
+  /api/sales/salesopportunitytimeline:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesOpportunityTimelineItemId:
+                type: integer
+              AuditId:
+                type: integer
+              SalesOpportunityId:
+                type: integer
+              TimelineItemId:
+                type: integer
+              TimelineDate:
+                type: string
+              Summary:
+                type: string
+              Notes:
+                type: string
+              CommunicationId:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityTimelineItemId:
+                type: integer
+              TimelineItemName:
+                type: string
+              Summary:
+                type: string
+              TimelineDate:
+                type: string
+              ContactName:
+                type: string
+
+  /api/sales/salesopportunitytimelineitems/{salesopportunityid}/{salesopportunitytimelineitemid}:
+    get:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+        - name: salesopportunitytimelineitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityTimelineItemId:
+                type: integer
+              AuditId:
+                type: integer
+              SalesOpportunityId:
+                type: integer
+              TimelineItemId:
+                type: integer
+              TimelineDate:
+                type: string
+              Summary:
+                type: string
+              Notes:
+                type: string
+              CommunicationId:
+                type: string
+
+  /api/sales/salesopportunitytimelineitems/{salesopportunitytimelineitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: salesopportunitytimelineitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/setup/all/timelineitems:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TimelineItemId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/sales/setup/timelineitem/{timelineitemid}:
+    post:
+      parameters:
+        - name: timelineitemid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TimelineItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CommunicationCategoryId:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TimelineItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Actions:
+                type: string
+
+  /api/sales/setup/timelineitem/{timelineitemid}:
+    get:
+      parameters:
+        - name: timelineitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TimelineItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CommunicationCategoryId:
+                type: string
+
+  /api/sales/setup/timelineitem/{timelineitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: timelineitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/sources:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SalesSourceId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                IsActive:
+                  type: boolean
+
+  /api/sales/sources/{salessourceid}:
+    get:
+      parameters:
+        - name: salessourceid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesSourceId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              IsActive:
+                type: boolean
+    post:
+      parameters:
+        - name: salessourceid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesSourceId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              IsActive:
+                type: boolean
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesSourceId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              IsActive:
+                type: boolean
+    delete:
+      parameters:
+        - name: salessourceid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/sources/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/sales/stages:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SalesStageId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                CssColor:
+                  type: string
+
+  /api/sales/stages/{salesstageid}:
+    get:
+      parameters:
+        - name: salesstageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesStageId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+    post:
+      parameters:
+        - name: salesstageid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesStageId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesStageId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+    delete:
+      parameters:
+        - name: salesstageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/stages/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/sales/statues/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/sales/statusreasons:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SalesOpportunityStatusReasonId:
+                  type: integer
+                Name:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/sales/statusreasons/{salesopportunitystatusreasonid}:
+    get:
+      parameters:
+        - name: salesopportunitystatusreasonid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityStatusReasonId:
+                type: integer
+              Reason:
+                type: string
+    post:
+      parameters:
+        - name: salesopportunitystatusreasonid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesOpportunityStatusReasonId:
+                type: integer
+              Reason:
+                type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityStatusReasonId:
+                type: integer
+              Name:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: salesopportunitystatusreasonid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/sales/statusreasons/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/sales/timelineitems/{salesopportunityid}:
+    get:
+      parameters:
+        - name: salesopportunityid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SalesOpportunityTimelineItemId:
+                  type: integer
+                TimelineItemName:
+                  type: string
+                Summary:
+                  type: string
+                TimelineDate:
+                  type: string
+                ContactName:
+                  type: string
+
+  /api/sales/timelineitems/lookup:
+    get:
+      tags:
+        - Sales
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

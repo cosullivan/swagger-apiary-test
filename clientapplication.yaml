@@ -1,0 +1,115 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Client Application API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/clientapplications:
+    get:
+      tags:
+        - ClientApplication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ApplicationId:
+                  type: integer
+                Name:
+                  type: string
+                ApiKey:
+                  type: string
+                ApiSecret:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/clientapplications/{applicationid}:
+    get:
+      parameters:
+        - name: applicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ClientApplication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ApplicationId:
+                type: integer
+              Name:
+                type: string
+    post:
+      parameters:
+        - name: applicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ApplicationId:
+                type: integer
+              Name:
+                type: string
+      tags:
+        - ClientApplication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ApplicationId:
+                type: integer
+              Name:
+                type: string
+              ApiKey:
+                type: string
+              ApiSecret:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: applicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ClientApplication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/clientapplications/{applicationid}/resetclientapisecret:
+    get:
+      parameters:
+        - name: applicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - ClientApplication
+      responses:
+        200:
+          description:
+            "OK"

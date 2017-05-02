@@ -1,0 +1,195 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Meeting Proposal API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/meeting/{meetingproposalid}:
+    get:
+      parameters:
+        - name: meetingproposalid
+          in: path
+          required: true
+          type: string
+      tags:
+        - MeetingProposal
+      description:
+        "Meeting Proposal - Add/Edit/Delete - Get Details"
+      responses:
+        200:
+          description:
+            "MeetingProposalAddEditModel"
+          schema:
+            properties:
+              MeetingProposalId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              MeetingAttempts:
+                type: integer
+              MeetingProposalStatusTypeId:
+                type: string
+              StatusName:
+                type: string
+              Title:
+                type: string
+              Location:
+                type: string
+              DurationInHours:
+                type: string
+              Description:
+                type: string
+              TimezoneId:
+                type: string
+              IsPrivate:
+                type: boolean
+              AllowSuggestion:
+                type: boolean
+              MeetingProposalInvitees:
+                type: string
+              MeetingProposalOptions:
+                type: string
+              Filler:
+                type: string
+              SendMeetingProposalEmails:
+                type: boolean
+    post:
+      parameters:
+        - name: meetingproposalid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MeetingProposalId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              MeetingAttempts:
+                type: integer
+              MeetingProposalStatusTypeId:
+                type: string
+              StatusName:
+                type: string
+              Title:
+                type: string
+              Location:
+                type: string
+              DurationInHours:
+                type: string
+              Description:
+                type: string
+              TimezoneId:
+                type: string
+              IsPrivate:
+                type: boolean
+              AllowSuggestion:
+                type: boolean
+              MeetingProposalInvitees:
+                type: string
+              MeetingProposalOptions:
+                type: string
+              Filler:
+                type: string
+              SendMeetingProposalEmails:
+                type: boolean
+      tags:
+        - MeetingProposal
+      description:
+        "Meeting Proposal - Save"
+      responses:
+        200:
+          description:
+            "MeetingProposalListView"
+          schema:
+            properties:
+              MeetingProposalId:
+                type: integer
+              Title:
+                type: string
+              MeetingProposalStatusTypeId:
+                type: string
+              StatusName:
+                type: string
+              NumberOfInvitees:
+                type: integer
+              NumberOfResponses:
+                type: integer
+              MeetingAttempts:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              IsDeleted:
+                type: boolean
+
+  /api/meeting/all:
+    get:
+      tags:
+        - MeetingProposal
+      description:
+        "Meeting Proposal - Get List"
+      responses:
+        200:
+          description:
+            "List MeetingProposalListView"
+          schema:
+            type: array
+            items:
+              properties:
+                MeetingProposalId:
+                  type: integer
+                Title:
+                  type: string
+                MeetingProposalStatusTypeId:
+                  type: string
+                StatusName:
+                  type: string
+                NumberOfInvitees:
+                  type: integer
+                NumberOfResponses:
+                  type: integer
+                MeetingAttempts:
+                  type: integer
+                ContactId:
+                  type: integer
+                ContactName:
+                  type: string
+                IsDeleted:
+                  type: boolean
+
+  /api/meeting/proposal/{meetingproposalid}/{auditid}:
+    delete:
+      parameters:
+        - name: meetingproposalid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - MeetingProposal
+      description:
+        "Meeting Proposal - Delete"
+      responses:
+        200:
+          description:
+            "MeetingProposalId"

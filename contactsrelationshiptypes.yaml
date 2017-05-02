@@ -1,0 +1,13 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Contacts Relationship Types API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:

@@ -1,0 +1,1564 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Content API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/content/{contentitemid}/preimage/{imageid}:
+    delete:
+      parameters:
+        - name: contentitemid
+          in: path
+          required: true
+          type: string
+        - name: imageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/{contentitemid}/preimage/{imageid}/{fileid}:
+    post:
+      parameters:
+        - name: contentitemid
+          in: path
+          required: true
+          type: string
+        - name: imageid
+          in: path
+          required: true
+          type: string
+        - name: fileid
+          in: path
+          required: true
+          type: string
+        - name: imagegalleryitem
+          in: body
+          required: false
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              FileId:
+                type: integer
+              Url:
+                type: string
+              Title:
+                type: string
+              Caption:
+                type: string
+              CropX:
+                type: integer
+              CropY:
+                type: integer
+              CropHeight:
+                type: integer
+              CropWidth:
+                type: integer
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              Url:
+                type: string
+              Title:
+                type: string
+              Caption:
+                type: string
+
+  /api/content/{contentitemid}/preimage/order:
+    post:
+      parameters:
+        - name: contentitemid
+          in: path
+          required: true
+          type: string
+        - name: imageids
+          in: body
+          required: false
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/{contentlistid}/info:
+    get:
+      parameters:
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContentListId:
+                type: integer
+              ContentListPluralName:
+                type: string
+              ListViewItems:
+                type: string
+
+  /api/content/{contentlistid}/items:
+    get:
+      parameters:
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContentItemId:
+                  type: integer
+                AuditId:
+                  type: integer
+                ContentListId:
+                  type: integer
+                ContentStatusId:
+                  type: string
+                ContentStatus:
+                  type: string
+                Title:
+                  type: string
+                Contacts:
+                  type: string
+                Description:
+                  type: string
+                PublishStart:
+                  type: string
+                PublishEnd:
+                  type: string
+    post:
+      parameters:
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              ContentListId:
+                type: integer
+              Contact:
+                type: string
+              Title:
+                type: string
+              Tags:
+                type: string
+              Statuses:
+                type: string
+              Categories:
+                type: string
+              ActiveDateBetween:
+                type: string
+              ContactId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/content/{contentlistid}/items/{contentitemid}:
+    get:
+      parameters:
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: contentitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContentItemId:
+                type: integer
+              AuditId:
+                type: integer
+              ContentListId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              ContentStatusId:
+                type: string
+              Title:
+                type: string
+              Subtitle:
+                type: string
+              Tags:
+                type: string
+              Description:
+                type: string
+              ShortDescription:
+                type: string
+              ItemDate:
+                type: string
+              PublishStart:
+                type: string
+              PublishEnd:
+                type: string
+              EditKey:
+                type: string
+              RequireApprovalAfterEdit:
+                type: boolean
+              CategoryItems:
+                type: string
+              Fields:
+                type: string
+              SearchItemImage:
+                type: string
+              Images:
+                type: string
+
+  /api/content/advertisements:
+    post:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                AdId:
+                  type: integer
+                Title:
+                  type: string
+                ContactName:
+                  type: string
+                EndDate:
+                  type: string
+                IsActive:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/content/advertisements/{adid}/{auditid}:
+    delete:
+      parameters:
+        - name: adid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/advertisements/{adid}/{sponsorid}:
+    get:
+      parameters:
+        - name: adid
+          in: path
+          required: true
+          type: string
+        - name: sponsorid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AdId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              Title:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              DestinationUrl:
+                type: string
+              OpenInNewWindow:
+                type: boolean
+              ExternalImageUrl:
+                type: string
+              CustomHtml:
+                type: string
+              SponsorId:
+                type: string
+    post:
+      parameters:
+        - name: adid
+          in: path
+          required: true
+          type: string
+        - name: sponsorid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AdId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              Title:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              DestinationUrl:
+                type: string
+              OpenInNewWindow:
+                type: boolean
+              ExternalImageUrl:
+                type: string
+              CustomHtml:
+                type: string
+              SponsorId:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AdId:
+                type: integer
+              Title:
+                type: string
+              ContactName:
+                type: string
+              EndDate:
+                type: string
+              IsActive:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/content/advertisements/{adid}/areas:
+    get:
+      parameters:
+        - name: adid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AdId:
+                type: integer
+              AdActivationId:
+                type: integer
+              BannerName:
+                type: string
+              Areas:
+                type: string
+    post:
+      parameters:
+        - name: adid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AdId:
+                type: integer
+              AdActivationId:
+                type: integer
+              BannerName:
+                type: string
+              Areas:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/advertisements/{adid}/images:
+    get:
+      parameters:
+        - name: adid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AdId:
+                type: integer
+              TenantId:
+                type: integer
+              BannerName:
+                type: string
+              Images:
+                type: string
+    post:
+      parameters:
+        - name: adid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AdId:
+                type: integer
+              TenantId:
+                type: integer
+              BannerName:
+                type: string
+              Images:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/advertisements/suggest:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AdId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              Title:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              DestinationUrl:
+                type: string
+              OpenInNewWindow:
+                type: boolean
+              ExternalImageUrl:
+                type: string
+              CustomHtml:
+                type: string
+              SponsorId:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AdId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              Title:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              DestinationUrl:
+                type: string
+              OpenInNewWindow:
+                type: boolean
+              ExternalImageUrl:
+                type: string
+              CustomHtml:
+                type: string
+              SponsorId:
+                type: string
+
+  /api/content/advertisementtypes:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                AdAreaId:
+                  type: integer
+                Name:
+                  type: string
+                PreferredHeight:
+                  type: string
+                PreferredWidth:
+                  type: string
+                SiteModuleTypeId:
+                  type: string
+                Page:
+                  type: string
+                IsActive:
+                  type: boolean
+
+  /api/content/advertisementtypes/{adareaid}:
+    get:
+      parameters:
+        - name: adareaid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AdAreaId:
+                type: integer
+              AdAreaTypeId:
+                type: string
+              SiteModuleTypeId:
+                type: string
+              SitePageId:
+                type: string
+              Name:
+                type: string
+              PreferredHeight:
+                type: string
+              PreferredWidth:
+                type: string
+              IsActive:
+                type: boolean
+    post:
+      parameters:
+        - name: adareaid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AdAreaId:
+                type: integer
+              AdAreaTypeId:
+                type: string
+              SiteModuleTypeId:
+                type: string
+              SitePageId:
+                type: string
+              Name:
+                type: string
+              PreferredHeight:
+                type: string
+              PreferredWidth:
+                type: string
+              IsActive:
+                type: boolean
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AdAreaId:
+                type: integer
+              Name:
+                type: string
+              PreferredHeight:
+                type: string
+              PreferredWidth:
+                type: string
+              SiteModuleTypeId:
+                type: string
+              Page:
+                type: string
+              IsActive:
+                type: boolean
+    delete:
+      parameters:
+        - name: adareaid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/advertisementtypes/lookup:
+    get:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/content/contact/{contactid}/items:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DirectoryContactId:
+                  type: integer
+                Type:
+                  type: string
+                Name:
+                  type: string
+                IsLiveOnSite:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/content/contact/organization/{contactid}/items:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DirectoryContactId:
+                  type: integer
+                Type:
+                  type: string
+                Name:
+                  type: string
+                IsLiveOnSite:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/content/content/base/page:
+    get:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/contentstatus/lookup:
+    get:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/content/item/listing/{contactid}/{directorycontactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: directorycontactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              DirectoryContactId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactInfoAuditId:
+                type: integer
+              SystemContactTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ShowGallery:
+                type: boolean
+              ShowVideo:
+                type: boolean
+              ShowHighlights:
+                type: boolean
+              DirectoryId:
+                type: integer
+              DirectoryListingTypeId:
+                type: string
+              Title:
+                type: string
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+              Keywords:
+                type: string
+              Highlights:
+                type: string
+              Categories:
+                type: string
+              Images:
+                type: string
+              Videos:
+                type: string
+              Fields:
+                type: string
+
+  /api/content/item/listing/{directorycontactid}:
+    post:
+      parameters:
+        - name: directorycontactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              DirectoryContactId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactInfoAuditId:
+                type: integer
+              SystemContactTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ShowGallery:
+                type: boolean
+              ShowVideo:
+                type: boolean
+              ShowHighlights:
+                type: boolean
+              DirectoryId:
+                type: integer
+              DirectoryListingTypeId:
+                type: string
+              Title:
+                type: string
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+              Keywords:
+                type: string
+              Highlights:
+                type: string
+              Categories:
+                type: string
+              Images:
+                type: string
+              Videos:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DirectoryContactId:
+                type: integer
+              Type:
+                type: string
+              Name:
+                type: string
+              IsLiveOnSite:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/content/item/listing/{directorycontactid}/{auditid}:
+    delete:
+      parameters:
+        - name: directorycontactid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DirectoryContactId:
+                type: integer
+              Type:
+                type: string
+              Name:
+                type: string
+              IsLiveOnSite:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/content/item/listing/suggest:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              DirectoryContactId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactInfoAuditId:
+                type: integer
+              SystemContactTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ShowGallery:
+                type: boolean
+              ShowVideo:
+                type: boolean
+              ShowHighlights:
+                type: boolean
+              DirectoryId:
+                type: integer
+              DirectoryListingTypeId:
+                type: string
+              Title:
+                type: string
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+              Keywords:
+                type: string
+              Highlights:
+                type: string
+              Categories:
+                type: string
+              Images:
+                type: string
+              Videos:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              DirectoryContactId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactInfoAuditId:
+                type: integer
+              SystemContactTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ShowGallery:
+                type: boolean
+              ShowVideo:
+                type: boolean
+              ShowHighlights:
+                type: boolean
+              DirectoryId:
+                type: integer
+              DirectoryListingTypeId:
+                type: string
+              Title:
+                type: string
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+              Keywords:
+                type: string
+              Highlights:
+                type: string
+              Categories:
+                type: string
+              Images:
+                type: string
+              Videos:
+                type: string
+              Fields:
+                type: string
+
+  /api/content/item/load/{contactid}/{contentlistid}/{contentitemid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: contentitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContentItemId:
+                type: integer
+              ContentListId:
+                type: integer
+              ContactId:
+                type: integer
+              ContentStatusId:
+                type: string
+              PublishStartDate:
+                type: string
+              PublishEndDate:
+                type: string
+              Categories:
+                type: string
+              Title:
+                type: string
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+              MainImage:
+                type: string
+              Images:
+                type: string
+              Fields:
+                type: string
+
+  /api/content/item/new:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContentItemId:
+                type: integer
+              ContentListId:
+                type: integer
+              ContactId:
+                type: integer
+              ContentStatusId:
+                type: string
+              PublishStartDate:
+                type: string
+              PublishEndDate:
+                type: string
+              Categories:
+                type: string
+              Title:
+                type: string
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+              MainImage:
+                type: string
+              Images:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              ContentListId:
+                type: integer
+              Id:
+                type: integer
+              ContentType:
+                type: string
+              Name:
+                type: string
+              Status:
+                type: string
+              PublishStartDate:
+                type: string
+              PublishEndDate:
+                type: string
+
+  /api/content/items/{contentitemid}:
+    post:
+      parameters:
+        - name: contentitemid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContentItemId:
+                type: integer
+              AuditId:
+                type: integer
+              ContentListId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              ContentStatusId:
+                type: string
+              Title:
+                type: string
+              Subtitle:
+                type: string
+              Tags:
+                type: string
+              Description:
+                type: string
+              ShortDescription:
+                type: string
+              ItemDate:
+                type: string
+              PublishStart:
+                type: string
+              PublishEnd:
+                type: string
+              EditKey:
+                type: string
+              RequireApprovalAfterEdit:
+                type: boolean
+              CategoryItems:
+                type: string
+              Fields:
+                type: string
+              SearchItemImage:
+                type: string
+              Images:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContentItemId:
+                type: integer
+              AuditId:
+                type: integer
+              ContentListId:
+                type: integer
+              ContentStatusId:
+                type: string
+              ContentStatus:
+                type: string
+              Title:
+                type: string
+              Contacts:
+                type: string
+              Description:
+                type: string
+              PublishStart:
+                type: string
+              PublishEnd:
+                type: string
+
+  /api/content/items/{contentitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: contentitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/list/{contentlistid}:
+    get:
+      parameters:
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContentListId:
+                type: integer
+              AuditId:
+                type: integer
+              ContentTypeId:
+                type: string
+              Name:
+                type: string
+              PluralName:
+                type: string
+              Description:
+                type: string
+              SubscriptionFrequencyId:
+                type: string
+              SubscriberGroupId:
+                type: string
+              CategoryListId:
+                type: string
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              IsPublicCreatable:
+                type: boolean
+              IsMemberCreatable:
+                type: boolean
+              AllowPublicSubscribers:
+                type: boolean
+              AllowMemberSubscribers:
+                type: boolean
+              ProfileImage:
+                type: string
+              ObjectTypeId:
+                type: string
+              CustomFields:
+                type: string
+    post:
+      parameters:
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContentListId:
+                type: integer
+              AuditId:
+                type: integer
+              ContentTypeId:
+                type: string
+              Name:
+                type: string
+              PluralName:
+                type: string
+              Description:
+                type: string
+              SubscriptionFrequencyId:
+                type: string
+              SubscriberGroupId:
+                type: string
+              CategoryListId:
+                type: string
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              IsPublicCreatable:
+                type: boolean
+              IsMemberCreatable:
+                type: boolean
+              AllowPublicSubscribers:
+                type: boolean
+              AllowMemberSubscribers:
+                type: boolean
+              ProfileImage:
+                type: string
+              ObjectTypeId:
+                type: string
+              CustomFields:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContentListId:
+                type: integer
+              AuditId:
+                type: integer
+              ContentTypeId:
+                type: string
+              ContentType:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              Actions:
+                type: string
+
+  /api/content/list/{contentlistid}/{auditid}:
+    delete:
+      parameters:
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/content/list/common:
+    get:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommonContentItems:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommonContentItems:
+                type: string
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContentListId:
+                  type: integer
+                AuditId:
+                  type: integer
+                ContentTypeId:
+                  type: string
+                ContentType:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/content/list/lookup:
+    get:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/content/lists:
+    get:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContentListId:
+                  type: integer
+                AuditId:
+                  type: integer
+                ContentTypeId:
+                  type: string
+                ContentType:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/content/lookup/categories:
+    get:
+      tags:
+        - Content
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

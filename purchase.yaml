@@ -1,0 +1,218 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Purchase API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/purchase:
+    get:
+      tags:
+        - Purchase
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                PurchaseId:
+                  type: integer
+                ContactDisplayName:
+                  type: string
+                PurchaseDate:
+                  type: string
+                PurchaseTypeId:
+                  type: string
+                PurchaseType:
+                  type: string
+                Total:
+                  type: number
+
+  /api/purchase/{purchaseid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Purchase
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              PurchaseDate:
+                type: string
+              VoidedDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchasedByContactReadOnly:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              BillingContactId:
+                type: string
+              Total:
+                type: number
+              PurchasedFromOrganizationId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              TemplateId:
+                type: string
+              ToBePrinted:
+                type: boolean
+              ToBeEmailed:
+                type: boolean
+              Balance:
+                type: number
+              PurchaseAuditId:
+                type: integer
+              PurchaseItems:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+
+  /api/purchase/lookup:
+    get:
+      tags:
+        - Purchase
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/purchase/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              PurchaseDate:
+                type: string
+              VoidedDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchasedByContactReadOnly:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              BillingContactId:
+                type: string
+              Total:
+                type: number
+              PurchasedFromOrganizationId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              TemplateId:
+                type: string
+              ToBePrinted:
+                type: boolean
+              ToBeEmailed:
+                type: boolean
+              Balance:
+                type: number
+              PurchaseAuditId:
+                type: integer
+              PurchaseItems:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+      tags:
+        - Purchase
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              ContactDisplayName:
+                type: string
+              PurchaseDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchaseType:
+                type: string
+              Total:
+                type: number

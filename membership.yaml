@@ -1,0 +1,2938 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Membership API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/memberships/{membershipid}:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              MembershipStatusTypeId:
+                type: string
+              Name:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/{membershipid}/financial:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              ContactBalance:
+                type: string
+              ContactTaxSets:
+                type: string
+              BillingNotes:
+                type: string
+              ScheduledBilling:
+                type: string
+              PaymentProfile:
+                type: string
+              BillingHistory:
+                type: string
+              MembershipId:
+                type: integer
+              ContactId:
+                type: integer
+              Purchases:
+                type: string
+              Invoices:
+                type: string
+
+  /api/memberships/{membershipid}/general:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              MembershipType:
+                type: string
+              MembershipStatusType:
+                type: string
+              BillFrequencyType:
+                type: string
+              Number:
+                type: string
+              ChapterName:
+                type: string
+              ReferralContact:
+                type: string
+              Members:
+                type: string
+              Activations:
+                type: string
+              ReferredByContactId:
+                type: string
+
+  /api/memberships/{membershipid}/relatedcontacts:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              MembershipTypeIndividualLimit:
+                type: integer
+              RelatedContacts:
+                type: string
+    post:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              MembershipTypeIndividualLimit:
+                type: integer
+              RelatedContacts:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/activation/{membershipactivationid}:
+    get:
+      parameters:
+        - name: membershipactivationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipActivationId:
+                type: integer
+              MembershipId:
+                type: integer
+              TenantId:
+                type: integer
+              AuditId:
+                type: integer
+              BillFrequencyTypeId:
+                type: string
+              MembershipPurchaseTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ExpirationDate:
+                type: string
+              RenewalDate:
+                type: string
+              GracePeriodExpirationDate:
+                type: string
+              SalesContactId:
+                type: string
+              JoinReasonId:
+                type: string
+
+  /api/memberships/activation/update:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipActivationId:
+                type: integer
+              MembershipId:
+                type: integer
+              TenantId:
+                type: integer
+              AuditId:
+                type: integer
+              BillFrequencyTypeId:
+                type: string
+              MembershipPurchaseTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ExpirationDate:
+                type: string
+              RenewalDate:
+                type: string
+              GracePeriodExpirationDate:
+                type: string
+              SalesContactId:
+                type: string
+              JoinReasonId:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              MembershipTypeName:
+                type: string
+              MembershipNumber:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              RenewalMonth:
+                type: string
+              MembershipDropReasonId:
+                type: string
+              StartDate:
+                type: string
+              IsCourtesy:
+                type: boolean
+              OwnerContactName:
+                type: string
+              PrimaryContactName:
+                type: string
+              BillingContactName:
+                type: string
+              ChapterContactId:
+                type: string
+              ActivationList:
+                type: string
+
+  /api/memberships/activationlistitem/update:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipActivationId:
+                type: integer
+              MembershipId:
+                type: integer
+              TenantId:
+                type: integer
+              AuditId:
+                type: integer
+              BillFrequencyTypeId:
+                type: string
+              MembershipPurchaseTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ExpirationDate:
+                type: string
+              RenewalDate:
+                type: string
+              GracePeriodExpirationDate:
+                type: string
+              SalesContactId:
+                type: string
+              JoinReasonId:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipActivationId:
+                type: integer
+              MembershipTypeName:
+                type: string
+              MembershipPurchaseTypeId:
+                type: string
+              PurchasePrice:
+                type: number
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              RenewalDate:
+                type: string
+              BillFrequencyDescription:
+                type: string
+
+  /api/memberships/add:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              MembershipTypeId:
+                type: string
+              Number:
+                type: string
+              StartDate:
+                type: string
+              IsCourtesy:
+                type: boolean
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              BillingStartDate:
+                type: string
+              ChapterContactId:
+                type: string
+              ReferredByContact:
+                type: string
+              ReferredByContactId:
+                type: string
+              Yesterday:
+                type: string
+              FeeItems:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              TermId:
+                type: string
+              InvoiceMessage:
+                type: string
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+              NextBillingDate:
+                type: string
+              SoftwareCustomerKey:
+                type: string
+                description: "Specific to MicroNet so we can link back to the customer's account"
+              PaymentProfileId:
+                type: string
+              ShowNextBillDate:
+                type: boolean
+              EnableActionsSection:
+                type: boolean
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ImageUrl:
+                type: string
+              Name:
+                type: string
+              Number:
+                type: string
+              Type:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              ExpirationDate:
+                type: string
+              RenewalMonth:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              Status:
+                type: string
+              RenewalNoticeDays:
+                type: string
+              Style:
+                type: string
+
+  /api/memberships/add/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              MembershipTypeId:
+                type: string
+              Number:
+                type: string
+              StartDate:
+                type: string
+              IsCourtesy:
+                type: boolean
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              BillingStartDate:
+                type: string
+              ChapterContactId:
+                type: string
+              ReferredByContact:
+                type: string
+              ReferredByContactId:
+                type: string
+              Yesterday:
+                type: string
+              FeeItems:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              TermId:
+                type: string
+              InvoiceMessage:
+                type: string
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+              NextBillingDate:
+                type: string
+              SoftwareCustomerKey:
+                type: string
+                description: "Specific to MicroNet so we can link back to the customer's account"
+              PaymentProfileId:
+                type: string
+              ShowNextBillDate:
+                type: boolean
+              EnableActionsSection:
+                type: boolean
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+
+  /api/memberships/add/organization/{contactid}:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              MembershipTypeId:
+                type: string
+              Number:
+                type: string
+              StartDate:
+                type: string
+              IsCourtesy:
+                type: boolean
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              BillingStartDate:
+                type: string
+              ChapterContactId:
+                type: string
+              ReferredByContact:
+                type: string
+              ReferredByContactId:
+                type: string
+              Yesterday:
+                type: string
+              FeeItems:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              TermId:
+                type: string
+              InvoiceMessage:
+                type: string
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+              NextBillingDate:
+                type: string
+              SoftwareCustomerKey:
+                type: string
+                description: "Specific to MicroNet so we can link back to the customer's account"
+              PaymentProfileId:
+                type: string
+              ShowNextBillDate:
+                type: boolean
+              EnableActionsSection:
+                type: boolean
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/add/person/{contactid}:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              MembershipTypeId:
+                type: string
+              Number:
+                type: string
+              StartDate:
+                type: string
+              IsCourtesy:
+                type: boolean
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              BillingStartDate:
+                type: string
+              ChapterContactId:
+                type: string
+              ReferredByContact:
+                type: string
+              ReferredByContactId:
+                type: string
+              Yesterday:
+                type: string
+              FeeItems:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              TermId:
+                type: string
+              InvoiceMessage:
+                type: string
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+              NextBillingDate:
+                type: string
+              SoftwareCustomerKey:
+                type: string
+                description: "Specific to MicroNet so we can link back to the customer's account"
+              PaymentProfileId:
+                type: string
+              ShowNextBillDate:
+                type: boolean
+              EnableActionsSection:
+                type: boolean
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/adjustment:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              ContactId:
+                type: integer
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              StartDate:
+                type: string
+              BillingStartDate:
+                type: string
+              EmailInvoice:
+                type: boolean
+              PrintInvoice:
+                type: boolean
+              TermId:
+                type: string
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              InvoiceMessage:
+                type: string
+              ChangeType:
+                type: string
+              Change:
+                type: string
+              MembershipTypeId:
+                type: string
+              MembershipType:
+                type: string
+              NextBillingDate:
+                type: string
+              FeeItems:
+                type: string
+              ShowNextBillDate:
+                type: boolean
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/adjustment/{membershipid}:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              ContactId:
+                type: integer
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              StartDate:
+                type: string
+              BillingStartDate:
+                type: string
+              EmailInvoice:
+                type: boolean
+              PrintInvoice:
+                type: boolean
+              TermId:
+                type: string
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              InvoiceMessage:
+                type: string
+              ChangeType:
+                type: string
+              Change:
+                type: string
+              MembershipTypeId:
+                type: string
+              MembershipType:
+                type: string
+              NextBillingDate:
+                type: string
+              FeeItems:
+                type: string
+              ShowNextBillDate:
+                type: boolean
+
+  /api/memberships/adjustment/contact/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                MembershipId:
+                  type: integer
+                ContactId:
+                  type: integer
+                SalesContactId:
+                  type: string
+                MembershipJoinReasonId:
+                  type: string
+                StartDate:
+                  type: string
+                BillingStartDate:
+                  type: string
+                EmailInvoice:
+                  type: boolean
+                PrintInvoice:
+                  type: boolean
+                TermId:
+                  type: string
+                BillingAddressId:
+                  type: string
+                BillingEmailId:
+                  type: string
+                BillingContactId:
+                  type: string
+                InvoiceMessage:
+                  type: string
+                ChangeType:
+                  type: string
+                Change:
+                  type: string
+                MembershipTypeId:
+                  type: string
+                MembershipType:
+                  type: string
+                NextBillingDate:
+                  type: string
+                FeeItems:
+                  type: string
+                ShowNextBillDate:
+                  type: boolean
+
+  /api/memberships/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              EndDateBetween:
+                type: string
+              MembershipTypeId:
+                type: string
+              RenewalMonth:
+                type: string
+              Criteria:
+                type: string
+              MembershipStatus:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/memberships/appforms:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                MembershipApplicationFormId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Url:
+                  type: string
+                Action:
+                  type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipApplicationFormId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              AllowInvoicing:
+                type: boolean
+              AllowOnlinePayment:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              AllowChapterSelection:
+                type: boolean
+              ShowMemTypeDesc:
+                type: string
+              ShowMemBenefitDesc:
+                type: string
+              AutoApproveApps:
+                type: string
+              PaymentGatewayId:
+                type: string
+              MembershipTypeId:
+                type: string
+              TemplateId:
+                type: string
+              CustomRedirectUrl:
+                type: string
+              RedirectToHub:
+                type: string
+              HubRelativePath:
+                type: string
+              Url:
+                type: string
+              Instructions:
+                type: string
+              CompletionMessage:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipApplicationFormId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Url:
+                type: string
+              Action:
+                type: string
+
+  /api/memberships/appforms/{membershipapplicationformid}:
+    get:
+      parameters:
+        - name: membershipapplicationformid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipApplicationFormId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              AllowInvoicing:
+                type: boolean
+              AllowOnlinePayment:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              AllowChapterSelection:
+                type: boolean
+              ShowMemTypeDesc:
+                type: string
+              ShowMemBenefitDesc:
+                type: string
+              AutoApproveApps:
+                type: string
+              PaymentGatewayId:
+                type: string
+              MembershipTypeId:
+                type: string
+              TemplateId:
+                type: string
+              CustomRedirectUrl:
+                type: string
+              RedirectToHub:
+                type: string
+              HubRelativePath:
+                type: string
+              Url:
+                type: string
+              Instructions:
+                type: string
+              CompletionMessage:
+                type: string
+
+  /api/memberships/appforms/{membershipapplicationformid}/{auditid}:
+    delete:
+      parameters:
+        - name: membershipapplicationformid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/appforms/list/lookup:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/memberships/approve/{membershipid}:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/change:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              ContactId:
+                type: integer
+              MembershipJoinReasonId:
+                type: string
+              BillingStartDate:
+                type: string
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+              ChangeType:
+                type: string
+              MembershipTypeId:
+                type: string
+              StartDate:
+                type: string
+              SalesContactId:
+                type: string
+              NextBillingDate:
+                type: string
+              Yesterday:
+                type: string
+              FeeItems:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              TermId:
+                type: string
+              InvoiceMessage:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/change/{membershipid}/{changetype}:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: changetype
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              ContactId:
+                type: integer
+              MembershipJoinReasonId:
+                type: string
+              BillingStartDate:
+                type: string
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+              ChangeType:
+                type: string
+              MembershipTypeId:
+                type: string
+              StartDate:
+                type: string
+              SalesContactId:
+                type: string
+              NextBillingDate:
+                type: string
+              Yesterday:
+                type: string
+              FeeItems:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              BillingContactId:
+                type: string
+              TermId:
+                type: string
+              InvoiceMessage:
+                type: string
+
+  /api/memberships/delete/{membershipid}/{auditid}:
+    delete:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/details/{membershipid}:
+    post:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              MembershipTypeName:
+                type: string
+              MembershipNumber:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              RenewalMonth:
+                type: string
+              MembershipDropReasonId:
+                type: string
+              StartDate:
+                type: string
+              IsCourtesy:
+                type: boolean
+              OwnerContactName:
+                type: string
+              PrimaryContactName:
+                type: string
+              BillingContactName:
+                type: string
+              ChapterContactId:
+                type: string
+              ActivationList:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/details/{membershipid}/{auditid}:
+    delete:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/details/{membershipid}/{contactid}:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              MembershipTypeName:
+                type: string
+              MembershipNumber:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              RenewalMonth:
+                type: string
+              MembershipDropReasonId:
+                type: string
+              StartDate:
+                type: string
+              IsCourtesy:
+                type: boolean
+              OwnerContactName:
+                type: string
+              PrimaryContactName:
+                type: string
+              BillingContactName:
+                type: string
+              ChapterContactId:
+                type: string
+              ActivationList:
+                type: string
+
+  /api/memberships/drop/{membershipid}:
+    post:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              EndDate:
+                type: string
+              MembershipDropReasonId:
+                type: string
+              DropCommunicationBody:
+                type: string
+              OpenInvoices:
+                type: string
+              DropCommunicationId:
+                type: string
+              RoleId:
+                type: string
+              AvailableLogins:
+                type: string
+              AvailableLoginCount:
+                type: integer
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              EndDate:
+                type: string
+              MembershipDropReasonId:
+                type: string
+              DropCommunicationBody:
+                type: string
+              OpenInvoices:
+                type: string
+              DropCommunicationId:
+                type: string
+              RoleId:
+                type: string
+              AvailableLogins:
+                type: string
+              AvailableLoginCount:
+                type: integer
+
+  /api/memberships/drop/{membershipid}/suggestions:
+    post:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              EndDate:
+                type: string
+              MembershipDropReasonId:
+                type: string
+              DropCommunicationBody:
+                type: string
+              OpenInvoices:
+                type: string
+              DropCommunicationId:
+                type: string
+              RoleId:
+                type: string
+              AvailableLogins:
+                type: string
+              AvailableLoginCount:
+                type: integer
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              EndDate:
+                type: string
+              MembershipDropReasonId:
+                type: string
+              DropCommunicationBody:
+                type: string
+              OpenInvoices:
+                type: string
+              DropCommunicationId:
+                type: string
+              RoleId:
+                type: string
+              AvailableLogins:
+                type: string
+              AvailableLoginCount:
+                type: integer
+
+  /api/memberships/dropreasons:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DropReasonId:
+                  type: integer
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                StandardDropReasonId:
+                  type: string
+                StandardDropReason:
+                  type: string
+                Actions:
+                  type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DropReasonId:
+                type: integer
+              Reason:
+                type: string
+              Description:
+                type: string
+              StandardDropReasonId:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DropReasonId:
+                type: integer
+              Id:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              StandardDropReasonId:
+                type: string
+              StandardDropReason:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/dropreasons/{dropreasonid}:
+    get:
+      parameters:
+        - name: dropreasonid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DropReasonId:
+                type: integer
+              Reason:
+                type: string
+              Description:
+                type: string
+              StandardDropReasonId:
+                type: string
+    delete:
+      parameters:
+        - name: dropreasonid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/dropreasons/lookup:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/memberships/edit/{membershipid}:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              MembershipTypeId:
+                type: integer
+              Price:
+                type: number
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              SalesStaffContactId:
+                type: string
+    post:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              MembershipTypeId:
+                type: integer
+              Price:
+                type: number
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              SalesStaffContactId:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              AuditId:
+                type: integer
+              OwnerContactId:
+                type: integer
+              Name:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              SummaryDescription:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              EndDate:
+                type: string
+              Renewal:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/field/{membershiptypeoptionid}/{membershiptypeoptioncustomfieldid}:
+    get:
+      parameters:
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+        - name: membershiptypeoptioncustomfieldid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              CustomFieldId:
+                type: integer
+              AuditId:
+                type: integer
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              HideDescription:
+                type: boolean
+              ShowDescription:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              ExistingCustomFieldId:
+                type: string
+              ContentListId:
+                type: string
+              DirectoryId:
+                type: string
+              FormId:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              ProjectTypeId:
+                type: string
+              Name:
+                type: string
+              DisplayName:
+                type: string
+              Description:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              StandardFieldId:
+                type: string
+              CustomFieldGroupId:
+                type: string
+              DataSize:
+                type: string
+              SelectListData:
+                type: string
+              ChildCustomFields:
+                type: string
+              IsPublic:
+                type: boolean
+              IsMemberEditable:
+                type: boolean
+              IsRequired:
+                type: boolean
+              IsArchived:
+                type: boolean
+              DisplayOrder:
+                type: string
+              HasValues:
+                type: boolean
+              MembershipTypeOptionCustomFieldId:
+                type: integer
+              CustomFieldId:
+                type: integer
+              MembershipTypeOptionId:
+                type: integer
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              ObjectTypeId:
+                type: string
+              ExistingFormCustomFieldId:
+                type: string
+              Name:
+                type: string
+    post:
+      parameters:
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+        - name: membershiptypeoptioncustomfieldid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              CustomFieldId:
+                type: integer
+              AuditId:
+                type: integer
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              HideDescription:
+                type: boolean
+              ShowDescription:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              ExistingCustomFieldId:
+                type: string
+              ContentListId:
+                type: string
+              DirectoryId:
+                type: string
+              FormId:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              ProjectTypeId:
+                type: string
+              Name:
+                type: string
+              DisplayName:
+                type: string
+              Description:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              StandardFieldId:
+                type: string
+              CustomFieldGroupId:
+                type: string
+              DataSize:
+                type: string
+              SelectListData:
+                type: string
+              ChildCustomFields:
+                type: string
+              IsPublic:
+                type: boolean
+              IsMemberEditable:
+                type: boolean
+              IsRequired:
+                type: boolean
+              IsArchived:
+                type: boolean
+              DisplayOrder:
+                type: string
+              HasValues:
+                type: boolean
+              MembershipTypeOptionCustomFieldId:
+                type: integer
+              CustomFieldId:
+                type: integer
+              MembershipTypeOptionId:
+                type: integer
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              ObjectTypeId:
+                type: string
+              ExistingFormCustomFieldId:
+                type: string
+              Name:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipTypeOptionCustomFieldId:
+                type: integer
+              IsRequired:
+                type: boolean
+              CustomFieldId:
+                type: integer
+              Name:
+                type: string
+              DisplayOrder:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/fields/{membershiptypeoptionid}:
+    get:
+      parameters:
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipTypeOptionId:
+                type: string
+              ObjectTypeId:
+                type: string
+              CustomFields:
+                type: string
+    post:
+      parameters:
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+        - name: customfieldsetup
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipTypeOptionId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              CustomFields:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipTypeOptionId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              CustomFields:
+                type: string
+
+  /api/memberships/joinreasons:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                JoinReasonId:
+                  type: integer
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                StandardJoinReasonId:
+                  type: string
+                StandardJoinReason:
+                  type: string
+                Actions:
+                  type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              JoinReasonId:
+                type: integer
+              Reason:
+                type: string
+              Description:
+                type: string
+              StandardJoinReasonId:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              JoinReasonId:
+                type: integer
+              Id:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              StandardJoinReasonId:
+                type: string
+              StandardJoinReason:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/joinreasons/{joinreasonid}:
+    get:
+      parameters:
+        - name: joinreasonid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              JoinReasonId:
+                type: integer
+              Reason:
+                type: string
+              Description:
+                type: string
+              StandardJoinReasonId:
+                type: string
+    delete:
+      parameters:
+        - name: joinreasonid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/joinreasons/lookup:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/memberships/lookup/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/memberships/lookup/available:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/memberships/lookup/purchasetype:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/memberships/lookup/status:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/memberships/lookup/tenant:
+    get:
+      parameters:
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/memberships/lookup/types:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                OneTimeFeeItems:
+                  type: string
+                RecurringFeeItems:
+                  type: string
+                Discounts:
+                  type: string
+
+  /api/memberships/renew/{membershipid}:
+    get:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              MembershipTypeId:
+                type: integer
+              Price:
+                type: number
+              StartDate:
+                type: string
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              CreateInvoice:
+                type: boolean
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+    post:
+      parameters:
+        - name: membershipid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipId:
+                type: integer
+              MembershipTypeId:
+                type: integer
+              Price:
+                type: number
+              StartDate:
+                type: string
+              SalesContactId:
+                type: string
+              MembershipJoinReasonId:
+                type: string
+              CreateInvoice:
+                type: boolean
+              SendNewMemberWelcome:
+                type: boolean
+              CreateNewMemberProject:
+                type: boolean
+              ProjectTemplateId:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipActivationId:
+                type: integer
+              PurchaseId:
+                type: integer
+              BillFrequencyType:
+                type: string
+              StartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              Actions:
+                type: string
+
+  /api/memberships/typeoptions:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                MembershipTypeOptionId:
+                  type: integer
+                Name:
+                  type: string
+                MembershipsUsedBy:
+                  type: string
+
+  /api/memberships/typeoptions/{membershiptypeoptionid}:
+    get:
+      parameters:
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipTypeOptionId:
+                type: integer
+              Name:
+                type: string
+              AllowOnlineSignup:
+                type: boolean
+              AllowBillMe:
+                type: boolean
+              ContactTitles:
+                type: string
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+    post:
+      parameters:
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipTypeOptionId:
+                type: integer
+              Name:
+                type: string
+              AllowOnlineSignup:
+                type: boolean
+              AllowBillMe:
+                type: boolean
+              ContactTitles:
+                type: string
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipTypeOptionId:
+                type: integer
+              Name:
+                type: string
+              MembershipsUsedBy:
+                type: string
+
+  /api/memberships/types:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                MembershipTypeId:
+                  type: integer
+                MembershipTypeOptionId:
+                  type: string
+                Name:
+                  type: string
+                CategoryItemName:
+                  type: string
+                BenefitPackageName:
+                  type: string
+                IsActive:
+                  type: boolean
+                ActiveMembershipCount:
+                  type: integer
+                ObjectTypeId:
+                  type: string
+                DisplayOrder:
+                  type: string
+                Actions:
+                  type: string
+                FeeItems:
+                  type: string
+    get:
+      parameters:
+        - name: model
+          in: query
+          required: false
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/types/{membershiptypeid}:
+    get:
+      parameters:
+        - name: membershiptypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              DurationMonths:
+                type: string
+              MembershipEndTypeId:
+                type: string
+              Description:
+                type: string
+              IsActive:
+                type: boolean
+              BenefitPackageId:
+                type: string
+              DocumentationGenerationTemplateId:
+                type: string
+              TermId:
+                type: string
+              TermsOfUseId:
+                type: string
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+              FeesList:
+                type: string
+              SetupFeesList:
+                type: string
+              BillDescription:
+                type: string
+              CategoryItemId:
+                type: string
+              GracePeriodDays:
+                type: integer
+              RenewalNoticeDays:
+                type: string
+              ActiveWhenPaid:
+                type: boolean
+              CustomPriceForumula:
+                type: string
+              DisplayColor:
+                type: string
+              FixedAnnualRenewalMonth:
+                type: string
+              ProratePartialYears:
+                type: boolean
+              OrganizationLimit:
+                type: string
+              FamilyLimit:
+                type: string
+              PeopleLimit:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              AllowOnlineSignup:
+                type: boolean
+              AllowBillMe:
+                type: boolean
+              OwnerType:
+                type: string
+              IsOrganizationRequired:
+                type: boolean
+              IsFamilyRequired:
+                type: boolean
+              FamilyContactsEnabled:
+                type: boolean
+              ContactTitles:
+                type: string
+              ContactTypesList:
+                type: string
+              AddressTypesList:
+                type: string
+              PhoneTypesList:
+                type: string
+              WebAddressTypesList:
+                type: string
+    post:
+      parameters:
+        - name: membershiptypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MembershipTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              DurationMonths:
+                type: string
+              MembershipEndTypeId:
+                type: string
+              Description:
+                type: string
+              IsActive:
+                type: boolean
+              BenefitPackageId:
+                type: string
+              DocumentationGenerationTemplateId:
+                type: string
+              TermId:
+                type: string
+              TermsOfUseId:
+                type: string
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+              FeesList:
+                type: string
+              SetupFeesList:
+                type: string
+              BillDescription:
+                type: string
+              CategoryItemId:
+                type: string
+              GracePeriodDays:
+                type: integer
+              RenewalNoticeDays:
+                type: string
+              ActiveWhenPaid:
+                type: boolean
+              CustomPriceForumula:
+                type: string
+              DisplayColor:
+                type: string
+              FixedAnnualRenewalMonth:
+                type: string
+              ProratePartialYears:
+                type: boolean
+              OrganizationLimit:
+                type: string
+              FamilyLimit:
+                type: string
+              PeopleLimit:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              AllowOnlineSignup:
+                type: boolean
+              AllowBillMe:
+                type: boolean
+              OwnerType:
+                type: string
+              IsOrganizationRequired:
+                type: boolean
+              IsFamilyRequired:
+                type: boolean
+              FamilyContactsEnabled:
+                type: boolean
+              ContactTitles:
+                type: string
+              ContactTypesList:
+                type: string
+              AddressTypesList:
+                type: string
+              PhoneTypesList:
+                type: string
+              WebAddressTypesList:
+                type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MembershipTypeId:
+                type: integer
+              MembershipTypeOptionId:
+                type: string
+              Name:
+                type: string
+              CategoryItemName:
+                type: string
+              BenefitPackageName:
+                type: string
+              IsActive:
+                type: boolean
+              ActiveMembershipCount:
+                type: integer
+              ObjectTypeId:
+                type: string
+              DisplayOrder:
+                type: string
+              Actions:
+                type: string
+              FeeItems:
+                type: string
+    delete:
+      parameters:
+        - name: membershiptypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/memberships/types/lookup:
+    get:
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                MembershipTypeId:
+                  type: integer
+                Name:
+                  type: string
+                DefaultPrice:
+                  type: number
+                TermId:
+                  type: string
+                DocumentationGenerationTemplateId:
+                  type: string
+                FeeItems:
+                  type: string
+
+  /api/memberships/types/saleableitems/{membershiptypeid}/{saleableitemid}:
+    get:
+      parameters:
+        - name: membershiptypeid
+          in: path
+          required: true
+          type: string
+        - name: saleableitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Membership
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SaleableItemId:
+                type: integer
+              MembershipTypeId:
+                type: integer
+              DisplayOnInvoice:
+                type: boolean

@@ -1,0 +1,1866 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Settings API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/settings/adminsettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FeePercent:
+                type: number
+              FeeFlatAmount:
+                type: integer
+              FeeAmxPercent:
+                type: number
+              BankFeeFlatAmount:
+                type: integer
+              FeeBankPercent:
+                type: number
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FeePercent:
+                type: number
+              FeeFlatAmount:
+                type: integer
+              FeeAmxPercent:
+                type: number
+              BankFeeFlatAmount:
+                type: integer
+              FeeBankPercent:
+                type: number
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/constantcontact:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ConstantContactAuth:
+                type: string
+              IsAuthorized:
+                type: boolean
+              Status:
+                type: string
+              Sync:
+                type: string
+
+  /api/settings/contacttype:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactId:
+                type: string
+              Type:
+                type: string
+              ThirdPartyText:
+                type: string
+              ContactType:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactId:
+                type: string
+              Type:
+                type: string
+              ThirdPartyText:
+                type: string
+              ContactType:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/dropbox:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DropboxAuth:
+                type: string
+
+  /api/settings/emailsettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EmailBulkModeThreshold:
+                type: integer
+              UseSystemEmailSettings:
+                type: boolean
+              IsDnsSetup:
+                type: boolean
+              DefaultFromEmailAddress:
+                type: string
+              ArchiveEmailAddress:
+                type: string
+              TurnOnFloodPrevention:
+                type: boolean
+              AllowedIdenticalEmailsPerRecipient:
+                type: integer
+              SmtpServerUserName:
+                type: string
+              SmtpServerPassword:
+                type: string
+              SmtpServerHost:
+                type: string
+              SmtpServerPort:
+                type: integer
+              EmailProvider:
+                type: string
+              ApiKey:
+                type: string
+              ApiDomain:
+                type: string
+              TestMode:
+                type: boolean
+              AllowedDomains:
+                type: string
+              DkimSettings:
+                type: string
+              UnsubscribeMessage:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EmailBulkModeThreshold:
+                type: integer
+              UseSystemEmailSettings:
+                type: boolean
+              IsDnsSetup:
+                type: boolean
+              DefaultFromEmailAddress:
+                type: string
+              ArchiveEmailAddress:
+                type: string
+              TurnOnFloodPrevention:
+                type: boolean
+              AllowedIdenticalEmailsPerRecipient:
+                type: integer
+              SmtpServerUserName:
+                type: string
+              SmtpServerPassword:
+                type: string
+              SmtpServerHost:
+                type: string
+              SmtpServerPort:
+                type: integer
+              EmailProvider:
+                type: string
+              ApiKey:
+                type: string
+              ApiDomain:
+                type: string
+              TestMode:
+                type: boolean
+              AllowedDomains:
+                type: string
+              DkimSettings:
+                type: string
+              UnsubscribeMessage:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/eventsettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: string
+              EventInvoiceLineItemDescription:
+                type: string
+              EventAttendeeRegistrationConfirmationMessage:
+                type: string
+              EventSponsorRegistrationConfirmationMessage:
+                type: string
+              MaxEventAttendeesStoreCount:
+                type: integer
+              DefaultAssignedToContactId:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: string
+              EventInvoiceLineItemDescription:
+                type: string
+              EventAttendeeRegistrationConfirmationMessage:
+                type: string
+              EventSponsorRegistrationConfirmationMessage:
+                type: string
+              MaxEventAttendeesStoreCount:
+                type: integer
+              DefaultAssignedToContactId:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/facebooksettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsConnected:
+                type: boolean
+              OrganizatioId:
+                type: integer
+              FacebookAuth:
+                type: string
+              TestConnection:
+                type: string
+              TestConnectionResult:
+                type: string
+              PostFeedMessage:
+                type: string
+              PostFeedMessageResult:
+                type: string
+
+  /api/settings/fieldsdescriptions/download:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/settings/fieldsdescriptions/loadmodel:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EditionId:
+                type: integer
+              ScreenId:
+                type: integer
+              ScreenData:
+                type: string
+
+  /api/settings/fieldsdescriptions/lookup/editions:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/settings/fieldsdescriptions/lookup/screens/{editionid}:
+    get:
+      parameters:
+        - name: editionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/settings/fieldsdescriptions/savemodel:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EditionId:
+                type: integer
+              ScreenId:
+                type: integer
+              ScreenData:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/financesettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              OrganizationId:
+                type: integer
+                description: "Gets or sets the tenant's organization identifier; used for the profile image source."
+              ProfileImage:
+                type: string
+              DefaultIncomeAccountId:
+                type: integer
+              DefaultDepositAccountId:
+                type: integer
+              DefaultAccountsReceivableAccountId:
+                type: integer
+              DefaultDeferredRevenueAccountId:
+                type: integer
+              DefaultDiscountAccountId:
+                type: integer
+              DefaultDeferredDiscountAccountId:
+                type: integer
+              DefaultInvoiceTemplateId:
+                type: string
+              DefaultInvoiceTerm:
+                type: string
+              DeleteLookback:
+                type: integer
+              ScheduledBillingLeadTimeDays:
+                type: integer
+              UseAutomatedBilling:
+                type: boolean
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              OrganizationId:
+                type: integer
+                description: "Gets or sets the tenant's organization identifier; used for the profile image source."
+              ProfileImage:
+                type: string
+              DefaultIncomeAccountId:
+                type: integer
+              DefaultDepositAccountId:
+                type: integer
+              DefaultAccountsReceivableAccountId:
+                type: integer
+              DefaultDeferredRevenueAccountId:
+                type: integer
+              DefaultDiscountAccountId:
+                type: integer
+              DefaultDeferredDiscountAccountId:
+                type: integer
+              DefaultInvoiceTemplateId:
+                type: string
+              DefaultInvoiceTerm:
+                type: string
+              DeleteLookback:
+                type: integer
+              ScheduledBillingLeadTimeDays:
+                type: integer
+              UseAutomatedBilling:
+                type: boolean
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/fundraisingsettings/loadmodel:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: string
+
+  /api/settings/fundraisingsettings/savemodel:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: string
+              IsModified:
+                type: boolean
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/general:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactId:
+                type: string
+              TimezoneId:
+                type: string
+              CultureName:
+                type: string
+              ProfileImage:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactId:
+                type: string
+              TimezoneId:
+                type: string
+              CultureName:
+                type: string
+              ProfileImage:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactId:
+                type: string
+              TimezoneId:
+                type: string
+              CultureName:
+                type: string
+              ProfileImage:
+                type: string
+
+  /api/settings/ldap:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                LdapDomainId:
+                  type: integer
+                TenantKey:
+                  type: string
+                Domain:
+                  type: string
+                Server:
+                  type: string
+                Port:
+                  type: string
+                IsSecure:
+                  type: boolean
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantKey:
+                type: string
+              TenantId:
+                type: integer
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                LdapDomainId:
+                  type: integer
+                TenantKey:
+                  type: string
+                Domain:
+                  type: string
+                Server:
+                  type: string
+                Port:
+                  type: string
+                IsSecure:
+                  type: boolean
+
+  /api/settings/ldap/{ldapdomainid}:
+    get:
+      parameters:
+        - name: ldapdomainid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              LdapDomainId:
+                type: integer
+              Domain:
+                type: string
+              TenantKey:
+                type: string
+              Server:
+                type: string
+              Port:
+                type: string
+              IsSecure:
+                type: boolean
+    post:
+      parameters:
+        - name: ldapdomainid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              LdapDomainId:
+                type: integer
+              Domain:
+                type: string
+              TenantKey:
+                type: string
+              Server:
+                type: string
+              Port:
+                type: string
+              IsSecure:
+                type: boolean
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              LdapDomainId:
+                type: integer
+              TenantKey:
+                type: string
+              Domain:
+                type: string
+              Server:
+                type: string
+              Port:
+                type: string
+              IsSecure:
+                type: boolean
+
+  /api/settings/linkedin:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsConnected:
+                type: boolean
+              LinkedInAuth:
+                type: string
+              PostLinkedInMessage:
+                type: string
+
+  /api/settings/loginsettings/loadmodel:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AllowActiveUsersCreateAccounts:
+                type: boolean
+              RoleId:
+                type: string
+              AllowEmailActivation:
+                type: boolean
+              AllowEmailDomainActivation:
+                type: boolean
+              AllowInvoiceActivation:
+                type: boolean
+              AllowMembershipActivation:
+                type: boolean
+              IsModified:
+                type: boolean
+
+  /api/settings/loginsettings/savemodel:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AllowActiveUsersCreateAccounts:
+                type: boolean
+              RoleId:
+                type: string
+              AllowEmailActivation:
+                type: boolean
+              AllowEmailDomainActivation:
+                type: boolean
+              AllowInvoiceActivation:
+                type: boolean
+              AllowMembershipActivation:
+                type: boolean
+              IsModified:
+                type: boolean
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/lookup/culture:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: string
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/settings/lookup/timezone:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                OlsonName:
+                  type: string
+                CountryCode:
+                  type: string
+                StandardAbbr:
+                  type: string
+                DaylightAbbr:
+                  type: string
+
+  /api/settings/mailchimp:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MailChimpAuth:
+                type: string
+              IsAuthorized:
+                type: boolean
+              CanSync:
+                type: boolean
+              HasAddress:
+                type: boolean
+              Status:
+                type: string
+              Email:
+                type: string
+              Address1:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+              Save:
+                type: string
+              Sync:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              MailChimpAuth:
+                type: string
+              IsAuthorized:
+                type: boolean
+              CanSync:
+                type: boolean
+              HasAddress:
+                type: boolean
+              Status:
+                type: string
+              Email:
+                type: string
+              Address1:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+              Save:
+                type: string
+              Sync:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              MailChimpAuth:
+                type: string
+              IsAuthorized:
+                type: boolean
+              CanSync:
+                type: boolean
+              HasAddress:
+                type: boolean
+              Status:
+                type: string
+              Email:
+                type: string
+              Address1:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+              Save:
+                type: string
+              Sync:
+                type: string
+
+  /api/settings/micsettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GlobalFlags:
+                type: string
+              WelcomeMessage:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GlobalFlags:
+                type: string
+              WelcomeMessage:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/mysettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SoftwareMaturityLevelId:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SoftwareMaturityLevelId:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SoftwareMaturityLevelId:
+                type: string
+
+  /api/settings/qbonlinesettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IntroText:
+                type: string
+              IsConnected:
+                type: boolean
+              QBOAuth:
+                type: string
+              TestConnection:
+                type: string
+              TestConnectionResult:
+                type: string
+              ImportData:
+                type: string
+              ImportDataResult:
+                type: string
+              ExportData:
+                type: string
+              ExportDataResult:
+                type: string
+
+  /api/settings/sales-general:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesDevelopmentRepGroup:
+                type: string
+              AccountExecutiveCommunicationDaysThreadhold:
+                type: string
+              TimelineItemAppliedToNewOpportunities:
+                type: string
+              InquiryTaskTypeId:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesDevelopmentRepGroup:
+                type: string
+              AccountExecutiveCommunicationDaysThreadhold:
+                type: string
+              TimelineItemAppliedToNewOpportunities:
+                type: string
+              InquiryTaskTypeId:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesDevelopmentRepGroup:
+                type: string
+              AccountExecutiveCommunicationDaysThreadhold:
+                type: string
+              TimelineItemAppliedToNewOpportunities:
+                type: string
+              InquiryTaskTypeId:
+                type: string
+
+  /api/settings/salesproposalsettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProposalSignUpConfirmationUrl:
+                type: string
+              ProposalSignUpConfirmationMessage:
+                type: string
+              TimelineItemAppliedToSignups:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProposalSignUpConfirmationUrl:
+                type: string
+              ProposalSignUpConfirmationMessage:
+                type: string
+              TimelineItemAppliedToSignups:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/setup/all/paymentgateways:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              HasStripeGateway:
+                type: boolean
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: integer
+              Gateways:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              HasStripeGateway:
+                type: boolean
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: integer
+              Gateways:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              HasStripeGateway:
+                type: boolean
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: integer
+              Gateways:
+                type: string
+
+  /api/settings/setup/backofficebankpaymentgateways/lookup:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/settings/setup/paymentgateway/:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsDeletable:
+                type: boolean
+              PaymentGatewayId:
+                type: integer
+              AuditId:
+                type: integer
+              PaymentGatewayTypeId:
+                type: integer
+              IsDefault:
+                type: boolean
+              RegisterName:
+                type: string
+              Country:
+                type: string
+              Name:
+                type: string
+              GatewayAccountId:
+                type: string
+              ThirdPartyText:
+                type: string
+              ExistingStripeText:
+                type: string
+              AuthorizeText:
+                type: string
+              ClientID:
+                type: string
+              GroupID:
+                type: string
+              UseSandbox:
+                type: boolean
+              LoginId:
+                type: string
+              TransactionKey:
+                type: string
+              MD5Hash:
+                type: string
+              AcceptVisa:
+                type: boolean
+              AcceptMC:
+                type: boolean
+              AcceptAMX:
+                type: boolean
+              AcceptDiscover:
+                type: boolean
+              RequirePhone:
+                type: boolean
+              RequireEmail:
+                type: boolean
+              RequireAddress:
+                type: boolean
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              IsDeletable:
+                type: boolean
+              PaymentGatewayId:
+                type: integer
+              AuditId:
+                type: integer
+              PaymentGatewayTypeId:
+                type: integer
+              IsDefault:
+                type: boolean
+              RegisterName:
+                type: string
+              Country:
+                type: string
+              Name:
+                type: string
+              GatewayAccountId:
+                type: string
+              ThirdPartyText:
+                type: string
+              ExistingStripeText:
+                type: string
+              AuthorizeText:
+                type: string
+              ClientID:
+                type: string
+              GroupID:
+                type: string
+              UseSandbox:
+                type: boolean
+              LoginId:
+                type: string
+              TransactionKey:
+                type: string
+              MD5Hash:
+                type: string
+              AcceptVisa:
+                type: boolean
+              AcceptMC:
+                type: boolean
+              AcceptAMX:
+                type: boolean
+              AcceptDiscover:
+                type: boolean
+              RequirePhone:
+                type: boolean
+              RequireEmail:
+                type: boolean
+              RequireAddress:
+                type: boolean
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GatewayAccountId:
+                type: string
+              Type:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              Actions:
+                type: string
+
+  /api/settings/setup/paymentgateway/{paymentgatewayid}:
+    get:
+      parameters:
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: integer
+              AuditId:
+                type: integer
+              PaymentGatewayTypeId:
+                type: string
+              Name:
+                type: string
+              IsDefault:
+                type: boolean
+              ProductDescriptionFilled:
+                type: boolean
+              GatewayAccountId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              StripeAccountInfo:
+                type: string
+              StripeAccountDetails:
+                type: string
+              AuthorizeText:
+                type: string
+              ClientID:
+                type: string
+              GroupID:
+                type: string
+              UseSandbox:
+                type: boolean
+              LoginId:
+                type: string
+              TransactionKey:
+                type: string
+              MD5Hash:
+                type: string
+              PublicClientKey:
+                type: string
+              AcceptVisa:
+                type: boolean
+              AcceptMC:
+                type: boolean
+              AcceptAMX:
+                type: boolean
+              AcceptDiscover:
+                type: boolean
+              RequirePhone:
+                type: boolean
+              RequireEmail:
+                type: boolean
+              RequireAddress:
+                type: boolean
+    post:
+      parameters:
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: integer
+              AuditId:
+                type: integer
+              PaymentGatewayTypeId:
+                type: string
+              Name:
+                type: string
+              IsDefault:
+                type: boolean
+              ProductDescriptionFilled:
+                type: boolean
+              GatewayAccountId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              StripeAccountInfo:
+                type: string
+              StripeAccountDetails:
+                type: string
+              AuthorizeText:
+                type: string
+              ClientID:
+                type: string
+              GroupID:
+                type: string
+              UseSandbox:
+                type: boolean
+              LoginId:
+                type: string
+              TransactionKey:
+                type: string
+              MD5Hash:
+                type: string
+              PublicClientKey:
+                type: string
+              AcceptVisa:
+                type: boolean
+              AcceptMC:
+                type: boolean
+              AcceptAMX:
+                type: boolean
+              AcceptDiscover:
+                type: boolean
+              RequirePhone:
+                type: boolean
+              RequireEmail:
+                type: boolean
+              RequireAddress:
+                type: boolean
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentGatewayId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GatewayAccountId:
+                type: string
+              Type:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              Actions:
+                type: string
+
+  /api/settings/setup/paymentgateway/{paymentgatewayid}/{auditid}:
+    delete:
+      parameters:
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/setup/paymentgateway/register/stripe/country/lookup:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: string
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/settings/setup/paymentgateway/types/lookup:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/settings/setup/paymentgateways/lookup:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/settings/setup/paymentgateways/lookup/{paymentgatewaytypeid}:
+    get:
+      parameters:
+        - name: paymentgatewaytypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/settings/setup/revenuerecognition/types/lookup/{accountingtypeid}:
+    get:
+      parameters:
+        - name: accountingtypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/settings/statusoptions:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DefaultStatus:
+                type: string
+              ContactStatusOptions:
+                type: string
+              AllowManual:
+                type: boolean
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DefaultStatus:
+                type: string
+              ContactStatusOptions:
+                type: string
+              AllowManual:
+                type: boolean
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/terminology:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Term:
+                  type: string
+                Description:
+                  type: string
+                CustomTerm:
+                  type: string
+                PluralTerm:
+                  type: string
+
+  /api/settings/terminology/update:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Description:
+                type: string
+              Term:
+                type: string
+              CustomTerm:
+                type: string
+              PluralTerm:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Description:
+                type: string
+              Term:
+                type: string
+              CustomTerm:
+                type: string
+              PluralTerm:
+                type: string
+
+  /api/settings/trialaccountsettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SalesOpportunityStatusId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              SalesStageId:
+                type: string
+              TrialMembershipTypeId:
+                type: string
+              TrialRegistrationFormId:
+                type: string
+              InitialDaysForTrial:
+                type: string
+              DaysForSandbox:
+                type: string
+              DefaultTrialModules:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SalesOpportunityStatusId:
+                type: string
+              SalesCategoryItemId:
+                type: string
+              SalesStageId:
+                type: string
+              TrialMembershipTypeId:
+                type: string
+              TrialRegistrationFormId:
+                type: string
+              InitialDaysForTrial:
+                type: string
+              DaysForSandbox:
+                type: string
+              DefaultTrialModules:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/twittersettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsConnected:
+                type: boolean
+              TwitterAuth:
+                type: string
+              TestConnection:
+                type: string
+              TestConnectionResult:
+                type: string
+              PostTweetMessage:
+                type: string
+              PostTweetMessageResult:
+                type: string
+
+  /api/settings/websettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FontFamily:
+                type: string
+              PrimaryColor:
+                type: string
+              SecondaryColor:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FontFamily:
+                type: string
+              PrimaryColor:
+                type: string
+              SecondaryColor:
+                type: string
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/settings/wildapricot:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImportData:
+                type: string
+
+  /api/settings/xerosettings:
+    get:
+      tags:
+        - Settings
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsConnected:
+                type: boolean
+              XeroAuth:
+                type: string
+              TestConnection:
+                type: string
+              TestConnectionResult:
+                type: string

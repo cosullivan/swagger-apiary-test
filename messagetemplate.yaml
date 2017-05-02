@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  version: v1
-  title: MMP API
-  description: The API description for the MicroNet MMP system.
+  version: v1.0
+  title: GrowthZone Message Template API
+  description: The API Description
 host: app.memberzone.org
 schemes:
   - https
@@ -11,4 +11,3 @@ produces:
 consumes:
   - application/json
 paths:
-  $ref: account.yaml

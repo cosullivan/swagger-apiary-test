@@ -1,0 +1,119 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Login API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/login:
+    post:
+      parameters:
+        - name: form
+          in: body
+          required: false
+          schema:
+            properties:
+              Username:
+                type: string
+              Password:
+                type: string
+              RememberMe:
+                type: boolean
+              Method:
+                type: string
+              TenantKey:
+                type: string
+              TenantId:
+                type: string
+      tags:
+        - Login
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/login/aboutme:
+    get:
+      tags:
+        - Login
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FirstName:
+                type: string
+              Name:
+                type: string
+              ContactId:
+                type: integer
+              TenantId:
+                type: integer
+              TenantName:
+                type: string
+              TenantKey:
+                type: string
+              CurrentOrganizationId:
+                type: integer
+              CurrentOrganizationName:
+                type: string
+              LastName:
+                type: string
+
+  /api/login/delete:
+    delete:
+      parameters:
+        - name: username
+          in: query
+          required: false
+          type: string
+        - name: masterkey
+          in: query
+          required: false
+          type: string
+      tags:
+        - Login
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean

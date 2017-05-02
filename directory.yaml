@@ -1,0 +1,399 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Directory API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/directory/all/{modifiedsince}:
+    get:
+      parameters:
+        - name: modifiedsince
+          in: path
+          required: true
+          type: string
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContactId:
+                  type: integer
+                DisplayName:
+                  type: string
+                CommonName:
+                  type: string
+                ShortDescription:
+                  type: string
+                Description:
+                  type: string
+                Keywords:
+                  type: string
+                Highlights:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                SystemContactTypeId:
+                  type: string
+                Images:
+                  type: string
+                Addresses:
+                  type: string
+                EmailAddresses:
+                  type: string
+                PhoneNumbers:
+                  type: string
+                Directories:
+                  type: string
+                WebAddresses:
+                  type: string
+                Categories:
+                  type: string
+
+  /api/directory/directories:
+    get:
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DirectoryId:
+                  type: integer
+                Name:
+                  type: string
+                AuditId:
+                  type: integer
+                Description:
+                  type: string
+                DirectoryListingTypeName:
+                  type: string
+                IsPublic:
+                  type: boolean
+                AutomaticallyAddRemoveMembers:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/directory/directories/{directoryid}:
+    get:
+      parameters:
+        - name: directoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DirectoryId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DefaultListingTypeId:
+                type: integer
+              CategoryListId:
+                type: integer
+              IsPublic:
+                type: boolean
+              AllowSearchFiltering:
+                type: boolean
+              IsMultiTenant:
+                type: boolean
+              AutomaticallyAddRemoveMembers:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              SearchFilterOptions:
+                type: string
+              CustomFields:
+                type: string
+              ShowIsPublicProperty:
+                type: boolean
+    post:
+      parameters:
+        - name: directoryid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DirectoryId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DefaultListingTypeId:
+                type: integer
+              CategoryListId:
+                type: integer
+              IsPublic:
+                type: boolean
+              AllowSearchFiltering:
+                type: boolean
+              IsMultiTenant:
+                type: boolean
+              AutomaticallyAddRemoveMembers:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              SearchFilterOptions:
+                type: string
+              CustomFields:
+                type: string
+              ShowIsPublicProperty:
+                type: boolean
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DirectoryId:
+                type: integer
+              Name:
+                type: string
+              AuditId:
+                type: integer
+              Description:
+                type: string
+              DirectoryListingTypeName:
+                type: string
+              IsPublic:
+                type: boolean
+              AutomaticallyAddRemoveMembers:
+                type: boolean
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: directoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/directory/directories/chapters/{chapterid}:
+    get:
+      parameters:
+        - name: chapterid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DirectoryId:
+                  type: integer
+                Name:
+                  type: string
+                AuditId:
+                  type: integer
+                Description:
+                  type: string
+                DirectoryListingTypeName:
+                  type: string
+                IsPublic:
+                  type: boolean
+                AutomaticallyAddRemoveMembers:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/directory/directorylistingtypes:
+    get:
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DirectoryListingTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DefaultRank:
+                type: string
+              ShowSearchLogo:
+                type: boolean
+              ShowSearchDescription:
+                type: boolean
+              DirectLinkToDestinationSite:
+                type: boolean
+              ShowGallery:
+                type: boolean
+              ShowVideo:
+                type: boolean
+              ShowHighlights:
+                type: boolean
+              ShowMap:
+                type: boolean
+              ShowRelatedContacts:
+                type: boolean
+              ShowPrimaryContact:
+                type: boolean
+              EnhancedOnMap:
+                type: boolean
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DirectoryListingTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DefaultRank:
+                type: string
+              ShowSearchLogo:
+                type: boolean
+              ShowSearchDescription:
+                type: boolean
+              DirectLinkToDestinationSite:
+                type: boolean
+              ShowGallery:
+                type: boolean
+              ShowVideo:
+                type: boolean
+              ShowHighlights:
+                type: boolean
+              ShowMap:
+                type: boolean
+              ShowRelatedContacts:
+                type: boolean
+              ShowPrimaryContact:
+                type: boolean
+              EnhancedOnMap:
+                type: boolean
+
+  /api/directory/directorylistingtypes/{directorylistingtypeid}:
+    get:
+      parameters:
+        - name: directorylistingtypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DirectoryListingTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DefaultRank:
+                type: string
+              ShowSearchLogo:
+                type: boolean
+              ShowSearchDescription:
+                type: boolean
+              DirectLinkToDestinationSite:
+                type: boolean
+              ShowGallery:
+                type: boolean
+              ShowVideo:
+                type: boolean
+              ShowHighlights:
+                type: boolean
+              ShowMap:
+                type: boolean
+              ShowRelatedContacts:
+                type: boolean
+              ShowPrimaryContact:
+                type: boolean
+              EnhancedOnMap:
+                type: boolean
+
+  /api/directory/directorylistingtypes/{directorylistingtypeid}/{auditid}:
+    delete:
+      parameters:
+        - name: directorylistingtypeid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Directory
+      responses:
+        200:
+          description:
+            "OK"

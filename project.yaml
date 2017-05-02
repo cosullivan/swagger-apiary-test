@@ -1,0 +1,1685 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Project API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/projects:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              ProjectTypeId:
+                type: string
+              Status:
+                type: string
+              ProjectCategoryItemId:
+                type: string
+              Tags:
+                type: string
+              OwnerContactId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              StartDateBetween:
+                type: string
+              EndDateBetween:
+                type: string
+              CommunicationDateBetween:
+                type: string
+              HasOverdueTasks:
+                type: boolean
+              HasOverdueTasksForMe:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/projects/{projectid}:
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              Name:
+                type: string
+              CodeName:
+                type: string
+              ProjectStatusTypeId:
+                type: string
+              ProjectTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              ProjectNumber:
+                type: string
+              ProjectTemplateId:
+                type: string
+              Description:
+                type: string
+              Fields:
+                type: string
+              StartDate:
+                type: string
+              EstimatedEndDate:
+                type: string
+              EndDate:
+                type: string
+              OwnerContactId:
+                type: string
+              ProjectContacts:
+                type: string
+              CategoryItems:
+                type: string
+              EventName:
+                type: string
+              EventId:
+                type: string
+              ObjectTypeId:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+              ProjectName:
+                type: string
+                description: "For typeahead"
+              ProjectTypeName:
+                type: string
+              Description:
+                type: string
+              StartDate:
+                type: string
+              ProjectStatus:
+                type: string
+              OwnerContact:
+                type: string
+              LastProjectCommunication:
+                type: string
+
+  /api/projects/{projectid}/{auditid}:
+    delete:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/{projectid}/{contactid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              Name:
+                type: string
+              CodeName:
+                type: string
+              ProjectStatusTypeId:
+                type: string
+              ProjectTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              ProjectNumber:
+                type: string
+              ProjectTemplateId:
+                type: string
+              Description:
+                type: string
+              Fields:
+                type: string
+              StartDate:
+                type: string
+              EstimatedEndDate:
+                type: string
+              EndDate:
+                type: string
+              OwnerContactId:
+                type: string
+              ProjectContacts:
+                type: string
+              CategoryItems:
+                type: string
+              EventName:
+                type: string
+              EventId:
+                type: string
+              ObjectTypeId:
+                type: string
+
+  /api/projects/{projectid}/economic:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ExistingFootprint:
+                type: string
+              ExistingTotalJobs:
+                type: string
+              ExistingFteJobs:
+                type: string
+              TotalEstimatedFootprint:
+                type: string
+              DesiredNewFunding:
+                type: string
+              NewJobsGoal:
+                type: string
+              RetainedJobsGoal:
+                type: string
+              ProjectUpdateItems:
+                type: string
+              ProjectFundingItems:
+                type: string
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ExistingFootprint:
+                type: string
+              ExistingTotalJobs:
+                type: string
+              ExistingFteJobs:
+                type: string
+              TotalEstimatedFootprint:
+                type: string
+              DesiredNewFunding:
+                type: string
+              NewJobsGoal:
+                type: string
+              RetainedJobsGoal:
+                type: string
+              ProjectUpdateItems:
+                type: string
+              ProjectFundingItems:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ExistingFootprint:
+                type: string
+              ExistingTotalJobs:
+                type: string
+              ExistingFteJobs:
+                type: string
+              TotalEstimatedFootprint:
+                type: string
+              DesiredNewFunding:
+                type: string
+              NewJobsGoal:
+                type: string
+              RetainedJobsGoal:
+                type: string
+              ProjectUpdateItems:
+                type: string
+              ProjectFundingItems:
+                type: string
+
+  /api/projects/{projectid}/general:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              DisplayName:
+                type: string
+              Info:
+                type: string
+              Description:
+                type: string
+              Contacts:
+                type: string
+              Communication:
+                type: string
+              Results:
+                type: string
+              Categories:
+                type: string
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              DisplayName:
+                type: string
+              Info:
+                type: string
+              Description:
+                type: string
+              Contacts:
+                type: string
+              Communication:
+                type: string
+              Results:
+                type: string
+              Categories:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              DisplayName:
+                type: string
+              Info:
+                type: string
+              Description:
+                type: string
+              Contacts:
+                type: string
+              Communication:
+                type: string
+              Results:
+                type: string
+              Categories:
+                type: string
+
+  /api/projects/{projectid}/notesandfields:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ProjectTypeId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ProjectTypeId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ProjectTypeId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+
+  /api/projects/{projectid}/summary:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+              CodeName:
+                type: string
+              ProjectTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              Description:
+                type: string
+              ProjectStatusTypeId:
+                type: string
+              StartDate:
+                type: string
+              EstimatedEndDate:
+                type: string
+              EndDate:
+                type: string
+              AuditId:
+                type: integer
+              Tags:
+                type: string
+              EmailRelayServiceAddress:
+                type: string
+              ProjectFilesEmailAddress:
+                type: string
+              Watched:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/projects/applytemplate/{projectid}:
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ProjectTemplateId:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/edit/{projectid}:
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              Name:
+                type: string
+              CodeName:
+                type: string
+              ProjectStatusTypeId:
+                type: string
+              ProjectTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              ProjectNumber:
+                type: string
+              ProjectTemplateId:
+                type: string
+              Description:
+                type: string
+              Fields:
+                type: string
+              StartDate:
+                type: string
+              EstimatedEndDate:
+                type: string
+              EndDate:
+                type: string
+              OwnerContactId:
+                type: string
+              ProjectContacts:
+                type: string
+              CategoryItems:
+                type: string
+              EventName:
+                type: string
+              EventId:
+                type: string
+              ObjectTypeId:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              DisplayName:
+                type: string
+              Info:
+                type: string
+              Description:
+                type: string
+              Contacts:
+                type: string
+              Communication:
+                type: string
+              Results:
+                type: string
+              Categories:
+                type: string
+
+  /api/projects/fundingsources:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              Criteria:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/projects/fundingsources/{projectfundingsourceid}:
+    get:
+      parameters:
+        - name: projectfundingsourceid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectFundingSourceId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+    post:
+      parameters:
+        - name: projectfundingsourceid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectFundingSourceId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectFundingSourceId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: projectfundingsourceid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/fundingsources/lookup:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/projects/lookup:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/projects/lookup/{contactid}/{search}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: search
+          in: path
+          required: true
+          type: string
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/projects/lookup/search:
+    get:
+      parameters:
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/projects/project/lookup/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ProjectId:
+                  type: integer
+                Name:
+                  type: string
+                CodeName:
+                  type: string
+
+  /api/projects/project/unwatch/{projectid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/project/watch/{projectid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/resulttypes:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ProjectResultTypeId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/projects/resulttypes/{projectresulttypeid}:
+    get:
+      parameters:
+        - name: projectresulttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectResultTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+    post:
+      parameters:
+        - name: projectresulttypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectResultTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectResultTypeId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: projectresulttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/resulttypes/lookup:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/projects/saveoutlookproject:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Name:
+                type: string
+              CodeName:
+                type: string
+              ProjectStatusTypeId:
+                type: string
+              ProjectTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              ProjectTemplateId:
+                type: string
+              Description:
+                type: string
+              StartDate:
+                type: string
+              EstimatedEndDate:
+                type: string
+              EndDate:
+                type: string
+              OwnerContactId:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              Name:
+                type: string
+              StartDate:
+                type: string
+              Number:
+                type: string
+              Type:
+                type: string
+              Owner:
+                type: string
+
+  /api/projects/status/{projectid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ProjectStatusTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              EndDate:
+                type: string
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ProjectStatusTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              EndDate:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectId:
+                type: integer
+              ProjectStatusTypeId:
+                type: string
+              ProjectResultTypeId:
+                type: string
+              EndDate:
+                type: string
+
+  /api/projects/statuses/lookup:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/projects/templates:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ProjectTemplateId:
+                  type: integer
+                Name:
+                  type: string
+                ProjectTypeName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/projects/templates/{projecttemplateid}:
+    get:
+      parameters:
+        - name: projecttemplateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectTemplateId:
+                type: integer
+              Name:
+                type: string
+              ProjectTypeId:
+                type: integer
+              Description:
+                type: string
+              AuditId:
+                type: integer
+              ProjectTemplateTasks:
+                type: string
+    post:
+      parameters:
+        - name: projecttemplateid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectTemplateId:
+                type: integer
+              Name:
+                type: string
+              ProjectTypeId:
+                type: integer
+              Description:
+                type: string
+              AuditId:
+                type: integer
+              ProjectTemplateTasks:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectTemplateId:
+                type: integer
+              Name:
+                type: string
+              ProjectTypeName:
+                type: string
+              Description:
+                type: string
+
+  /api/projects/templates/{projecttemplateid}/{auditid}:
+    delete:
+      parameters:
+        - name: projecttemplateid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/templates/lookup:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/projects/templates/tasks/{projecttemplatetaskid}:
+    get:
+      parameters:
+        - name: projecttemplatetaskid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectTemplateTaskId:
+                type: integer
+              AuditId:
+                type: integer
+              ProjectTemplateId:
+                type: string
+              Name:
+                type: string
+              TaskPriorityId:
+                type: string
+              ProjectTemplateMilestoneId:
+                type: string
+              Description:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              TaskTypeId:
+                type: string
+              AssignedToContactId:
+                type: string
+              DependentOnTaskId:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              CompletedDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentsMustCompleteFirst:
+                type: string
+              DependentOnMustCompleteFirst:
+                type: string
+              TaskItems:
+                type: string
+              TaskData:
+                type: string
+              TaskItemInfoJson:
+                type: string
+    post:
+      parameters:
+        - name: projecttemplatetaskid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectTemplateTaskId:
+                type: integer
+              AuditId:
+                type: integer
+              ProjectTemplateId:
+                type: string
+              Name:
+                type: string
+              TaskPriorityId:
+                type: string
+              ProjectTemplateMilestoneId:
+                type: string
+              Description:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              TaskTypeId:
+                type: string
+              AssignedToContactId:
+                type: string
+              DependentOnTaskId:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              CompletedDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentsMustCompleteFirst:
+                type: string
+              DependentOnMustCompleteFirst:
+                type: string
+              TaskItems:
+                type: string
+              TaskData:
+                type: string
+              TaskItemInfoJson:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectTemplateTaskId:
+                type: integer
+              Name:
+                type: string
+              TaskPriorityId:
+                type: string
+              TaskPriority:
+                type: string
+              TaskType:
+                type: string
+              AssignedToPerson:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              CompletedDate:
+                type: string
+
+  /api/projects/templates/tasks/{projecttemplatetaskid}/{auditid}:
+    delete:
+      parameters:
+        - name: projecttemplatetaskid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/templates/tasks/lookup:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/projects/typeahead/{search}:
+    get:
+      parameters:
+        - name: search
+          in: path
+          required: true
+          type: string
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ProjectId:
+                  type: integer
+                Name:
+                  type: string
+                CodeName:
+                  type: string
+
+  /api/projects/typeahead2:
+    get:
+      parameters:
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ProjectId:
+                  type: integer
+                Name:
+                  type: string
+                CodeName:
+                  type: string
+
+  /api/projects/types:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ProjectTypeId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/projects/types/{projecttypeid}:
+    get:
+      parameters:
+        - name: projecttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Name:
+                type: string
+              CustomFields:
+                type: string
+    post:
+      parameters:
+        - name: projecttypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ProjectTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Name:
+                type: string
+              CustomFields:
+                type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ProjectTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Actions:
+                type: string
+
+  /api/projects/types/{projecttypeid}/{auditid}:
+    delete:
+      parameters:
+        - name: projecttypeid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/projects/types/lookup:
+    get:
+      tags:
+        - Project
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

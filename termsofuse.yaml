@@ -1,0 +1,122 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Terms of Use API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/setup/termsofuse:
+    get:
+      tags:
+        - TermsOfUse
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TermsOfUseId:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/setup/termsofuse/{termsofuseid}:
+    get:
+      parameters:
+        - name: termsofuseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - TermsOfUse
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TermsOfUseId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              AuditId:
+                type: integer
+    post:
+      parameters:
+        - name: termsofuseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TermsOfUseId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              AuditId:
+                type: integer
+      tags:
+        - TermsOfUse
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TermsOfUseId:
+                type: integer
+              Name:
+                type: string
+
+  /api/setup/termsofuse/{termsofuseid}/{auditid}:
+    delete:
+      parameters:
+        - name: termsofuseid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - TermsOfUse
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/setup/termsofuse/lookup:
+    get:
+      tags:
+        - TermsOfUse
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string

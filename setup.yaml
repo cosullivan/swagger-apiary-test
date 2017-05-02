@@ -1,0 +1,72 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Setup API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/setup/outlook:
+    get:
+      tags:
+        - Setup
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsRootTenant:
+                type: boolean
+              UsersAndSecurityLinkBox:
+                type: string
+              CommunicationLinkBox:
+                type: string
+              EventLinkBox:
+                type: string
+              FinanceLinkBox:
+                type: string
+              ServiceProductCommerceLinkBox:
+                type: string
+              MembershipsAndSalesLinkBox:
+                type: string
+              IntegrationsLinkBox:
+                type: string
+              BenefitsLinkBox:
+                type: string
+              FieldsTypesTicketsCategoriesLinkBox:
+                type: string
+              DocumentGenerationLinkBox:
+                type: string
+              CustomerServiceTicketLinkBox:
+                type: string
+              ProjectItemLinkBox:
+                type: string
+              ReferralsLinkBox:
+                type: string
+              ImportLinkBox:
+                type: string
+              CertificationLinkBox:
+                type: string
+              WebsiteCmsLinkBox:
+                type: string
+              MiscLinkBox:
+                type: string
+              AddOnsLinkBox:
+                type: string
+              EconomicDevelopmentLinkBox:
+                type: string
+              TenantLinkBox:
+                type: string
+              ClientApplicationsLinkBox:
+                type: string
+              FundraisingLinkBox:
+                type: string
+              PlatformSettingsLinkBox:
+                type: string

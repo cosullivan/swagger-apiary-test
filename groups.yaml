@@ -1,0 +1,1504 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Groups API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/groups/{groupid}:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              EmailRelayServiceAddress:
+                type: string
+              Actions:
+                type: string
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              SponsorContactId:
+                type: string
+              ContactName:
+                type: string
+              MeetingTimeDescription:
+                type: string
+              DefaultMonths:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              DisallowOptOut:
+                type: boolean
+              IsPublicJoinable:
+                type: boolean
+              IsMemberJoinable:
+                type: boolean
+              IsMemberEmailable:
+                type: boolean
+              IsListMemberViewable:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+              ExternalIdentifiersJson:
+                type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              IntegrationCount:
+                type: integer
+              Name:
+                type: string
+              CategoryName:
+                type: string
+              NumberOfContacts:
+                type: integer
+              GrouptTypeId:
+                type: string
+
+  /api/groups/{groupid}/{auditid}:
+    delete:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/groups/{groupid}/contact/{contactid}/edit:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactDisplayName:
+                type: string
+              Role:
+                type: string
+              EmailAddressId:
+                type: string
+              DoNotContact:
+                type: boolean
+              IsDeleted:
+                type: boolean
+              DropDate:
+                type: string
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactDisplayName:
+                type: string
+              Role:
+                type: string
+              EmailAddressId:
+                type: string
+              DoNotContact:
+                type: boolean
+              IsDeleted:
+                type: boolean
+              DropDate:
+                type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              Name:
+                type: string
+              JoinDate:
+                type: string
+              HideRemoveAction:
+                type: boolean
+              ContactId:
+                type: integer
+              Role:
+                type: string
+              Actions:
+                type: string
+
+  /api/groups/{groupid}/events:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                EventId:
+                  type: integer
+                Name:
+                  type: string
+                StartDate:
+                  type: string
+                RegisteredAttendees:
+                  type: integer
+                OrganizedBy:
+                  type: string
+
+  /api/groups/{groupid}/forchoice:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              SponsorContactId:
+                type: string
+              ContactName:
+                type: string
+              MeetingTimeDescription:
+                type: string
+              DefaultMonths:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              DisallowOptOut:
+                type: boolean
+              IsPublicJoinable:
+                type: boolean
+              IsMemberJoinable:
+                type: boolean
+              IsMemberEmailable:
+                type: boolean
+              IsListMemberViewable:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+              ExternalIdentifiersJson:
+                type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsAdded:
+                type: boolean
+              IsRemoved:
+                type: boolean
+              ContactGroupId:
+                type: integer
+              ContactGroupAuditId:
+                type: integer
+              GroupId:
+                type: integer
+              DisallowOptIn:
+                type: string
+              DisallowOptOut:
+                type: string
+              IsSelected:
+                type: boolean
+              Category:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+
+  /api/groups/{groupid}/general:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              SponsorContactId:
+                type: string
+              ContactName:
+                type: string
+              MeetingTimeDescription:
+                type: string
+              DefaultMonths:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              DisallowOptOut:
+                type: boolean
+              IsPublicJoinable:
+                type: boolean
+              IsMemberJoinable:
+                type: boolean
+              IsMemberEmailable:
+                type: boolean
+              IsListMemberViewable:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+              ExternalIdentifiersJson:
+                type: string
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              SponsorContactId:
+                type: string
+              ContactName:
+                type: string
+              MeetingTimeDescription:
+                type: string
+              DefaultMonths:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              DisallowOptOut:
+                type: boolean
+              IsPublicJoinable:
+                type: boolean
+              IsMemberJoinable:
+                type: boolean
+              IsMemberEmailable:
+                type: boolean
+              IsListMemberViewable:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+              ExternalIdentifiersJson:
+                type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              SponsorContactId:
+                type: string
+              ContactName:
+                type: string
+              MeetingTimeDescription:
+                type: string
+              DefaultMonths:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              DisallowOptOut:
+                type: boolean
+              IsPublicJoinable:
+                type: boolean
+              IsMemberJoinable:
+                type: boolean
+              IsMemberEmailable:
+                type: boolean
+              IsListMemberViewable:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+              ExternalIdentifiersJson:
+                type: string
+
+  /api/groups/{groupid}/members:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContactGroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupId:
+                  type: integer
+                ContactId:
+                  type: integer
+                Name:
+                  type: string
+                Organization:
+                  type: string
+                Email:
+                  type: string
+                Role:
+                  type: string
+                AuditlogId:
+                  type: integer
+                JoinDate:
+                  type: string
+                Actions:
+                  type: string
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: query
+          required: false
+          type: string
+        - name: options
+          in: body
+          required: false
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContactGroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupId:
+                  type: integer
+                ContactId:
+                  type: integer
+                Name:
+                  type: string
+                Organization:
+                  type: string
+                Email:
+                  type: string
+                Role:
+                  type: string
+                AuditlogId:
+                  type: integer
+                JoinDate:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/groups/{groupid}/members/{contactgroupid}:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: contactgroupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactGroupId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactDisplayName:
+                type: string
+              GroupId:
+                type: integer
+              ContactName:
+                type: string
+              Role:
+                type: string
+              EmailAddressId:
+                type: string
+              EmailAddressString:
+                type: string
+              JoinDate:
+                type: string
+              DropDate:
+                type: string
+              IsActive:
+                type: boolean
+              DoNotContact:
+                type: boolean
+
+  /api/groups/{groupid}/members/delete/{contactgroupid}/{auditid}:
+    delete:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: contactgroupid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactGroupId:
+                type: integer
+              AuditId:
+                type: integer
+              GroupId:
+                type: integer
+              ContactId:
+                type: integer
+              Name:
+                type: string
+              Organization:
+                type: string
+              Email:
+                type: string
+              Role:
+                type: string
+              AuditlogId:
+                type: integer
+              JoinDate:
+                type: string
+              Actions:
+                type: string
+
+  /api/groups/{groupid}/members/export:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/groups/{groupid}/members/export/historical:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/groups/{groupid}/members/print:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              MailingSortOrder:
+                type: string
+              FontFamily:
+                type: string
+              FontSize:
+                type: string
+              Endorsement:
+                type: string
+              IsIncludeBusinessName:
+                type: boolean
+              IsIncludePrimaryRepName:
+                type: boolean
+              IsPositionPrimaryRepNameAboveBusinessName:
+                type: boolean
+              IsIncludeCurrentResident:
+                type: boolean
+              GroupId:
+                type: integer
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/groups/{groupid}/members/save/{contactgroupid}:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: contactgroupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactGroupId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactDisplayName:
+                type: string
+              GroupId:
+                type: integer
+              ContactName:
+                type: string
+              Role:
+                type: string
+              EmailAddressId:
+                type: string
+              EmailAddressString:
+                type: string
+              JoinDate:
+                type: string
+              DropDate:
+                type: string
+              IsActive:
+                type: boolean
+              DoNotContact:
+                type: boolean
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactGroupId:
+                type: integer
+              AuditId:
+                type: integer
+              GroupId:
+                type: integer
+              ContactId:
+                type: integer
+              Name:
+                type: string
+              Organization:
+                type: string
+              Email:
+                type: string
+              Role:
+                type: string
+              AuditlogId:
+                type: integer
+              JoinDate:
+                type: string
+              Actions:
+                type: string
+
+  /api/groups/{groupid}/members/search/{search}:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: search
+          in: path
+          required: true
+          type: string
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContactId:
+                  type: integer
+                DisplayName:
+                  type: string
+                SystemContactTypeId:
+                  type: string
+                Name:
+                  type: string
+                ContactDisplayName:
+                  type: string
+                EmailAddress:
+                  type: string
+                EmailAddressId:
+                  type: string
+                PhoneNumber:
+                  type: string
+                DestinationContactId:
+                  type: integer
+                  description: "For contact merging"
+
+  /api/groups/{groupid}/members/typeahead/{search}:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: search
+          in: path
+          required: true
+          type: string
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ContactId:
+                  type: integer
+                DisplayName:
+                  type: string
+                SystemContactTypeId:
+                  type: string
+                Name:
+                  type: string
+                ContactDisplayName:
+                  type: string
+                EmailAddress:
+                  type: string
+                EmailAddressId:
+                  type: string
+                PhoneNumber:
+                  type: string
+                DestinationContactId:
+                  type: integer
+                  description: "For contact merging"
+
+  /api/groups/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              GroupCategoryId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/groups/categories/{groupcategoryid}:
+    get:
+      parameters:
+        - name: groupcategoryid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: query
+          required: false
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupCategoryId:
+                type: integer
+              GroupTypeId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+
+  /api/groups/categories/lookup/{grouptypeid}:
+    get:
+      parameters:
+        - name: grouptypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/groups/committees/{groupid}:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              SponsorContactId:
+                type: string
+              ContactName:
+                type: string
+              MeetingTimeDescription:
+                type: string
+              DefaultMonths:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicViewable:
+                type: boolean
+              IsMemberViewable:
+                type: boolean
+              IsMemberEmailable:
+                type: boolean
+              IsListMemberViewable:
+                type: boolean
+              DisallowOptOut:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+              ExternalIdentifiersJson:
+                type: string
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              IntegrationCount:
+                type: integer
+              Name:
+                type: string
+              CategoryName:
+                type: string
+              NumberOfContacts:
+                type: integer
+              GrouptTypeId:
+                type: string
+
+  /api/groups/emaillists/{groupid}:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicJoinable:
+                type: boolean
+              IsMemberJoinable:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              IntegrationCount:
+                type: integer
+              Name:
+                type: string
+              CategoryName:
+                type: string
+              NumberOfContacts:
+                type: integer
+              GrouptTypeId:
+                type: string
+
+  /api/groups/interestgroups/{groupid}:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              GroupTypeId:
+                type: string
+              GroupCategoryId:
+                type: integer
+              EstablishedDate:
+                type: string
+              Description:
+                type: string
+              IsActive:
+                type: boolean
+              IsPublicJoinable:
+                type: boolean
+              IsMemberJoinable:
+                type: boolean
+              AllowExternalIntegration:
+                type: boolean
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GroupId:
+                type: integer
+              IntegrationCount:
+                type: integer
+              Name:
+                type: string
+              CategoryName:
+                type: string
+              NumberOfContacts:
+                type: integer
+              GrouptTypeId:
+                type: string
+
+  /api/groups/lookup:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/groups/lookup/active:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/groups/lookup/available/contact:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/groups/lookup/chapter:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/groups/lookup/member:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/groups/lookup/public:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/groups/lookup/publicandmember:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string
+
+  /api/groups/lookup/staff:
+    get:
+      tags:
+        - Groups
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                IsSelected:
+                  type: boolean
+                GroupId:
+                  type: integer
+                AuditId:
+                  type: integer
+                GroupCategoryId:
+                  type: integer
+                GroupCategoryName:
+                  type: string
+                Description:
+                  type: string

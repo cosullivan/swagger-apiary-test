@@ -1,0 +1,248 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Sign Up API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/signup/beginsignup:
+    post:
+      parameters:
+        - name: form
+          in: body
+          required: false
+          schema:
+            properties:
+              Email:
+                type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string
+
+  /api/signup/completesignup:
+    post:
+      parameters:
+        - name: acctform
+          in: body
+          required: false
+          schema:
+            properties:
+              AssociationName:
+                type: string
+              OrganizationType:
+                type: string
+              Name:
+                type: string
+              NewUsername:
+                type: string
+              NewPassword:
+                type: string
+              Email:
+                type: string
+              TrialKey:
+                type: string
+              BrowserTimeZone:
+                type: string
+              CustomFields:
+                type: string
+      tags:
+        - SignUp
+      description:
+        "Setup a new account and all applicable data"
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string
+
+  /api/signup/login:
+    post:
+      parameters:
+        - name: login
+          in: body
+          required: false
+          schema:
+            properties:
+              Username:
+                type: string
+              Password:
+                type: string
+              RememberMe:
+                type: boolean
+              Method:
+                type: string
+              TenantKey:
+                type: string
+              TenantId:
+                type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/signup/parsename/{fullname}:
+    get:
+      parameters:
+        - name: fullname
+          in: path
+          required: true
+          type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string
+
+  /api/signup/suggestdomainname/{orgname}:
+    get:
+      parameters:
+        - name: orgname
+          in: path
+          required: true
+          type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ShouldNotifyDebuggerOfWaitCompletion:
+                type: boolean
+              Id:
+                type: integer
+              CurrentId:
+                type: string
+              Exception:
+                type: string
+              Status:
+                type: string
+              IsCanceled:
+                type: boolean
+              IsCompleted:
+                type: boolean
+              CreationOptions:
+                type: string
+              System.IAsyncResult.AsyncWaitHandle:
+                type: string
+              AsyncState:
+                type: string
+              System.IAsyncResult.CompletedSynchronously:
+                type: boolean
+              Factory:
+                type: string
+              CompletedTask:
+                type: string
+              IsFaulted:
+                type: boolean
+              SavedStateForNextReplica:
+                type: string
+              SavedStateFromPreviousReplica:
+                type: string
+              HandedOverChildReplica:
+                type: string
+              Result:
+                type: string
+              Factory:
+                type: string
+
+  /api/signup/trialkey/{id}/isvalid:
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/signup/validateusername/{username}:
+    get:
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string
+
+  /api/signup/validateusernamebylogin/{username}/{login}:
+    get:
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+        - name: login
+          in: path
+          required: true
+          type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string
+
+  /api/signup/validateusernamebytoken/{username}/{token}:
+    get:
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+        - name: token
+          in: path
+          required: true
+          type: string
+      tags:
+        - SignUp
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ErrorMessages:
+                type: string

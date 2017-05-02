@@ -1,0 +1,785 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Task API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/task/{taskitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/task/currentusersummary:
+    get:
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TotalOverdueTasks:
+                type: integer
+              CurrentUserOverdueTasks:
+                type: integer
+
+  /api/task/item/tooltip/{taskitemid}:
+    get:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/task/items/{taskitemid}:
+    post:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              AuditId:
+                type: integer
+              AssignedToContactId:
+                type: string
+              Name:
+                type: string
+              TaskTypeId:
+                type: string
+              TaskPriorityId:
+                type: string
+              ProjectName:
+                type: string
+              ProjectMilestoneId:
+                type: string
+              ProjectId:
+                type: string
+              Description:
+                type: string
+              TaskItems:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentOnTaskId:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+              ContactId:
+                type: string
+              TaskItemInfoJson:
+                type: string
+              TaskData:
+                type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              ContactId:
+                type: string
+              Name:
+                type: string
+              TaskPriorityId:
+                type: string
+              TaskPriority:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              TaskType:
+                type: string
+              Contact:
+                type: string
+              AssignedToContactId:
+                type: string
+              AssignedToContact:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              EventId:
+                type: string
+              EventName:
+                type: string
+              TaskItemInfoJson:
+                type: string
+
+  /api/task/items/{taskitemid}/{projectid}:
+    get:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              AuditId:
+                type: integer
+              AssignedToContactId:
+                type: string
+              Name:
+                type: string
+              TaskTypeId:
+                type: string
+              TaskPriorityId:
+                type: string
+              ProjectName:
+                type: string
+              ProjectMilestoneId:
+                type: string
+              ProjectId:
+                type: string
+              Description:
+                type: string
+              TaskItems:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentOnTaskId:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+              ContactId:
+                type: string
+              TaskItemInfoJson:
+                type: string
+              TaskData:
+                type: string
+
+  /api/task/items/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TaskTypeId:
+                type: string
+              AssignedToContactId:
+                type: string
+              CompletedDateBetween:
+                type: string
+              IsOverdue:
+                type: boolean
+              HasDueDate:
+                type: boolean
+              IsOpen:
+                type: boolean
+              DueDateBetween:
+                type: string
+              StartDateBetween:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/task/items/calendar/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TaskTypeId:
+                type: string
+              AssignedToContactId:
+                type: string
+              CompletedDateBetween:
+                type: string
+              IsOverdue:
+                type: boolean
+              HasDueDate:
+                type: boolean
+              IsOpen:
+                type: boolean
+              DueDateBetween:
+                type: string
+              StartDateBetween:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/task/items/lookup/{taskitemid}/{projectid}:
+    get:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/task/milestones/addedit:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              ProjectMilestoneId:
+                type: integer
+              TenantId:
+                type: integer
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              ProjectMilestoneId:
+                type: integer
+              TenantId:
+                type: integer
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+
+  /api/task/milestones/lookup/{projectid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/task/priorities/lookup:
+    get:
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/task/project/{projectid}/items/all:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TaskItemId:
+                  type: integer
+                ContactId:
+                  type: string
+                Name:
+                  type: string
+                TaskPriorityId:
+                  type: string
+                TaskPriority:
+                  type: string
+                SystemTaskTypeId:
+                  type: string
+                TaskType:
+                  type: string
+                Contact:
+                  type: string
+                AssignedToContactId:
+                  type: string
+                AssignedToContact:
+                  type: string
+                StartDate:
+                  type: string
+                DueDate:
+                  type: string
+                CompletedDate:
+                  type: string
+                PercentComplete:
+                  type: string
+
+  /api/task/template/milestones/addedit:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              ProjectTemplateMilestoneId:
+                type: integer
+              TenantId:
+                type: integer
+              ProjectTemplateId:
+                type: integer
+              Name:
+                type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              ProjectTemplateMilestoneId:
+                type: integer
+              TenantId:
+                type: integer
+              ProjectTemplateId:
+                type: integer
+              Name:
+                type: string
+
+  /api/task/templates/milestones/lookup/{projecttemplateid}:
+    get:
+      parameters:
+        - name: projecttemplateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/task/types/{tasktypeid}:
+    get:
+      parameters:
+        - name: tasktypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              SystemTaskTypeId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+              IsActive:
+                type: boolean
+    post:
+      parameters:
+        - name: tasktypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaskTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              SystemTaskTypeId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+              IsActive:
+                type: boolean
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskTypeId:
+                type: integer
+              SystemTaskTypeId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              CssColor:
+                type: string
+              IsActive:
+                type: boolean
+
+  /api/task/types/{tasktypeid}/{auditid}:
+    delete:
+      parameters:
+        - name: tasktypeid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/task/types/all:
+    get:
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TaskTypeId:
+                  type: integer
+                SystemTaskTypeId:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                CssColor:
+                  type: string
+                IsActive:
+                  type: boolean
+
+  /api/task/types/lookup:
+    get:
+      tags:
+        - Task
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

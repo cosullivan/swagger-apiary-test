@@ -1,0 +1,825 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Files API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/files/contact/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FolderId:
+                type: string
+              FolderPath:
+                type: string
+              PathList:
+                type: string
+              PersonFilesUpload:
+                type: string
+              PersonFiles:
+                type: string
+              ContactId:
+                type: integer
+
+  /api/files/contact/{contactid}/upload/{folderid}:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: folderid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean
+
+  /api/files/convertxml2mmp:
+    post:
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/files/display/timed/{token}:
+    get:
+      parameters:
+        - name: token
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/files/docgenerationtemplate:
+    post:
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean
+
+  /api/files/download/{fileid}:
+    get:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+        - name: open
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+    delete:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+    get:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+        - name: file
+          in: body
+          required: false
+          schema:
+            properties:
+              NewFileName:
+                type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+    put:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/files/download/timed/{token}:
+    get:
+      parameters:
+        - name: token
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/files/event/{eventid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FolderId:
+                type: string
+              FolderPath:
+                type: string
+              PathList:
+                type: string
+              EventFilesUpload:
+                type: string
+              EventFiles:
+                type: string
+
+  /api/files/event/{eventid}/upload/{folderid}:
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: folderid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean
+
+  /api/files/folder/{folderid}:
+    get:
+      parameters:
+        - name: folderid
+          in: path
+          required: true
+          type: string
+        - name: skip
+          in: query
+          required: false
+          type: string
+        - name: pagesize
+          in: query
+          required: false
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean
+
+  /api/files/group/{groupid}:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FolderId:
+                type: string
+              FolderPath:
+                type: string
+              PathList:
+                type: string
+              GroupFilesUpload:
+                type: string
+              GroupFiles:
+                type: string
+
+  /api/files/group/{groupid}/upload/{folderid}:
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: folderid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean
+
+  /api/files/import/upload:
+    post:
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImportJobId:
+                type: integer
+              FileName:
+                type: string
+              UploadDate:
+                type: string
+              Status:
+                type: string
+              Actions:
+                type: string
+
+  /api/files/importjobs:
+    post:
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              UploadZip:
+                type: string
+              Convert:
+                type: string
+              ClientNotifyHost:
+                type: string
+              ListViewItems:
+                type: string
+    get:
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              UploadZip:
+                type: string
+              Convert:
+                type: string
+              ClientNotifyHost:
+                type: string
+              ListViewItems:
+                type: string
+
+  /api/files/isready/{fileid}:
+    get:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/files/project/{projectid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FolderId:
+                type: string
+              FolderPath:
+                type: string
+              PathList:
+                type: string
+              ProjectFilesUpload:
+                type: string
+              ProjectFiles:
+                type: string
+
+  /api/files/project/{projectid}/upload/{folderid}:
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: folderid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean
+
+  /api/files/resource/upload:
+    post:
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean
+
+  /api/files/sharing/{fileid}:
+    get:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FileId:
+                type: integer
+              ShareFileExternally:
+                type: boolean
+              AccessKey:
+                type: string
+              AllowAnonymous:
+                type: boolean
+              PublicUrl:
+                type: string
+              CustomSlug:
+                type: string
+    post:
+      parameters:
+        - name: fileid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileId:
+                type: integer
+              ShareFileExternally:
+                type: boolean
+              AccessKey:
+                type: string
+              AllowAnonymous:
+                type: boolean
+              PublicUrl:
+                type: string
+              CustomSlug:
+                type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/files/tenant/{folderid}/{onefileselection}:
+    get:
+      parameters:
+        - name: folderid
+          in: path
+          required: true
+          type: string
+        - name: onefileselection
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FolderId:
+                type: string
+              FolderPath:
+                type: string
+              PathList:
+                type: string
+              TenantFilesUpload:
+                type: string
+              TenantFiles:
+                type: string
+              SelectedFiles:
+                type: string
+              RestrictToOneFileSelection:
+                type: boolean
+
+  /api/files/tenant/upload/{folderid}:
+    post:
+      parameters:
+        - name: folderid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Files
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                Name:
+                  type: string
+                LastModifiedDate:
+                  type: string
+                CloudFileProviderId:
+                  type: string
+                LastModifiedBy:
+                  type: string
+                SizeInBytes:
+                  type: integer
+                ContentType:
+                  type: string
+                Url:
+                  type: string
+                Id:
+                  type: integer
+                IsPublic:
+                  type: boolean
+                IsShared:
+                  type: boolean
+                FolderId:
+                  type: string
+                EditUrl:
+                  type: string
+                IsError:
+                  type: boolean

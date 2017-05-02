@@ -1,0 +1,7179 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Events API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/events/{eventdetailid}/{eventdetailauditid}/{eventauditid}:
+    delete:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailauditid
+          in: path
+          required: true
+          type: string
+        - name: eventauditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/{eventsponsorshipid}/lookup/sponsorshipposition:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventsponsorshipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/events/{eventdetailid}/calendars:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              Calendars:
+                type: string
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              Calendars:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/discounts/lookup:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/events/{eventdetailid}/eventexhibitor/{boothconfigurationid}/boothnumbers/lookup:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: boothconfigurationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                BoothNumber:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/{eventdetailid}/eventexhibitor/{eventexhibitortypeid}/boothconfigurations/lookup:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventexhibitortypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                BoothConfigurationId:
+                  type: integer
+                TenantId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                BoothConfigurationDetails:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/events/{eventdetailid}/eventexhibitor/save:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventExhibitorId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              EmailAddressId:
+                type: string
+              WebSite:
+                type: string
+              DisplayNameOverride:
+                type: string
+              PrimaryContactId:
+                type: string
+              PrimaryContactEmailAddressId:
+                type: string
+              AddressId:
+                type: string
+              PhoneId:
+                type: string
+              ExhibitorStatusId:
+                type: string
+              EventExhibitorTypeId:
+                type: string
+              Description:
+                type: string
+              Comments:
+                type: string
+              PreferredBoothInfo:
+                type: string
+              PreviousExhibitorYears:
+                type: string
+              EventExhibitorImage:
+                type: string
+              FeesList:
+                type: string
+              BoothConfigurationId:
+                type: string
+              BoothPreferences:
+                type: string
+              IsModified:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/eventexhibitors:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Status:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/events/{eventdetailid}/eventexhibitortypes/lookup:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                EventExhibitorTypeId:
+                  type: integer
+                EventDetailId:
+                  type: integer
+                TenantId:
+                  type: integer
+                Name:
+                  type: string
+                FeesList:
+                  type: string
+                BoothConfigurationId:
+                  type: string
+
+  /api/events/{eventdetailid}/exhibitortypes:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              EventExhibitorTypes:
+                type: string
+
+  /api/events/{eventdetailid}/exhibitortypes/{eventexhibitortypeid}:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventexhibitortypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventExhibitorTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              MaximumExhibitors:
+                type: string
+              BoothPersonnelNote:
+                type: string
+              IncludedAttendeeQuantity:
+                type: string
+              ExhibitorAttendeeEventRegistrationTypeId:
+                type: string
+              FeesList:
+                type: string
+              BoothConfigurationId:
+                type: string
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventexhibitortypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventExhibitorTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              MaximumExhibitors:
+                type: string
+              BoothPersonnelNote:
+                type: string
+              IncludedAttendeeQuantity:
+                type: string
+              ExhibitorAttendeeEventRegistrationTypeId:
+                type: string
+              FeesList:
+                type: string
+              BoothConfigurationId:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventExhibitorTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              MaximumExhibitors:
+                type: string
+              IncludedAttendeeQuantity:
+                type: string
+              Fees:
+                type: string
+              BoothConfigurationName:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventexhibitortypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/financial:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              RegistrationTypes:
+                type: string
+
+  /api/events/{eventdetailid}/goals:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              AttendeeCountGoal:
+                type: string
+              AttendeeRevenueGoal:
+                type: number
+              SponsorCountGoal:
+                type: string
+              SponsorRevenueGoal:
+                type: number
+              ExhibitorCountGoal:
+                type: string
+              ExhibitorRevenueGoal:
+                type: number
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              AttendeeCountGoal:
+                type: string
+              AttendeeRevenueGoal:
+                type: number
+              SponsorCountGoal:
+                type: string
+              SponsorRevenueGoal:
+                type: number
+              ExhibitorCountGoal:
+                type: string
+              ExhibitorRevenueGoal:
+                type: number
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/preimage/{imageid}:
+    delete:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: imageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/preimage/{imageid}/{fileid}:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: imageid
+          in: path
+          required: true
+          type: string
+        - name: fileid
+          in: path
+          required: true
+          type: string
+        - name: imagegalleryitem
+          in: body
+          required: false
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              FileId:
+                type: integer
+              Url:
+                type: string
+              Title:
+                type: string
+              Caption:
+                type: string
+              CropX:
+                type: integer
+              CropY:
+                type: integer
+              CropHeight:
+                type: integer
+              CropWidth:
+                type: integer
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ImageId:
+                type: integer
+              Url:
+                type: string
+              Title:
+                type: string
+              Caption:
+                type: string
+
+  /api/events/{eventdetailid}/preimage/order:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: imageids
+          in: body
+          required: false
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/registrationtypes/lookup:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/events/{eventdetailid}/session/{eventsessionid}:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventsessionid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventSessionId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              EventTimeslotId:
+                type: string
+              LocationId:
+                type: string
+              AttendeeLimit:
+                type: integer
+              EventRegistrationTypes:
+                type: string
+              EventSessionImage:
+                type: string
+              Speakers:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSessionId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventDateTime:
+                type: string
+              Timeslot:
+                type: string
+              Name:
+                type: string
+              Location:
+                type: string
+              AttendeeLimit:
+                type: integer
+              AttendeesRegistered:
+                type: integer
+              AttendeesAttended:
+                type: integer
+
+  /api/events/{eventdetailid}/session/{eventsessionid}/{auditid}:
+    delete:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventsessionid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/session/{eventsessionid}/attendees:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventsessionid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventSessionId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Attendees:
+                type: string
+              ShouldHideSelection:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/session/{eventsessionid}/attendees/{shouldhideselection}:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventsessionid
+          in: path
+          required: true
+          type: string
+        - name: shouldhideselection
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSessionId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Attendees:
+                type: string
+              ShouldHideSelection:
+                type: boolean
+
+  /api/events/{eventdetailid}/sessions/summary:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      description:
+        "GET: List summary of event sessions."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Criteria:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/events/{eventdetailid}/sponsors:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              EventDetailId:
+                type: integer
+              SponsorshipType:
+                type: string
+              SponsorStatusId:
+                type: string
+              RegistrationDateBetween:
+                type: string
+              Criteria:
+                type: string
+              HideCancelled:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/events/{eventdetailid}/sponsorship/{eventsponsorshipid}/{auditid}:
+    delete:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventsponsorshipid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/sponsorship/lookup:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/{eventdetailid}/tasks:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/events/{eventdetailid}/timeslots:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              TimeSlots:
+                type: string
+
+  /api/events/{eventdetailid}/timeslots/{eventtimeslotid}:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventtimeslotid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventTimeslotId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              StartTime:
+                type: string
+              EndTime:
+                type: string
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventtimeslotid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventTimeslotId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              StartTime:
+                type: string
+              EndTime:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventTimeslotId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              StartTime:
+                type: string
+              EndTime:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventtimeslotid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventdetailid}/videos/{videoid}/edit:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: videoid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              VideoId:
+                type: integer
+              Url:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              VideoTypeId:
+                type: string
+              EmbedCode:
+                type: string
+
+  /api/events/{eventid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventAuditId:
+                type: integer
+              EventDetailAuditId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              ContactName:
+                type: string
+              ContactId:
+                type: string
+              Description:
+                type: string
+              LocationDescription:
+                type: string
+              PublishDate:
+                type: string
+              StartDateTime:
+                type: string
+              EndDateTime:
+                type: string
+              IsAllDay:
+                type: boolean
+              EnableRegistration:
+                type: boolean
+              EnableSessions:
+                type: boolean
+              EnableExhibitors:
+                type: boolean
+              HoursDescription:
+                type: string
+              ContactDescription:
+                type: string
+              CategoryItems:
+                type: string
+              CalendarItems:
+                type: string
+              ContentStatusId:
+                type: string
+              CopyFromExistingEvent:
+                type: boolean
+              ExistingEventId:
+                type: string
+              ExistingEventName:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventAuditId:
+                type: integer
+              EventDetailAuditId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              ContactName:
+                type: string
+              ContactId:
+                type: string
+              Description:
+                type: string
+              LocationDescription:
+                type: string
+              PublishDate:
+                type: string
+              StartDateTime:
+                type: string
+              EndDateTime:
+                type: string
+              IsAllDay:
+                type: boolean
+              EnableRegistration:
+                type: boolean
+              EnableSessions:
+                type: boolean
+              EnableExhibitors:
+                type: boolean
+              HoursDescription:
+                type: string
+              ContactDescription:
+                type: string
+              CategoryItems:
+                type: string
+              CalendarItems:
+                type: string
+              ContentStatusId:
+                type: string
+              CopyFromExistingEvent:
+                type: boolean
+              ExistingEventId:
+                type: string
+              ExistingEventName:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventIdHashed:
+                type: string
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              OrganizedBy:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              IsSerial:
+                type: boolean
+              RegisteredAttendees:
+                type: integer
+              Total:
+                type: number
+              Sold:
+                type: integer
+              Registration:
+                type: string
+              EventSeriesId:
+                type: string
+              EventLogoUrl:
+                type: string
+              IsAllDay:
+                type: boolean
+              RegistrationStartDate:
+                type: string
+              RegistrationEndDate:
+                type: string
+              IsRegisterationAvailable:
+                type: boolean
+              PublicUrl:
+                type: string
+
+  /api/events/{eventid}/{eventdetailid}/eventexhibitor/{eventexhibitorid}/{exhibitorstatusid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventexhibitorid
+          in: path
+          required: true
+          type: string
+        - name: exhibitorstatusid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventExhibitorId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              EmailAddressId:
+                type: string
+              WebSite:
+                type: string
+              DisplayNameOverride:
+                type: string
+              PrimaryContactId:
+                type: string
+              PrimaryContactEmailAddressId:
+                type: string
+              AddressId:
+                type: string
+              PhoneId:
+                type: string
+              ExhibitorStatusId:
+                type: string
+              EventExhibitorTypeId:
+                type: string
+              Description:
+                type: string
+              Comments:
+                type: string
+              PreferredBoothInfo:
+                type: string
+              PreviousExhibitorYears:
+                type: string
+              EventExhibitorImage:
+                type: string
+              FeesList:
+                type: string
+              BoothConfigurationId:
+                type: string
+              BoothPreferences:
+                type: string
+              IsModified:
+                type: boolean
+
+  /api/events/{eventid}/{eventdetailid}/eventexhibitorregistrationinfo:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              RegistrationStartDate:
+                type: string
+              RegistrationEndDate:
+                type: string
+              ExhibitorDirectoryId:
+                type: string
+              TermsOfUseId:
+                type: string
+              AllowWaitingList:
+                type: boolean
+              EnableOnlineExhibitorRegistration:
+                type: boolean
+              AllowLogo:
+                type: boolean
+              LogoWidth:
+                type: string
+              LogoHeight:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              RegistrationStartDate:
+                type: string
+              RegistrationEndDate:
+                type: string
+              ExhibitorDirectoryId:
+                type: string
+              TermsOfUseId:
+                type: string
+              AllowWaitingList:
+                type: boolean
+              EnableOnlineExhibitorRegistration:
+                type: boolean
+              AllowLogo:
+                type: boolean
+              LogoWidth:
+                type: string
+              LogoHeight:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              RegistrationStartDate:
+                type: string
+              RegistrationEndDate:
+                type: string
+              ExhibitorDirectoryId:
+                type: string
+              TermsOfUseId:
+                type: string
+              AllowWaitingList:
+                type: boolean
+              EnableOnlineExhibitorRegistration:
+                type: boolean
+              AllowLogo:
+                type: boolean
+              LogoWidth:
+                type: string
+              LogoHeight:
+                type: string
+
+  /api/events/{eventid}/{eventdetailid}/exhibitorreginstructionssettings:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventName:
+                type: string
+              RegistrationInstructions:
+                type: string
+              ConfirmationMessage:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventName:
+                type: string
+              RegistrationInstructions:
+                type: string
+              ConfirmationMessage:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventName:
+                type: string
+              RegistrationInstructions:
+                type: string
+              ConfirmationMessage:
+                type: string
+
+  /api/events/{eventid}/{eventdetailid}/exhibitorssetup:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventName:
+                type: string
+              EventExhibitorRegistrationInfoDetails:
+                type: string
+              BoothConfigurationsDetails:
+                type: string
+              EventExhibitorRegistrationTypeDetails:
+                type: string
+              RegistrationInstructionsDetails:
+                type: string
+
+  /api/events/{eventid}/{eventdetailid}/sessions/{eventsessionid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventsessionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSessionId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              EventTimeslotId:
+                type: string
+              LocationId:
+                type: string
+              AttendeeLimit:
+                type: integer
+              EventRegistrationTypes:
+                type: string
+              EventSessionImage:
+                type: string
+              Speakers:
+                type: string
+
+  /api/events/{eventid}/attendance:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              AttendStatusList:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              AttendStatusList:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventid}/attendee/{eventattendeeid}/cancel:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              ContactId:
+                type: integer
+              RegistrationDate:
+                type: string
+              Attendee:
+                type: string
+              Registration:
+                type: string
+              RegistrationType:
+                type: string
+              Invoice:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              ContactId:
+                type: integer
+              RegistrationDate:
+                type: string
+              Attendee:
+                type: string
+              Registration:
+                type: string
+              RegistrationType:
+                type: string
+              Invoice:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventAttendeeId:
+                type: integer
+              ContactId:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              EventAttendeeStatusId:
+                type: string
+              ContactName:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              OrganizationContactId:
+                type: string
+              OrganizationName:
+                type: string
+              Title:
+                type: string
+              Address:
+                type: string
+              Phone:
+                type: string
+              EmailAddress:
+                type: string
+              Actions:
+                type: string
+              CustomFieldValues:
+                type: string
+              EventTimeSlots:
+                type: string
+              AddToWaitingList:
+                type: boolean
+              DiscountsApplied:
+                type: string
+              MembershipIds:
+                type: string
+              IsRegistered:
+                type: boolean
+              isDeleted:
+                type: boolean
+              ContactName:
+                type: string
+              OrganizationName:
+                type: string
+              Title:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/{eventid}/attendee/{eventattendeeid}/sessions:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Sessions:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Sessions:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              ContactId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EventRegistrationId:
+                type: integer
+              Status:
+                type: string
+              Name:
+                type: string
+              Organization:
+                type: string
+              InvoiceNumber:
+                type: string
+              Comments:
+                type: string
+              Price:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/events/{eventid}/attendee/{eventattendeeid}/sessions/send:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventid}/attendees/{eventattendeeid}/registration/{eventregistrationid}/edit:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: eventregistrationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      description:
+        "GET: Edit event registration from list summary."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventAttendeeId:
+                type: integer
+              EventRegistrationId:
+                type: integer
+              EventRegistrationTypeId:
+                type: string
+              RegisteredBy:
+                type: integer
+              EventRegistrationTypeName:
+                type: string
+              WebReferralSourceTypeId:
+                type: string
+              RegisteredByName:
+                type: string
+              RegistrationDate:
+                type: string
+              PaidDate:
+                type: string
+              EventAttendees:
+                type: string
+              Comments:
+                type: string
+              ForceSave:
+                type: boolean
+              IsDeleted:
+                type: boolean
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: eventregistrationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventAttendeeId:
+                type: integer
+              EventRegistrationId:
+                type: integer
+              EventRegistrationTypeId:
+                type: string
+              RegisteredBy:
+                type: integer
+              EventRegistrationTypeName:
+                type: string
+              WebReferralSourceTypeId:
+                type: string
+              RegisteredByName:
+                type: string
+              RegistrationDate:
+                type: string
+              PaidDate:
+                type: string
+              EventAttendees:
+                type: string
+              Comments:
+                type: string
+              ForceSave:
+                type: boolean
+              IsDeleted:
+                type: boolean
+      tags:
+        - Events
+      description:
+        "POST: Edit event registration from list summary."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              ContactId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EventRegistrationId:
+                type: integer
+              Status:
+                type: string
+              Name:
+                type: string
+              Organization:
+                type: string
+              InvoiceNumber:
+                type: string
+              Comments:
+                type: string
+              Price:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/events/{eventid}/attendees/mailinglabels:
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              MailingSortOrder:
+                type: string
+              FontFamily:
+                type: string
+              FontSize:
+                type: string
+              Endorsement:
+                type: string
+              IsIncludeBusinessName:
+                type: boolean
+              IsIncludePrimaryRepName:
+                type: boolean
+              IsPositionPrimaryRepNameAboveBusinessName:
+                type: boolean
+              IsIncludeCurrentResident:
+                type: boolean
+              EventId:
+                type: integer
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/events/{eventid}/attendees/nonregistered/{search}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: search
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Name:
+                  type: string
+                ContactId:
+                  type: string
+                ContactName:
+                  type: string
+                OrganizationContactId:
+                  type: string
+                OrganizationName:
+                  type: string
+                Title:
+                  type: string
+                MembershipStatusTypeId:
+                  type: string
+                EmailAddress:
+                  type: string
+                Phone:
+                  type: string
+                Address:
+                  type: string
+
+  /api/events/{eventid}/attendees/summary:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      description:
+        "GET: List summary of event attendees."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Status:
+                type: string
+              ExhibitorTypeId:
+                type: string
+              SourceType:
+                type: string
+              RegistrationDate:
+                type: string
+              DiscountId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/events/{eventid}/attendeesetup:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventName:
+                type: string
+              AttendeeRegistrationOptions:
+                type: string
+              RegistrationFormOptions:
+                type: string
+              AttendeeRegistrationTypes:
+                type: string
+              AvailableDiscounts:
+                type: string
+              RegistrationInstructionsDetails:
+                type: string
+              ObjectTypeId:
+                type: string
+              ExtraOptionsJson:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventName:
+                type: string
+              AttendeeRegistrationOptions:
+                type: string
+              RegistrationFormOptions:
+                type: string
+              AttendeeRegistrationTypes:
+                type: string
+              AvailableDiscounts:
+                type: string
+              RegistrationInstructionsDetails:
+                type: string
+              ObjectTypeId:
+                type: string
+              ExtraOptionsJson:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventName:
+                type: string
+              AttendeeRegistrationOptions:
+                type: string
+              RegistrationFormOptions:
+                type: string
+              AttendeeRegistrationTypes:
+                type: string
+              AvailableDiscounts:
+                type: string
+              RegistrationInstructionsDetails:
+                type: string
+              ObjectTypeId:
+                type: string
+              ExtraOptionsJson:
+                type: string
+
+  /api/events/{eventid}/base:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              StartDateTime:
+                type: string
+              EndDateTime:
+                type: string
+              IsNotEventEnded:
+                type: boolean
+              ContentStatusId:
+                type: string
+              ContentStatus:
+                type: string
+              HashedEventId:
+                type: string
+              EventLogoImage:
+                type: string
+              IsEventsModuleEnabled:
+                type: boolean
+              Actions:
+                type: string
+              EventDetailAuditId:
+                type: string
+              EventAuditId:
+                type: string
+              PublicUrl:
+                type: string
+              EnableSessions:
+                type: boolean
+              EnableExhibitors:
+                type: boolean
+              EventDetailUrl:
+                type: string
+              SponsorsModule:
+                type: boolean
+              ExhibitorsModule:
+                type: boolean
+
+  /api/events/{eventid}/details/{eventdetailid}/registrations/add:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      description:
+        "GET: Required to initialize model's attendees collection."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ReCaptchaResponse:
+                type: string
+              DisableReCaptchaCheck:
+                type: boolean
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventRegistrationId:
+                type: integer
+              HasRegistrationTypes:
+                type: boolean
+              EventRegistrationTypeId:
+                type: string
+              Quantity:
+                type: integer
+              SystemEventRegistrationTypeId:
+                type: string
+              WebReferralSourceTypeId:
+                type: string
+              RegistrationDate:
+                type: string
+              PaidDate:
+                type: string
+              EventAttendees:
+                type: string
+              Comments:
+                type: string
+              ForceSave:
+                type: boolean
+
+  /api/events/{eventid}/general:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventBasicDetails:
+                type: string
+              EventRegistrationSummary:
+                type: string
+              EventDescription:
+                type: string
+              EventSponsorSummary:
+                type: string
+              EventHours:
+                type: string
+              EventExhibitorsSummary:
+                type: string
+              Images:
+                type: string
+              Videos:
+                type: string
+              Pricing:
+                type: string
+              Location:
+                type: string
+              Goals:
+                type: string
+              EventSeries:
+                type: string
+
+  /api/events/{eventid}/general/description:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              ShortDescription:
+                type: string
+              Description:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              Description:
+                type: string
+
+  /api/events/{eventid}/general/hours:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              StartDateTime:
+                type: string
+              EndDateTime:
+                type: string
+              IsAllDay:
+                type: boolean
+              HoursDescription:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              StartDateTime:
+                type: string
+              EndDateTime:
+                type: string
+              IsAllDay:
+                type: boolean
+              HoursDescription:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              IsAllDayEvent:
+                type: boolean
+              StartDateTime:
+                type: string
+              EventStartDate:
+                type: string
+              EndDateTime:
+                type: string
+              EventEndDate:
+                type: string
+              IsAllDay:
+                type: string
+              HoursDescription:
+                type: string
+
+  /api/events/{eventid}/general/info:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              ContentStatusId:
+                type: string
+              PublishDate:
+                type: string
+              OrganizationContactId:
+                type: string
+              Organization:
+                type: string
+              ContactId:
+                type: string
+              Contact:
+                type: string
+              CategoryItems:
+                type: string
+              CalendarItems:
+                type: string
+              PaymentGatewayId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EnableExhibitors:
+                type: boolean
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              ContentStatusId:
+                type: string
+              PublishDate:
+                type: string
+              OrganizationContactId:
+                type: string
+              Organization:
+                type: string
+              ContactId:
+                type: string
+              Contact:
+                type: string
+              CategoryItems:
+                type: string
+              CalendarItems:
+                type: string
+              PaymentGatewayId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EnableExhibitors:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              Name:
+                type: string
+              ContentStatusIdDisplayName:
+                type: string
+              PublishDate:
+                type: string
+              ActiveDate:
+                type: string
+              OrganizationName:
+                type: string
+              ContactName:
+                type: string
+              CategoryItems:
+                type: string
+              CreatedBy:
+                type: integer
+              CreatedByName:
+                type: string
+              CreatedDate:
+                type: string
+              CreatedDateStr:
+                type: string
+
+  /api/events/{eventid}/general/location:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              VenueId:
+                type: string
+              Address1:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+              LocationDescription:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              VenueId:
+                type: string
+              Address1:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+              LocationDescription:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              LocationAddress:
+                type: string
+              LocationDescription:
+                type: string
+
+  /api/events/{eventid}/general/pricing:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              PricingDescription:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              PricingDescription:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PricingDescription:
+                type: string
+
+  /api/events/{eventid}/publish:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/{eventid}/regformsettings:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              TenantId:
+                type: integer
+              EnableSessions:
+                type: boolean
+              DisplayAddress:
+                type: boolean
+              RequireAddress:
+                type: boolean
+              DisplayCellPhone:
+                type: boolean
+              RequireCellPhone:
+                type: boolean
+              AdditionalAttendeesTerm:
+                type: string
+              RequireEmail:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              AllowRegistrationWithoutSessionSelection:
+                type: boolean
+              MealCustomFieldId:
+                type: string
+              SuggestedMealChoices:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              TenantId:
+                type: integer
+              EnableSessions:
+                type: boolean
+              DisplayAddress:
+                type: boolean
+              RequireAddress:
+                type: boolean
+              DisplayCellPhone:
+                type: boolean
+              RequireCellPhone:
+                type: boolean
+              AdditionalAttendeesTerm:
+                type: string
+              RequireEmail:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              AllowRegistrationWithoutSessionSelection:
+                type: boolean
+              MealCustomFieldId:
+                type: string
+              SuggestedMealChoices:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              TenantId:
+                type: integer
+              EnableSessions:
+                type: boolean
+              DisplayAddress:
+                type: boolean
+              RequireAddress:
+                type: boolean
+              DisplayCellPhone:
+                type: boolean
+              RequireCellPhone:
+                type: boolean
+              AdditionalAttendeesTerm:
+                type: string
+              RequireEmail:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              AllowRegistrationWithoutSessionSelection:
+                type: boolean
+              MealCustomFieldId:
+                type: string
+              SuggestedMealChoices:
+                type: string
+
+  /api/events/{eventid}/reginstructionssettings:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventName:
+                type: string
+              AttendeeRegistrationInstructions:
+                type: string
+              AdditionalEventConfirmationMessage:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventName:
+                type: string
+              AttendeeRegistrationInstructions:
+                type: string
+              AdditionalEventConfirmationMessage:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventName:
+                type: string
+              AttendeeRegistrationInstructions:
+                type: string
+              AdditionalEventConfirmationMessage:
+                type: string
+
+  /api/events/{eventid}/registrations/add:
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ReCaptchaResponse:
+                type: string
+              DisableReCaptchaCheck:
+                type: boolean
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventRegistrationId:
+                type: integer
+              HasRegistrationTypes:
+                type: boolean
+              EventRegistrationTypeId:
+                type: string
+              Quantity:
+                type: integer
+              SystemEventRegistrationTypeId:
+                type: string
+              WebReferralSourceTypeId:
+                type: string
+              RegistrationDate:
+                type: string
+              PaidDate:
+                type: string
+              EventAttendees:
+                type: string
+              Comments:
+                type: string
+              ForceSave:
+                type: boolean
+      tags:
+        - Events
+      description:
+        "POST: Event registration from overview."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              ContactId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EventRegistrationId:
+                type: integer
+              Status:
+                type: string
+              Name:
+                type: string
+              Organization:
+                type: string
+              InvoiceNumber:
+                type: string
+              Comments:
+                type: string
+              Price:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/events/{eventid}/regsettings:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              RegistrationStartDate:
+                type: string
+              RegistrationEndDate:
+                type: string
+              MaximumAttendees:
+                type: string
+              ExternalRegistrationLink:
+                type: string
+              AllowWaitingList:
+                type: boolean
+              ShowRegisteredAttendeesPublically:
+                type: boolean
+              ShowRegisteredAttendeesToMembers:
+                type: boolean
+              EnableRegistration:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              SessionChangesUntilDateTime:
+                type: string
+              ExtraOptionsJson:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              RegistrationStartDate:
+                type: string
+              RegistrationEndDate:
+                type: string
+              MaximumAttendees:
+                type: string
+              ExternalRegistrationLink:
+                type: string
+              AllowWaitingList:
+                type: boolean
+              ShowRegisteredAttendeesPublically:
+                type: boolean
+              ShowRegisteredAttendeesToMembers:
+                type: boolean
+              EnableRegistration:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              SessionChangesUntilDateTime:
+                type: string
+              ExtraOptionsJson:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              RegistrationStartDate:
+                type: string
+              RegistrationEndDate:
+                type: string
+              MaximumAttendees:
+                type: string
+              ExternalRegistrationLink:
+                type: string
+              AllowWaitingList:
+                type: boolean
+              ShowRegisteredAttendeesPublically:
+                type: boolean
+              ShowRegisteredAttendeesToMembers:
+                type: boolean
+              EnableRegistration:
+                type: boolean
+              CollectDonations:
+                type: boolean
+              SessionChangesUntilDateTime:
+                type: string
+              ExtraOptionsJson:
+                type: string
+
+  /api/events/{eventid}/series:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSeriesId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              ParentEventDetailId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              SeriesStartDate:
+                type: string
+              SeriesEndDate:
+                type: string
+              StartTime:
+                type: string
+              EndTime:
+                type: string
+              SeriesTypeId:
+                type: string
+              DailyRecurrence:
+                type: string
+              WeeklyRecurrence:
+                type: string
+              MonthlyRecurrence:
+                type: string
+              AnnualRecurrence:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventSeriesId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              ParentEventDetailId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              SeriesStartDate:
+                type: string
+              SeriesEndDate:
+                type: string
+              StartTime:
+                type: string
+              EndTime:
+                type: string
+              SeriesTypeId:
+                type: string
+              DailyRecurrence:
+                type: string
+              WeeklyRecurrence:
+                type: string
+              MonthlyRecurrence:
+                type: string
+              AnnualRecurrence:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DisplayText:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              SeriesTypeId:
+                type: string
+              Interval:
+                type: integer
+              RecurrenceDay:
+                type: integer
+              RecurrenceDaysOfWeek:
+                type: string
+              DayOfWeekOrdinalTypeId:
+                type: string
+              SeriesStartDate:
+                type: string
+              SeriesEndDate:
+                type: string
+              StartTime:
+                type: string
+              EndTime:
+                type: string
+
+  /api/events/{eventid}/series/{eventseriesid}/{auditid}:
+    delete:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventseriesid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DisplayText:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              SeriesTypeId:
+                type: string
+              Interval:
+                type: integer
+              RecurrenceDay:
+                type: integer
+              RecurrenceDaysOfWeek:
+                type: string
+              DayOfWeekOrdinalTypeId:
+                type: string
+              SeriesStartDate:
+                type: string
+              SeriesEndDate:
+                type: string
+              StartTime:
+                type: string
+              EndTime:
+                type: string
+
+  /api/events/{eventid}/sessions/lookup/{eventattendeeid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/events/{eventid}/sponsors/mailinglabels:
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              MailingSortOrder:
+                type: string
+              FontFamily:
+                type: string
+              FontSize:
+                type: string
+              Endorsement:
+                type: string
+              IsIncludeBusinessName:
+                type: boolean
+              IsIncludePrimaryRepName:
+                type: boolean
+              IsPositionPrimaryRepNameAboveBusinessName:
+                type: boolean
+              IsIncludeCurrentResident:
+                type: boolean
+              EventId:
+                type: integer
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/events/{eventid}/sponsorsetup:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              SponsorRegistrationOptions:
+                type: string
+              SponsorRegistrationTypes:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              SponsorRegistrationOptions:
+                type: string
+              SponsorRegistrationTypes:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              SponsorRegistrationOptions:
+                type: string
+              SponsorRegistrationTypes:
+                type: string
+
+  /api/events/{eventid}/sponsorship/{eventsponsorid}/lookup:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventsponsorid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/events/{eventid}/sponsorship/{eventsponsorshipid}/edit:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventsponsorshipid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSponsorshipId:
+                type: integer
+              EventSponsorshipSaleableItemId:
+                type: string
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Position:
+                type: string
+              SalesGoalQuantity:
+                type: string
+              Quantity:
+                type: string
+              Price:
+                type: string
+              FeeItems:
+                type: string
+              SponsorBenefits:
+                type: string
+              AuditId:
+                type: integer
+
+  /api/events/{eventid}/tasks/{taskitemid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              AuditId:
+                type: integer
+              AssignedToContactId:
+                type: string
+              Name:
+                type: string
+              TaskTypeId:
+                type: string
+              TaskPriorityId:
+                type: string
+              ProjectName:
+                type: string
+              ProjectMilestoneId:
+                type: string
+              ProjectId:
+                type: string
+              Description:
+                type: string
+              TaskItems:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentOnTaskId:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+              ContactId:
+                type: string
+              TaskItemInfoJson:
+                type: string
+              TaskData:
+                type: string
+              AssignedToContactId:
+                type: string
+              Name:
+                type: string
+              TaskTypeId:
+                type: string
+              TaskPriorityId:
+                type: string
+              Description:
+                type: string
+              TaskItems:
+                type: string
+              ProjectName:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              DueDate:
+                type: string
+              StartDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentOnTaskId:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              AuditId:
+                type: integer
+              AssignedToContactId:
+                type: string
+              Name:
+                type: string
+              TaskTypeId:
+                type: string
+              TaskPriorityId:
+                type: string
+              ProjectName:
+                type: string
+              ProjectMilestoneId:
+                type: string
+              ProjectId:
+                type: string
+              Description:
+                type: string
+              TaskItems:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentOnTaskId:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+              ContactId:
+                type: string
+              TaskItemInfoJson:
+                type: string
+              TaskData:
+                type: string
+              AssignedToContactId:
+                type: string
+              Name:
+                type: string
+              TaskTypeId:
+                type: string
+              TaskPriorityId:
+                type: string
+              Description:
+                type: string
+              TaskItems:
+                type: string
+              ProjectName:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              DueDate:
+                type: string
+              StartDate:
+                type: string
+              EstimatedHours:
+                type: string
+              DependentOnTaskId:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              EventId:
+                type: integer
+              ProjectId:
+                type: string
+              SystemTaskTypeId:
+                type: string
+              ContactId:
+                type: string
+              TaskItemName:
+                type: string
+              ProjectName:
+                type: string
+              TaskPriority:
+                type: string
+              TaskType:
+                type: string
+              AssignedToContact:
+                type: string
+              StartDate:
+                type: string
+              DueDate:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+
+  /api/events/{eventid}/timeslots/lookup:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/events/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              Status:
+                type: string
+              Categories:
+                type: string
+              Calendar:
+                type: string
+              StartDateBetween:
+                type: string
+              HasAwaitingContacts:
+                type: boolean
+              IsMembersOnly:
+                type: boolean
+              HasUnpaidInvoices:
+                type: boolean
+              HasSponsorshipsAvailable:
+                type: boolean
+              HasOverdueTasks:
+                type: boolean
+              FutureEvents:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/events/attendees/{eventattendeeid}/edit:
+    post:
+      parameters:
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventId:
+                type: integer
+              ContactId:
+                type: string
+              EventRegistrationId:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              EventAttendeeId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              ContactName:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              EmailAddress:
+                type: string
+              OrganizationContactId:
+                type: string
+              OrganizationName:
+                type: string
+              Phone:
+                type: string
+              Address:
+                type: string
+              CustomFieldValues:
+                type: string
+              AddToWaitingList:
+                type: boolean
+              EventAttendeeId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              ContactName:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Fields:
+                type: string
+              IsBackoffice:
+                type: boolean
+              forceSave:
+                type: boolean
+      tags:
+        - Events
+      description:
+        "POST: Edit attendee from list summary."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              ContactId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EventRegistrationId:
+                type: integer
+              Status:
+                type: string
+              Name:
+                type: string
+              Organization:
+                type: string
+              InvoiceNumber:
+                type: string
+              Comments:
+                type: string
+              Price:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/events/attendees/{eventattendeeid}/edit/{eventattendeestatusid}/{contactid}:
+    get:
+      parameters:
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeestatusid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      description:
+        "GET: Edit attendee from list summary."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              ContactId:
+                type: string
+              EventRegistrationId:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              EventAttendeeId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              ContactName:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              EmailAddress:
+                type: string
+              OrganizationContactId:
+                type: string
+              OrganizationName:
+                type: string
+              Phone:
+                type: string
+              Address:
+                type: string
+              CustomFieldValues:
+                type: string
+              AddToWaitingList:
+                type: boolean
+              EventAttendeeId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              ContactName:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Fields:
+                type: string
+              IsBackoffice:
+                type: boolean
+              forceSave:
+                type: boolean
+
+  /api/events/attendees/{eventattendeeid}/status:
+    get:
+      parameters:
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      description:
+        "GET: Edit attendee status."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              ContactName:
+                type: string
+              EventAttendeeStatusId:
+                type: string
+    post:
+      parameters:
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              ContactName:
+                type: string
+              EventAttendeeStatusId:
+                type: string
+      tags:
+        - Events
+      description:
+        "POST: Edit attendee status."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              ContactId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EventRegistrationId:
+                type: integer
+              Status:
+                type: string
+              Name:
+                type: string
+              Organization:
+                type: string
+              InvoiceNumber:
+                type: string
+              Comments:
+                type: string
+              Price:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/events/attendees/delete/{eventattendeeid}:
+    delete:
+      parameters:
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/attendees/exporttoexcel/{eventid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/events/attendees/unregister/{eventattendeeid}:
+    get:
+      parameters:
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/boothconfiguration/{boothconfigurationid}:
+    get:
+      parameters:
+        - name: boothconfigurationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BoothConfigurationId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              LocationId:
+                type: string
+              ConfigurationDetailsList:
+                type: string
+    post:
+      parameters:
+        - name: boothconfigurationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              BoothConfigurationId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              LocationId:
+                type: string
+              ConfigurationDetailsList:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BoothConfigurationId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              BoothConfigurationDetails:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: boothconfigurationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/boothconfigurationdetail/{boothconfigurationdetailid}:
+    get:
+      parameters:
+        - name: boothconfigurationdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BoothConfigurationDetailId:
+                type: integer
+              BoothConfigurationId:
+                type: integer
+              StartingNumber:
+                type: integer
+              EndingNumber:
+                type: integer
+              Name:
+                type: string
+              BoothConfigurationName:
+                type: string
+              Width:
+                type: string
+              Height:
+                type: string
+              Style:
+                type: string
+              MinPurchaseAmount:
+                type: string
+              MaxPurchaseAmount:
+                type: string
+              BoothConfigurationId:
+                type: integer
+    post:
+      parameters:
+        - name: boothconfigurationdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              BoothConfigurationDetailId:
+                type: integer
+              BoothConfigurationId:
+                type: integer
+              StartingNumber:
+                type: integer
+              EndingNumber:
+                type: integer
+              Name:
+                type: string
+              BoothConfigurationName:
+                type: string
+              Width:
+                type: string
+              Height:
+                type: string
+              Style:
+                type: string
+              MinPurchaseAmount:
+                type: string
+              MaxPurchaseAmount:
+                type: string
+              BoothConfigurationId:
+                type: integer
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventExhibitorTypeId:
+                type: integer
+              BoothConfigurationDetailId:
+                type: integer
+              BoothConfigurationId:
+                type: integer
+              StartingNumber:
+                type: integer
+              EndingNumber:
+                type: integer
+              Name:
+                type: string
+              BoothConfigurationName:
+                type: string
+              Width:
+                type: string
+              Height:
+                type: string
+              Style:
+                type: string
+              MinPurchaseAmount:
+                type: string
+              MaxPurchaseAmount:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/boothconfigurationdetails/lookup:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                EventExhibitorTypeId:
+                  type: integer
+                BoothConfigurationDetailId:
+                  type: integer
+                BoothConfigurationId:
+                  type: integer
+                StartingNumber:
+                  type: integer
+                EndingNumber:
+                  type: integer
+                Name:
+                  type: string
+                BoothConfigurationName:
+                  type: string
+                Width:
+                  type: string
+                Height:
+                  type: string
+                Style:
+                  type: string
+                MinPurchaseAmount:
+                  type: string
+                MaxPurchaseAmount:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/events/boothconfigurations/list:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BoothConfigurations:
+                type: string
+
+  /api/events/boothconfigurations/lookup:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                BoothConfigurationId:
+                  type: integer
+                TenantId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                BoothConfigurationDetails:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/events/copy/{eventid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              EventAuditId:
+                type: integer
+              EventDetailAuditId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              ContactName:
+                type: string
+              ContactId:
+                type: string
+              Description:
+                type: string
+              LocationDescription:
+                type: string
+              PublishDate:
+                type: string
+              StartDateTime:
+                type: string
+              EndDateTime:
+                type: string
+              IsAllDay:
+                type: boolean
+              EnableRegistration:
+                type: boolean
+              EnableSessions:
+                type: boolean
+              EnableExhibitors:
+                type: boolean
+              HoursDescription:
+                type: string
+              ContactDescription:
+                type: string
+              CategoryItems:
+                type: string
+              CalendarItems:
+                type: string
+              ContentStatusId:
+                type: string
+              CopyFromExistingEvent:
+                type: boolean
+              ExistingEventId:
+                type: string
+              ExistingEventName:
+                type: string
+
+  /api/events/discount/delete/{eventdiscountid}/{eventdiscountauditid}/{discountid}/{discountauditid}:
+    delete:
+      parameters:
+        - name: eventdiscountid
+          in: path
+          required: true
+          type: string
+        - name: eventdiscountauditid
+          in: path
+          required: true
+          type: string
+        - name: discountid
+          in: path
+          required: true
+          type: string
+        - name: discountauditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/discount/type/early/{eventdiscountid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventdiscountid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+
+  /api/events/discount/type/early/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EditorType:
+                type: string
+              IsGlobal:
+                type: boolean
+              Name:
+                type: string
+              PromoCode:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              AppliesTo:
+                type: string
+                description: "This is a description of who gets the discount.
+    1) If promo code then blank
+    2) If early bird, then blank
+    3) If membership type then list that membership type
+    4) If volume then say 'Quantity discount over X'"
+              DiscountValue:
+                type: string
+                description: "Summary of the discount. Either %X percent off, or $X off, or $X, depending on the discount pricing"
+              DiscountPercent:
+                type: string
+              DiscountAmount:
+                type: string
+              DiscountNewPrice:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/discount/type/membership/{eventdiscountid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventdiscountid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              MembershipTypeId:
+                type: string
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+
+  /api/events/discount/type/membership/save/{eventdetailid}:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              MembershipTypeId:
+                type: string
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EditorType:
+                type: string
+              IsGlobal:
+                type: boolean
+              Name:
+                type: string
+              PromoCode:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              AppliesTo:
+                type: string
+                description: "This is a description of who gets the discount.
+    1) If promo code then blank
+    2) If early bird, then blank
+    3) If membership type then list that membership type
+    4) If volume then say 'Quantity discount over X'"
+              DiscountValue:
+                type: string
+                description: "Summary of the discount. Either %X percent off, or $X off, or $X, depending on the discount pricing"
+              DiscountPercent:
+                type: string
+              DiscountAmount:
+                type: string
+              DiscountNewPrice:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/discount/type/promo/{eventdiscountid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventdiscountid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              PromoCode:
+                type: string
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+
+  /api/events/discount/type/promo/save/{eventdetailid}:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              PromoCode:
+                type: string
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EditorType:
+                type: string
+              IsGlobal:
+                type: boolean
+              Name:
+                type: string
+              PromoCode:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              AppliesTo:
+                type: string
+                description: "This is a description of who gets the discount.
+    1) If promo code then blank
+    2) If early bird, then blank
+    3) If membership type then list that membership type
+    4) If volume then say 'Quantity discount over X'"
+              DiscountValue:
+                type: string
+                description: "Summary of the discount. Either %X percent off, or $X off, or $X, depending on the discount pricing"
+              DiscountPercent:
+                type: string
+              DiscountAmount:
+                type: string
+              DiscountNewPrice:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/discount/type/volume/{eventdiscountid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventdiscountid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              MinToActivateDiscount:
+                type: integer
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+
+  /api/events/discount/type/volume/save/{eventdetailid}:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EventDetailId:
+                type: string
+              Name:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              MinToActivateDiscount:
+                type: integer
+              DiscountTypeId:
+                type: integer
+              Pricing:
+                type: string
+              EventRegistrationTypeId:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDiscountId:
+                type: integer
+              EventDiscountAuditId:
+                type: integer
+              DiscountId:
+                type: integer
+              DiscountAuditId:
+                type: integer
+              EditorType:
+                type: string
+              IsGlobal:
+                type: boolean
+              Name:
+                type: string
+              PromoCode:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              AppliesTo:
+                type: string
+                description: "This is a description of who gets the discount.
+    1) If promo code then blank
+    2) If early bird, then blank
+    3) If membership type then list that membership type
+    4) If volume then say 'Quantity discount over X'"
+              DiscountValue:
+                type: string
+                description: "Summary of the discount. Either %X percent off, or $X off, or $X, depending on the discount pricing"
+              DiscountPercent:
+                type: string
+              DiscountAmount:
+                type: string
+              DiscountNewPrice:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/download/attendees/badge/{eventid}/:
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              EventId:
+                type: integer
+              EventAttendeeId:
+                type: integer
+              DocumentGenerationTemplateId:
+                type: string
+              ShowTenantLogo:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/events/download/attendees/badges/{eventid}/:
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              EventId:
+                type: integer
+              DocumentGenerationTemplateId:
+                type: string
+              ShowTenantLogo:
+                type: boolean
+              PrintNonExhibitorsOnly:
+                type: boolean
+              PrintExhibitorsOnly:
+                type: boolean
+              ShowExhibitorLabel:
+                type: boolean
+              SortOrder:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/events/download/sponsors/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/events/event/tooltip/{eventid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/events/eventexhibitor/{eventexhibitorid}/cancel:
+    get:
+      parameters:
+        - name: eventexhibitorid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/eventexhibitors/exporttoexcel/{eventid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/events/exisitng/typeahead/{search}:
+    get:
+      parameters:
+        - name: search
+          in: path
+          required: true
+          type: string
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ExistingEventId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                ShortDescription:
+                  type: string
+                LocationDescription:
+                  type: string
+                HoursDescription:
+                  type: string
+                StartDateTime:
+                  type: string
+                EndDateTime:
+                  type: string
+                IsAllDay:
+                  type: boolean
+
+  /api/events/field/{eventregistrationcustomfieldid}:
+    get:
+      parameters:
+        - name: eventregistrationcustomfieldid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              CustomFieldId:
+                type: integer
+              AuditId:
+                type: integer
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              HideDescription:
+                type: boolean
+              ShowDescription:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              ExistingCustomFieldId:
+                type: string
+              ContentListId:
+                type: string
+              DirectoryId:
+                type: string
+              FormId:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              ProjectTypeId:
+                type: string
+              Name:
+                type: string
+              DisplayName:
+                type: string
+              Description:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              StandardFieldId:
+                type: string
+              CustomFieldGroupId:
+                type: string
+              DataSize:
+                type: string
+              SelectListData:
+                type: string
+              ChildCustomFields:
+                type: string
+              IsPublic:
+                type: boolean
+              IsMemberEditable:
+                type: boolean
+              IsRequired:
+                type: boolean
+              IsArchived:
+                type: boolean
+              DisplayOrder:
+                type: string
+              HasValues:
+                type: boolean
+              EventRegistrationCustomFieldId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventSaleableItemId:
+                type: string
+              IsForAttendee:
+                type: boolean
+              IsRequiredForStaff:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              ExistingFormCustomFieldId:
+                type: string
+                description: "Reason, why we have additional field for this is that we can't make CustomFieldId as lookup - this will cause error in api builder"
+              IsModified:
+                type: boolean
+
+  /api/events/fields/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: eventscustomfields
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+
+  /api/events/lookup:
+    get:
+      parameters:
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/lookup/{eventid}/projects:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/events/lookup/attendeestatus:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/lookup/categories:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/events/lookup/contentstatus:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/lookup/exhibitorstatus:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/lookup/sourcetype:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/lookup/sponsorbenefit:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/lookup/sponsorstatus:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/events/registration/type/{eventregistrationtypeid}/{auditid}:
+    delete:
+      parameters:
+        - name: eventregistrationtypeid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/registration/type/{eventregistrationtypeid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventregistrationtypeid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              Name:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              Description:
+                type: string
+              FeeItems:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+              ReserveAllAttendees:
+                type: boolean
+
+  /api/events/registration/type/free/{eventregistrationtypeid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventregistrationtypeid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              TypeName:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              TypeDescription:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+
+  /api/events/registration/type/free/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              TypeName:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              TypeDescription:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Price:
+                type: number
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              RegistrationType:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/registration/type/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              Name:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              Description:
+                type: string
+              FeeItems:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+              ReserveAllAttendees:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Price:
+                type: number
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              RegistrationType:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/registration/type/simple/{eventregistrationtypeid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventregistrationtypeid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              TypeName:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              TypeDescription:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+              SaleableItemId:
+                type: integer
+              Price:
+                type: number
+              Quantity:
+                type: integer
+
+  /api/events/registration/type/simple/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              TypeName:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              TypeDescription:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+              SaleableItemId:
+                type: integer
+              Price:
+                type: number
+              Quantity:
+                type: integer
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Price:
+                type: number
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              RegistrationType:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/registration/type/table/{eventregistrationtypeid}/{eventdetailid}:
+    get:
+      parameters:
+        - name: eventregistrationtypeid
+          in: path
+          required: true
+          type: string
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              TypeName:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              TypeDescription:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+              SaleableItemId:
+                type: integer
+              Price:
+                type: number
+              Quantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              ReserveAllAttendees:
+                type: boolean
+
+  /api/events/registration/type/table/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              EventId:
+                type: integer
+              TypeName:
+                type: string
+              MaximumQuantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              TypeDescription:
+                type: string
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              IsDisplayedForNonMembers:
+                type: boolean
+              SaleableItemId:
+                type: integer
+              Price:
+                type: number
+              Quantity:
+                type: integer
+              NumberOfAttendees:
+                type: integer
+              ReserveAllAttendees:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventRegistrationTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Price:
+                type: number
+              IsForMembers:
+                type: boolean
+              IsForNonMembers:
+                type: boolean
+              RegistrationType:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/registrations/attendees/{eventattendeeid}/edit/{eventattendeestatusid}:
+    get:
+      parameters:
+        - name: eventattendeeid
+          in: path
+          required: true
+          type: string
+        - name: eventattendeestatusid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      description:
+        "GET: Edit attendee list item within registration."
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventId:
+                type: integer
+              ContactId:
+                type: string
+              EventRegistrationId:
+                type: string
+              MembershipStatusTypeId:
+                type: string
+              EventAttendeeId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              ContactName:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              EmailAddress:
+                type: string
+              OrganizationContactId:
+                type: string
+              OrganizationName:
+                type: string
+              Phone:
+                type: string
+              Address:
+                type: string
+              CustomFieldValues:
+                type: string
+              AddToWaitingList:
+                type: boolean
+              EventAttendeeId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              Fields:
+                type: string
+
+  /api/events/sponsor/benefits:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SponsorshipBenefitId:
+                  type: integer
+                Name:
+                  type: string
+                DisplayOrder:
+                  type: string
+                DisplayNameOnEventPage:
+                  type: boolean
+                DisplayLogoOnEventPage:
+                  type: boolean
+                DisplayNameOnRegistrationPage:
+                  type: boolean
+                DisplayLogoOnRegistrationPage:
+                  type: boolean
+                DisplayNameOnEventEmails:
+                  type: boolean
+                DisplayLogoOnEventEmails:
+                  type: boolean
+                LinkToSponsorUrlOnEventPage:
+                  type: boolean
+                LinkToSponsorUrlOnRegistrationPage:
+                  type: boolean
+                LinkToSponsorUrlOnEventEmails:
+                  type: boolean
+                SponsorSettingsJson:
+                  type: string
+
+  /api/events/sponsor/benefits/{sponsorshipbenefitid}:
+    get:
+      parameters:
+        - name: sponsorshipbenefitid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SponsorshipBenefitId:
+                type: integer
+              Name:
+                type: string
+              DisplayOrder:
+                type: string
+              DisplayNameOnEventPage:
+                type: boolean
+              DisplayLogoOnEventPage:
+                type: boolean
+              DisplayNameOnRegistrationPage:
+                type: boolean
+              DisplayLogoOnRegistrationPage:
+                type: boolean
+              DisplayNameOnEventEmails:
+                type: boolean
+              DisplayLogoOnEventEmails:
+                type: boolean
+              LinkToSponsorUrlOnEventPage:
+                type: boolean
+              LinkToSponsorUrlOnRegistrationPage:
+                type: boolean
+              LinkToSponsorUrlOnEventEmails:
+                type: boolean
+              SponsorSettingsJson:
+                type: string
+    post:
+      parameters:
+        - name: sponsorshipbenefitid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SponsorshipBenefitId:
+                type: integer
+              Name:
+                type: string
+              DisplayOrder:
+                type: string
+              DisplayNameOnEventPage:
+                type: boolean
+              DisplayLogoOnEventPage:
+                type: boolean
+              DisplayNameOnRegistrationPage:
+                type: boolean
+              DisplayLogoOnRegistrationPage:
+                type: boolean
+              DisplayNameOnEventEmails:
+                type: boolean
+              DisplayLogoOnEventEmails:
+                type: boolean
+              LinkToSponsorUrlOnEventPage:
+                type: boolean
+              LinkToSponsorUrlOnRegistrationPage:
+                type: boolean
+              LinkToSponsorUrlOnEventEmails:
+                type: boolean
+              SponsorSettingsJson:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SponsorshipBenefitId:
+                type: integer
+              Name:
+                type: string
+              DisplayOrder:
+                type: string
+              DisplayNameOnEventPage:
+                type: boolean
+              DisplayLogoOnEventPage:
+                type: boolean
+              DisplayNameOnRegistrationPage:
+                type: boolean
+              DisplayLogoOnRegistrationPage:
+                type: boolean
+              DisplayNameOnEventEmails:
+                type: boolean
+              DisplayLogoOnEventEmails:
+                type: boolean
+              LinkToSponsorUrlOnEventPage:
+                type: boolean
+              LinkToSponsorUrlOnRegistrationPage:
+                type: boolean
+              LinkToSponsorUrlOnEventEmails:
+                type: boolean
+              SponsorSettingsJson:
+                type: string
+    delete:
+      parameters:
+        - name: sponsorshipbenefitid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/sponsors/{eventsponsorid}:
+    get:
+      parameters:
+        - name: eventsponsorid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSponsorId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              SponsorName:
+                type: string
+              ContactId:
+                type: integer
+              PrimaryContactId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              RegistrationDate:
+                type: string
+              EventSponsorshipId:
+                type: integer
+              Description:
+                type: string
+              Quantity:
+                type: number
+              Price:
+                type: number
+              Total:
+                type: number
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              SponsorUrl:
+                type: string
+              EventSponsorImage:
+                type: string
+              SponsorStatusTypeId:
+                type: string
+              IsModified:
+                type: boolean
+              ShouldBeUpdated:
+                type: boolean
+
+  /api/events/sponsors/{eventsponsorid}/cancel:
+    get:
+      parameters:
+        - name: eventsponsorid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSponsorId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventId:
+                type: integer
+              PurchaseId:
+                type: integer
+              SponsorStatusTypeId:
+                type: string
+              RegistrationId:
+                type: integer
+              Sponsorship:
+                type: string
+              Status:
+                type: string
+              SponsorName:
+                type: string
+              Contact:
+                type: string
+              InvoiceNumber:
+                type: string
+              SponsorFee:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/events/sponsors/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventSponsorId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              SponsorName:
+                type: string
+              ContactId:
+                type: integer
+              PrimaryContactId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              RegistrationDate:
+                type: string
+              EventSponsorshipId:
+                type: integer
+              Description:
+                type: string
+              Quantity:
+                type: number
+              Price:
+                type: number
+              Total:
+                type: number
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              SponsorUrl:
+                type: string
+              EventSponsorImage:
+                type: string
+              SponsorStatusTypeId:
+                type: string
+              IsModified:
+                type: boolean
+              ShouldBeUpdated:
+                type: boolean
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSponsorId:
+                type: integer
+              EventDetailId:
+                type: integer
+              EventId:
+                type: integer
+              PurchaseId:
+                type: integer
+              SponsorStatusTypeId:
+                type: string
+              RegistrationId:
+                type: integer
+              Sponsorship:
+                type: string
+              Status:
+                type: string
+              SponsorName:
+                type: string
+              Contact:
+                type: string
+              InvoiceNumber:
+                type: string
+              SponsorFee:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/events/sponsorship/{eventsponsorshipid}/save:
+    post:
+      parameters:
+        - name: eventsponsorshipid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventSponsorshipId:
+                type: integer
+              EventSponsorshipSaleableItemId:
+                type: string
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Position:
+                type: string
+              SalesGoalQuantity:
+                type: string
+              Quantity:
+                type: string
+              Price:
+                type: string
+              FeeItems:
+                type: string
+              SponsorBenefits:
+                type: string
+              AuditId:
+                type: integer
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventSponsorshipId:
+                type: integer
+              EventDetailId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              SalesGoal:
+                type: string
+              TotalAvailable:
+                type: string
+              TotalSold:
+                type: integer
+              Fee:
+                type: string
+              Position:
+                type: string
+              Actions:
+                type: string
+
+  /api/events/tasks/{taskitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/tasks/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TaskTypeId:
+                type: string
+              AssignedToContactId:
+                type: string
+              CompletedDateBetween:
+                type: string
+              IsOverdue:
+                type: boolean
+              HasDueDate:
+                type: boolean
+              IsOpen:
+                type: boolean
+              DueDateBetween:
+                type: string
+              StartDateBetween:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/events/venues:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              VenueId:
+                type: integer
+              Name:
+                type: string
+              Address1:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+              AddressTypeId:
+                type: string
+              LocationDescription:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              VenueId:
+                type: integer
+              AddressId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              Address1:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+
+  /api/events/venues/{venueid}:
+    get:
+      parameters:
+        - name: venueid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              VenueId:
+                type: integer
+              Name:
+                type: string
+              Address1:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryId:
+                type: string
+              AddressTypeId:
+                type: string
+              LocationDescription:
+                type: string
+
+  /api/events/venues/lookup:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                VenueId:
+                  type: integer
+                AddressId:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Address1:
+                  type: string
+                Address2:
+                  type: string
+                City:
+                  type: string
+                StateProvince:
+                  type: string
+                PostalCode:
+                  type: string
+                CountryId:
+                  type: string
+
+  /api/events/videos/{eventdetailid}/{videoid}/delete:
+    delete:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: videoid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/events/videos/{eventdetailid}/{videoid}/save:
+    post:
+      parameters:
+        - name: eventdetailid
+          in: path
+          required: true
+          type: string
+        - name: videoid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              VideoId:
+                type: integer
+              Url:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              VideoTypeId:
+                type: string
+              EmbedCode:
+                type: string
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventDetailId:
+                type: integer
+              VideoId:
+                type: integer
+              Url:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              VideoTypeId:
+                type: string
+              EmbedCode:
+                type: string
+
+  /api/events/withattendee/lookup:
+    get:
+      tags:
+        - Events
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string

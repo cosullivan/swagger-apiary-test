@@ -1,0 +1,245 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Benefit Packages API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/benefitpackages:
+    get:
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                BenefitPackageId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/benefitpackages/{benefitpackageid}:
+    get:
+      parameters:
+        - name: benefitpackageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BenefitPackageId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+    post:
+      parameters:
+        - name: benefitpackageid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              BenefitPackageId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BenefitPackageId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Actions:
+                type: string
+
+  /api/benefitpackages/{benefitpackageid}/{auditid}:
+    delete:
+      parameters:
+        - name: benefitpackageid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/benefitpackages/{benefitpackageid}/directories:
+    get:
+      parameters:
+        - name: benefitpackageid
+          in: path
+          required: true
+          type: string
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BenefitPackageId:
+                type: integer
+              EntityName:
+                type: string
+              Directories:
+                type: string
+
+  /api/benefitpackages/{benefitpackageid}/directories/{benefitpackagedirectoryid}:
+    get:
+      parameters:
+        - name: benefitpackageid
+          in: path
+          required: true
+          type: string
+        - name: benefitpackagedirectoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BenefitPackageDirectoryId:
+                type: integer
+              BenefitPackageId:
+                type: integer
+              DirectoryId:
+                type: integer
+              DirectoryListingTypeId:
+                type: integer
+    post:
+      parameters:
+        - name: benefitpackageid
+          in: path
+          required: true
+          type: string
+        - name: benefitpackagedirectoryid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              BenefitPackageDirectoryId:
+                type: integer
+              BenefitPackageId:
+                type: integer
+              DirectoryId:
+                type: integer
+              DirectoryListingTypeId:
+                type: integer
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              BenefitPackageDirectoryId:
+                type: integer
+              BenefitPackageId:
+                type: integer
+              DirectoryName:
+                type: string
+              DirectoryListingTypeName:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: benefitpackageid
+          in: path
+          required: true
+          type: string
+        - name: benefitpackagedirectoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/benefitpackages/lookup:
+    get:
+      tags:
+        - BenefitPackage
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

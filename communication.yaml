@@ -1,0 +1,4970 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Communication API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/communication:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              CommunicationId:
+                type: string
+              OrganizationId:
+                type: string
+              GroupId:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              CommunicationDateBetween:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              ExcludeCommunicationStatusTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              IsNotLinkedToAProject:
+                type: boolean
+              HasUnmatchedEmailAddress:
+                type: boolean
+              Criteria:
+                type: string
+              CommunicationListId:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/communication/{communicationid}/{contactid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              Created:
+                type: string
+              CreatedContact:
+                type: string
+              Modified:
+                type: string
+              ModifiedContact:
+                type: string
+              EventId:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+
+  /api/communication/address/book:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AddressBookItems:
+                type: string
+
+  /api/communication/automatedemails:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CommunicationTriggerId:
+                  type: string
+                TriggerId:
+                  type: string
+                DisplayName:
+                  type: string
+                DelayMinutes:
+                  type: integer
+                TemplateId:
+                  type: string
+    post:
+      parameters:
+        - name: items
+          in: query
+          required: false
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/billing/emailtemplatechoices:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/communication/categories/{communicationcategoryid}:
+    get:
+      parameters:
+        - name: communicationcategoryid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              CssColor:
+                type: string
+
+  /api/communication/categories/{communicationcategoryid}/{auditid}:
+    delete:
+      parameters:
+        - name: communicationcategoryid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/categories/items:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CommunicationCategoryId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                CssColor:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/communication/categories/lookup:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/communication/categories/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              CssColor:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationCategoryId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              CssColor:
+                type: string
+              Actions:
+                type: string
+
+  /api/communication/communication/download/{communicationid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/communication/communicationfollowupreminder/add:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              TaskTypeId:
+                type: string
+              ContactName:
+                type: string
+              ProjectLookup:
+                type: string
+              ProjectId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              Name:
+                type: string
+              TaskPriority:
+                type: string
+              TaskType:
+                type: string
+              Contact:
+                type: string
+              AssignedToContact:
+                type: string
+              DueDate:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+
+  /api/communication/communicationfollowupreminder/add/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              TaskTypeId:
+                type: string
+              ContactName:
+                type: string
+              ProjectLookup:
+                type: string
+              ProjectId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+
+  /api/communication/communicationfollowupreminder/delete/{taskitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/communicationfollowupreminder/load/{taskitemid}:
+    get:
+      parameters:
+        - name: taskitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              AuditId:
+                type: integer
+              DisplayName:
+                type: string
+              FollowUpDate:
+                type: string
+              IsCompleted:
+                type: boolean
+              FollowUpStaffContactId:
+                type: string
+              FollowUpNote:
+                type: string
+              FollowUpDescription:
+                type: string
+              Communication:
+                type: string
+              CommunicationCount:
+                type: integer
+              CreateFollowUpTask:
+                type: boolean
+              NewFollowUpDate:
+                type: string
+              NewFollowUpStaffContactId:
+                type: string
+              NewFollowUpName:
+                type: string
+              NewFollowUpDescription:
+                type: string
+
+  /api/communication/communicationfollowupreminder/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              AuditId:
+                type: integer
+              DisplayName:
+                type: string
+              FollowUpDate:
+                type: string
+              IsCompleted:
+                type: boolean
+              FollowUpStaffContactId:
+                type: string
+              FollowUpNote:
+                type: string
+              FollowUpDescription:
+                type: string
+              Communication:
+                type: string
+              CommunicationCount:
+                type: integer
+              CreateFollowUpTask:
+                type: boolean
+              NewFollowUpDate:
+                type: string
+              NewFollowUpStaffContactId:
+                type: string
+              NewFollowUpName:
+                type: string
+              NewFollowUpDescription:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TaskItemId:
+                type: integer
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              Name:
+                type: string
+              TaskPriority:
+                type: string
+              TaskType:
+                type: string
+              Contact:
+                type: string
+              AssignedToContact:
+                type: string
+              DueDate:
+                type: string
+              CompletedDate:
+                type: string
+              PercentComplete:
+                type: string
+
+  /api/communication/communicationscheduledemailsummary:
+    get:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              SentDate:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                SystemJobId:
+                  type: integer
+                ScheduledDate:
+                  type: string
+                SentDate:
+                  type: string
+                Status:
+                  type: string
+                Subject:
+                  type: string
+                FromName:
+                  type: string
+                SenderName:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/communication/communicationscheduledemailsummary/delete/{systemjobid}:
+    delete:
+      parameters:
+        - name: systemjobid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/communicationscheduledemailsummary/edit/{systemjobid}:
+    get:
+      parameters:
+        - name: systemjobid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              ContactId:
+                type: string
+              GroupId:
+                type: string
+              CommContactRelatedOrganizationId:
+                type: string
+              InvoiceId:
+                type: string
+              InvoicePayUrl:
+                type: string
+              EventSponsorId:
+                type: string
+              Signatures:
+                type: string
+              SupplementaryData:
+                type: string
+              GlobalFlags:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+                description: "Also known as is a template email"
+              IsNotNewsletter:
+                type: boolean
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              EmailSendDate:
+                type: string
+              IgnoreEventRecipients:
+                type: boolean
+              FundraisingCampaignId:
+                type: string
+              Attachment:
+                type: string
+              SystemJobId:
+                type: integer
+
+  /api/communication/communicationscheduledemailsummary/save/{systemjobid}:
+    post:
+      parameters:
+        - name: systemjobid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              ContactId:
+                type: string
+              GroupId:
+                type: string
+              CommContactRelatedOrganizationId:
+                type: string
+              InvoiceId:
+                type: string
+              InvoicePayUrl:
+                type: string
+              EventSponsorId:
+                type: string
+              Signatures:
+                type: string
+              SupplementaryData:
+                type: string
+              GlobalFlags:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+                description: "Also known as is a template email"
+              IsNotNewsletter:
+                type: boolean
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              EmailSendDate:
+                type: string
+              IgnoreEventRecipients:
+                type: boolean
+              FundraisingCampaignId:
+                type: string
+              Attachment:
+                type: string
+              SystemJobId:
+                type: integer
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SystemJobId:
+                type: integer
+              ScheduledDate:
+                type: string
+              SentDate:
+                type: string
+              Status:
+                type: string
+              Subject:
+                type: string
+              FromName:
+                type: string
+              SenderName:
+                type: string
+              Actions:
+                type: string
+
+  /api/communication/delete/{communicationid}/{auditid}:
+    delete:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/draft/{communicationid}/{auditid}:
+    delete:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ShouldNotifyDebuggerOfWaitCompletion:
+                type: boolean
+              Id:
+                type: integer
+              CurrentId:
+                type: string
+              Exception:
+                type: string
+              Status:
+                type: string
+              IsCanceled:
+                type: boolean
+              IsCompleted:
+                type: boolean
+              CreationOptions:
+                type: string
+              System.IAsyncResult.AsyncWaitHandle:
+                type: string
+              AsyncState:
+                type: string
+              System.IAsyncResult.CompletedSynchronously:
+                type: boolean
+              Factory:
+                type: string
+              CompletedTask:
+                type: string
+              IsFaulted:
+                type: boolean
+              SavedStateForNextReplica:
+                type: string
+              SavedStateFromPreviousReplica:
+                type: string
+              HandedOverChildReplica:
+                type: string
+              Result:
+                type: string
+              Factory:
+                type: string
+
+  /api/communication/draft/delete/all:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/drafts:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              CommunicationId:
+                type: string
+              OrganizationId:
+                type: string
+              GroupId:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              CommunicationDateBetween:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              ExcludeCommunicationStatusTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              IsNotLinkedToAProject:
+                type: boolean
+              HasUnmatchedEmailAddress:
+                type: boolean
+              Criteria:
+                type: string
+              CommunicationListId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/communication/email/{communicationid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              IsDeletable:
+                type: boolean
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Subject:
+                type: string
+              FromContact:
+                type: string
+              Contacts:
+                type: string
+              Projects:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Body:
+                type: string
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              IsDeletable:
+                type: boolean
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Subject:
+                type: string
+              FromContact:
+                type: string
+              Contacts:
+                type: string
+              Projects:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Body:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/email/{communicationid}/{auditid}:
+    delete:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/emaildraftchoices:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/communication/emailtemplate/{templateid}:
+    post:
+      parameters:
+        - name: templateid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TemplateId:
+                type: integer
+              AuditId:
+                type: integer
+              OverrideForTemplateId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              CommunicationTemplateTypeId:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactId:
+                type: string
+              IsPublic:
+                type: boolean
+              IsSystemTemplate:
+                type: boolean
+              IsDeletable:
+                type: boolean
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TemplateId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Type:
+                type: string
+              IsDeletable:
+                type: boolean
+              Actions:
+                type: string
+    get:
+      parameters:
+        - name: templateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TemplateId:
+                type: integer
+              AuditId:
+                type: integer
+              OverrideForTemplateId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              CommunicationTemplateTypeId:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactId:
+                type: string
+              IsPublic:
+                type: boolean
+              IsSystemTemplate:
+                type: boolean
+              IsDeletable:
+                type: boolean
+
+  /api/communication/emailtemplate/{templateid}/{auditid}:
+    delete:
+      parameters:
+        - name: templateid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TemplateId:
+                type: integer
+              AuditId:
+                type: integer
+              OverrideForTemplateId:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              CommunicationTemplateTypeId:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactId:
+                type: string
+              IsPublic:
+                type: boolean
+              IsSystemTemplate:
+                type: boolean
+              IsDeletable:
+                type: boolean
+
+  /api/communication/emailtemplatechoices:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/communication/emailtemplates:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TemplateId:
+                  type: integer
+                TenantId:
+                  type: integer
+                Name:
+                  type: string
+                Type:
+                  type: string
+                IsDeletable:
+                  type: boolean
+                Actions:
+                  type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              Criteria:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TemplateId:
+                  type: integer
+                TenantId:
+                  type: integer
+                Name:
+                  type: string
+                Type:
+                  type: string
+                IsDeletable:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/communication/emailtemplates/{templateid}:
+    delete:
+      parameters:
+        - name: templateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/emailtemplates/{templateid}/copy:
+    get:
+      parameters:
+        - name: templateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TemplateId:
+                type: integer
+              TenantId:
+                type: integer
+              Name:
+                type: string
+              Type:
+                type: string
+              IsDeletable:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/communication/event/{eventid}:
+    get:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              CommunicationId:
+                type: string
+              OrganizationId:
+                type: string
+              GroupId:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              CommunicationDateBetween:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              ExcludeCommunicationStatusTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              IsNotLinkedToAProject:
+                type: boolean
+              HasUnmatchedEmailAddress:
+                type: boolean
+              Criteria:
+                type: string
+              CommunicationListId:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/communication/event/load/{communicationid}/{eventid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: eventid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              EventId:
+                type: string
+              CommunicationId:
+                type: integer
+              Name:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Projects:
+                type: string
+              Recipients:
+                type: string
+
+  /api/communication/event/save/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              EventId:
+                type: string
+              CommunicationId:
+                type: integer
+              Name:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Projects:
+                type: string
+              Recipients:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/fromaddress:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: string
+              EmailAddressId:
+                type: integer
+              FromEmailAddressId:
+                type: integer
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailAddress:
+                type: string
+              DisplayName:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: string
+              EmailAddressId:
+                type: integer
+              FromEmailAddressId:
+                type: integer
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailAddress:
+                type: string
+              DisplayName:
+                type: string
+
+  /api/communication/fromaddresses:
+    get:
+      parameters:
+        - name: onlyactive
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: string
+                EmailAddressId:
+                  type: integer
+                FromEmailAddressId:
+                  type: integer
+                FromContactRelatedContactId:
+                  type: string
+                FromContactId:
+                  type: string
+                EmailAddress:
+                  type: string
+                DisplayName:
+                  type: string
+
+  /api/communication/group/{groupid}:
+    get:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              CommunicationId:
+                type: string
+              OrganizationId:
+                type: string
+              GroupId:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              CommunicationDateBetween:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              ExcludeCommunicationStatusTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              IsNotLinkedToAProject:
+                type: boolean
+              HasUnmatchedEmailAddress:
+                type: boolean
+              Criteria:
+                type: string
+              CommunicationListId:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/communication/loaddraftquickemail/{draftcommunicationid}:
+    post:
+      parameters:
+        - name: draftcommunicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+
+  /api/communication/loadfinanceemailstatement/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: integer
+              DisplayAllActivityEvenIfPaid:
+                type: boolean
+              StatementStartDate:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              TemplateId:
+                type: string
+              Subject:
+                type: string
+              EmailRecipients:
+                type: string
+              GlobalFlags:
+                type: string
+              EmailBody:
+                type: string
+
+  /api/communication/loadquickemail/{contactid}/{projectid}/{groupid}/{invoiceid}/{eventid}/{eventsponsorid}/{commcontactrelatedorganizationid}/{supplementarydata}/{globalflags}/{draftcommunicationid}/{fundraisingcampaignid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: groupid
+          in: path
+          required: true
+          type: string
+        - name: invoiceid
+          in: path
+          required: true
+          type: string
+        - name: eventid
+          in: path
+          required: true
+          type: string
+        - name: eventsponsorid
+          in: path
+          required: true
+          type: string
+        - name: commcontactrelatedorganizationid
+          in: path
+          required: true
+          type: string
+        - name: supplementarydata
+          in: path
+          required: true
+          type: string
+        - name: globalflags
+          in: path
+          required: true
+          type: string
+        - name: draftcommunicationid
+          in: path
+          required: true
+          type: string
+        - name: fundraisingcampaignid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      description:
+        "Given various options return the model we should use for the main screen"
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              ContactId:
+                type: string
+              GroupId:
+                type: string
+              CommContactRelatedOrganizationId:
+                type: string
+              InvoiceId:
+                type: string
+              InvoicePayUrl:
+                type: string
+              EventSponsorId:
+                type: string
+              Signatures:
+                type: string
+              SupplementaryData:
+                type: string
+              GlobalFlags:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+                description: "Also known as is a template email"
+              IsNotNewsletter:
+                type: boolean
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              EmailSendDate:
+                type: string
+              IgnoreEventRecipients:
+                type: boolean
+              FundraisingCampaignId:
+                type: string
+              Attachment:
+                type: string
+
+  /api/communication/lognote/delete/{communicationid}/{auditid}:
+    delete:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/membership/emailtemplatechoices:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/communication/mergefields/{globalflags}/{communicationtemplatetypeid}/{entityid}:
+    get:
+      parameters:
+        - name: globalflags
+          in: path
+          required: true
+          type: string
+        - name: communicationtemplatetypeid
+          in: path
+          required: true
+          type: string
+        - name: entityid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Parameters:
+                  type: string
+                IsUber:
+                  type: boolean
+                  description: "Gets or sets whether the merge field is an "uber" field (i.e. editable HTML)."
+
+  /api/communication/newlettertemplatechoices:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                Subject:
+                  type: string
+                EmailBody:
+                  type: string
+                IsNewsletter:
+                  type: boolean
+                EmailTemplate:
+                  type: string
+
+  /api/communication/newsletter:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              EmailSendDate:
+                type: string
+              EmailTemplate:
+                type: string
+              IsNewsletter:
+                type: boolean
+
+  /api/communication/newsletterdraftchoices:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/communication/organization/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              CommunicationId:
+                type: string
+              OrganizationId:
+                type: string
+              GroupId:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              CommunicationDateBetween:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              ExcludeCommunicationStatusTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              IsNotLinkedToAProject:
+                type: boolean
+              HasUnmatchedEmailAddress:
+                type: boolean
+              Criteria:
+                type: string
+              CommunicationListId:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/communication/organization/edit/{contactid}/{communicationtypeid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: communicationtypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              ContactDisplayName:
+                type: string
+              RecipientCount:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+
+  /api/communication/organization/load/{communicationid}/{contactid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              ContactDisplayName:
+                type: string
+              RecipientCount:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+
+  /api/communication/organization/lognote/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              CommunicationTypeId:
+                type: string
+              ContactDisplayName:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/organization/save/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              ContactDisplayName:
+                type: string
+              RecipientCount:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/person/{contactid}/load/{communicationid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              Projects:
+                type: string
+              ContactDisplayName:
+                type: string
+              Recipients:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+
+  /api/communication/person/lognote/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Recipients:
+                type: string
+              DisplayName:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/person/lognote/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Recipients:
+                type: string
+              DisplayName:
+                type: string
+
+  /api/communication/person/notifications/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              Notifications:
+                type: string
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              Notifications:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              Notifications:
+                type: string
+
+  /api/communication/person/save/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              Projects:
+                type: string
+              ContactDisplayName:
+                type: string
+              Recipients:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/postcalendar:
+    post:
+      parameters:
+        - name: calendars
+          in: query
+          required: false
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/communication/postcontact:
+    post:
+      parameters:
+        - name: contacts
+          in: query
+          required: false
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/communication/postmail:
+    post:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/communication/preview/{communicationid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              IsBodyHtml:
+                type: boolean
+              Subject:
+                type: string
+              Type:
+                type: string
+              CommunicationTypeId:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationDate:
+                type: string
+              EmailAttachments:
+                type: string
+              Projects:
+                type: string
+              ProjectsNames:
+                type: string
+              Body:
+                type: string
+
+  /api/communication/project/{projectid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              TenantKey:
+                type: string
+              CommunicationId:
+                type: string
+              OrganizationId:
+                type: string
+              GroupId:
+                type: string
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              ContactId:
+                type: string
+              ContactName:
+                type: string
+              CommunicationDateBetween:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              ExcludeCommunicationStatusTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              IsNotLinkedToAProject:
+                type: boolean
+              HasUnmatchedEmailAddress:
+                type: boolean
+              Criteria:
+                type: string
+              CommunicationListId:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/communication/project/load/{communicationid}/{projectid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+              Recipients:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+
+  /api/communication/project/lognote/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Projects:
+                type: string
+              Recipients:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/project/lognote/{projectid}:
+    get:
+      parameters:
+        - name: projectid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+              CommunicationTypeId:
+                type: string
+              Projects:
+                type: string
+              Recipients:
+                type: string
+
+  /api/communication/project/save/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: integer
+              Name:
+                type: string
+              Recipients:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/recipientmatch/({commcontactrelatedorganizationid})/({search}):
+    get:
+      parameters:
+        - name: commcontactrelatedorganizationid
+          in: path
+          required: true
+          type: string
+        - name: search
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      description:
+        "Search various spots in the database for entities you may want to email"
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DisplayName:
+                  type: string
+                EmailAddress:
+                  type: string
+                ContactId:
+                  type: string
+                OrganizationId:
+                  type: string
+                EmailAddressId:
+                  type: string
+                Type:
+                  type: string
+                TypeName:
+                  type: string
+                ObjectId:
+                  type: integer
+                SubObjectId:
+                  type: string
+                AddrCount:
+                  type: integer
+                UniqueKey:
+                  type: string
+                SemiUniqueKey:
+                  type: string
+                AutoTypeText:
+                  type: string
+
+  /api/communication/recipients/{communicationid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              Recipients:
+                type: string
+
+  /api/communication/recipients/edit/{communicationrecipientid}:
+    get:
+      parameters:
+        - name: communicationrecipientid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationRecipientId:
+                type: integer
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+
+  /api/communication/resolvemergefield/{name}:
+    post:
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: paramters
+          in: body
+          required: false
+          schema:
+            type: array
+            items:
+              properties:
+                System.Collections.Generic.IDictionary<System.String,System.Object>.Keys:
+                  type: string
+                System.Collections.Generic.IDictionary<System.String,System.Object>.Values:
+                  type: string
+                System.Collections.Generic.IDictionary<System.String,System.Object>.Item:
+                  type: string
+                System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<System.String,System.Object>>.Count:
+                  type: integer
+                System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<System.String,System.Object>>.IsReadOnly:
+                  type: boolean
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/save/{communicationid}:
+    post:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: string
+              FromContactId:
+                type: string
+              FromContactDisplayName:
+                type: string
+              EmailFromAddress:
+                type: string
+              EmailFromDisplay:
+                type: string
+              CommunicationCategoryName:
+                type: string
+              TotalRecipients:
+                type: integer
+              CommunicationThreadId:
+                type: string
+              EventId:
+                type: string
+              IsBodyStatic:
+                type: boolean
+              IsBodyHtml:
+                type: boolean
+              ExternalBodyUri:
+                type: string
+              MergeData:
+                type: string
+              RecipientJson:
+                type: string
+              EmailKey:
+                type: string
+              Signatures:
+                type: string
+              AuditInfo:
+                type: string
+              IsDeletable:
+                type: boolean
+              CommunicationTypeId:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              CommunicationDate:
+                type: string
+              Recipients:
+                type: string
+              Subject:
+                type: string
+              Body:
+                type: string
+              Projects:
+                type: string
+              CreateFollowUpTask:
+                type: boolean
+              FollowUpDate:
+                type: string
+              FollowUpStaffContactId:
+                type: string
+              FollowUpName:
+                type: string
+              FollowUpDescription:
+                type: string
+              EmailAttachments:
+                type: string
+              Created:
+                type: string
+              CreatedContact:
+                type: string
+              Modified:
+                type: string
+              ModifiedContact:
+                type: string
+              EventId:
+                type: string
+              CommunicationTypeId:
+                type: string
+              CommunicationTypeIdReadOnly:
+                type: string
+              Body:
+                type: string
+              BodyReadOnly:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/savedraft:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              ContactId:
+                type: string
+              GroupId:
+                type: string
+              CommContactRelatedOrganizationId:
+                type: string
+              InvoiceId:
+                type: string
+              InvoicePayUrl:
+                type: string
+              EventSponsorId:
+                type: string
+              Signatures:
+                type: string
+              SupplementaryData:
+                type: string
+              GlobalFlags:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+                description: "Also known as is a template email"
+              IsNotNewsletter:
+                type: boolean
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              EmailSendDate:
+                type: string
+              IgnoreEventRecipients:
+                type: boolean
+              FundraisingCampaignId:
+                type: string
+              Attachment:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/savenewsletterdraft:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              EmailSendDate:
+                type: string
+              EmailTemplate:
+                type: string
+              IsNewsletter:
+                type: boolean
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/saveticketcommunicationdraft:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              TicketId:
+                type: integer
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/communication/sendnewsletter:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              EmailSendDate:
+                type: string
+              EmailTemplate:
+                type: string
+              IsNewsletter:
+                type: boolean
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              EmailSendDate:
+                type: string
+              EmailTemplate:
+                type: string
+              IsNewsletter:
+                type: boolean
+
+  /api/communication/sendnewsletterpreview:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              Subject:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailRecipients:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              Subject:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailRecipients:
+                type: string
+
+  /api/communication/sendquickemail:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              CommunicationId:
+                type: integer
+              EventId:
+                type: string
+              FromEmailAddress:
+                type: string
+              FromEmailAddressId:
+                type: string
+              FromContactRelatedContactId:
+                type: string
+              FromContactId:
+                type: string
+              EmailRecipients:
+                type: string
+              Cc:
+                type: string
+              Bcc:
+                type: string
+              Subject:
+                type: string
+              CommunicationCategoryId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailSendDate:
+                type: string
+              ContactId:
+                type: string
+              GroupId:
+                type: string
+              CommContactRelatedOrganizationId:
+                type: string
+              InvoiceId:
+                type: string
+              InvoicePayUrl:
+                type: string
+              EventSponsorId:
+                type: string
+              Signatures:
+                type: string
+              SupplementaryData:
+                type: string
+              GlobalFlags:
+                type: string
+              TemplateId:
+                type: string
+              DraftCommunicationId:
+                type: string
+              IsNewsletter:
+                type: boolean
+                description: "Also known as is a template email"
+              IsNotNewsletter:
+                type: boolean
+              EmailBody:
+                type: string
+              EmailTemplate:
+                type: string
+              EmailAttachments:
+                type: string
+              ProjectId:
+                type: string
+              ProjectName:
+                type: string
+              EmailSendDate:
+                type: string
+              IgnoreEventRecipients:
+                type: boolean
+              FundraisingCampaignId:
+                type: string
+              Attachment:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              AuditId:
+                type: integer
+              CommunicationTypeId:
+                type: string
+              CommunicationStatusTypeId:
+                type: string
+              Date:
+                type: string
+              Subject:
+                type: string
+              From:
+                type: string
+              To:
+                type: string
+              Category:
+                type: string
+              FilesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/communication/stats/{communicationid}:
+    get:
+      parameters:
+        - name: communicationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CommunicationId:
+                type: integer
+              TotalRecipients:
+                type: integer
+              RecipientCountThatOpened:
+                type: integer
+              TotalOpens:
+                type: integer
+              OpenRate:
+                type: number
+              TotalDeliveryFailures:
+                type: integer
+              OpenData:
+                type: string
+              SendData:
+                type: string
+
+  /api/communication/synced/{since}:
+    get:
+      parameters:
+        - name: since
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ExceptionMessage:
+                type: string
+              Exception:
+                type: string
+              Items:
+                type: string
+
+  /api/communication/template/{templateid}:
+    post:
+      parameters:
+        - name: templateid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              Name:
+                type: string
+              Subject:
+                type: string
+              EmailBody:
+                type: string
+              IsNewsletter:
+                type: boolean
+              EmailTemplate:
+                type: string
+
+  /api/communication/threads/add:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CommunicationThreadId:
+                type: integer
+              CommunicationCategoryId:
+                type: string
+              Subject:
+                type: string
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              Name:
+                type: string
+              ExtraData:
+                type: string
+              CssColor:
+                type: string
+              IsSelected:
+                type: boolean
+
+  /api/communication/threads/lookup:
+    get:
+      tags:
+        - Communication
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

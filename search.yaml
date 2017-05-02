@@ -1,0 +1,73 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Search API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/search/global/backoffice/{searchcriteria}:
+    get:
+      parameters:
+        - name: searchcriteria
+          in: path
+          required: true
+          type: string
+      tags:
+        - Search
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/search/global/mic/{searchcriteria}:
+    get:
+      parameters:
+        - name: searchcriteria
+          in: path
+          required: true
+          type: string
+      tags:
+        - Search
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean

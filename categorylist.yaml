@@ -1,0 +1,354 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Category List API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/categorylists/{categorylistid}:
+    post:
+      parameters:
+        - name: categorylistid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CategoryListId:
+                type: integer
+              AuditId:
+                type: integer
+              IsActive:
+                type: boolean
+              CategoryTypeId:
+                type: string
+              Name:
+                type: string
+              IsPublic:
+                type: boolean
+              Description:
+                type: string
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CategoryListId:
+                type: integer
+              CategoryTypeId:
+                type: string
+              CategoryType:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              IsPublic:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              ObjectType:
+                type: string
+              ItemsCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/categorylists/{categorylistid}/{auditid}:
+    delete:
+      parameters:
+        - name: categorylistid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/categorylists/{categorylistid}/items:
+    get:
+      parameters:
+        - name: categorylistid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CategoryListId:
+                type: integer
+              AuditId:
+                type: integer
+              IsActive:
+                type: boolean
+              CategoryTypeId:
+                type: string
+              Name:
+                type: string
+              IsPublic:
+                type: boolean
+              Description:
+                type: string
+
+  /api/categorylists/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CategoryListId:
+                  type: integer
+                CategoryTypeId:
+                  type: string
+                CategoryType:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                IsPublic:
+                  type: boolean
+                ObjectTypeId:
+                  type: string
+                ObjectType:
+                  type: string
+                ItemsCount:
+                  type: integer
+                Actions:
+                  type: string
+
+  /api/categorylists/certificationcategoryitem/lookup:
+    get:
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/categorylists/contactcategoryitem/lookup:
+    get:
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/categorylists/lookup/{categorytypeid}:
+    get:
+      parameters:
+        - name: categorytypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/categorylists/productcategoryitems/lookup:
+    get:
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/categorylists/projectcategoryitem/lookup:
+    get:
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/categorylists/salescategory/{categorylistid}:
+    post:
+      parameters:
+        - name: categorylistid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CategoryListId:
+                type: integer
+              AuditId:
+                type: integer
+              IsActive:
+                type: boolean
+              CategoryTypeId:
+                type: string
+              Name:
+                type: string
+              IsPublic:
+                type: boolean
+              Description:
+                type: string
+              CategoryTypeId:
+                type: string
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CategoryListId:
+                type: integer
+              CategoryTypeId:
+                type: string
+              CategoryType:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              IsPublic:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              ObjectType:
+                type: string
+              ItemsCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/categorylists/salescategory/lookup:
+    get:
+      tags:
+        - CategoryList
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

@@ -1,0 +1,950 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Form API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/forms/{formid}:
+    get:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              PublishedStartDate:
+                type: string
+              PublishedEndDate:
+                type: string
+              FormTypeId:
+                type: string
+              AcceptViaHttpCollector:
+                type: boolean
+              PostbackUrl:
+                type: string
+              PublicFormUseSsl:
+                type: boolean
+              PublicFormUrl:
+                type: string
+              SecureFormUrl:
+                type: string
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              PostSubmitMessage:
+                type: string
+              PostSubmitDownloadFile:
+                type: string
+    post:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FormId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              PublishedStartDate:
+                type: string
+              PublishedEndDate:
+                type: string
+              FormTypeId:
+                type: string
+              AcceptViaHttpCollector:
+                type: boolean
+              PostbackUrl:
+                type: string
+              PublicFormUseSsl:
+                type: boolean
+              PublicFormUrl:
+                type: string
+              SecureFormUrl:
+                type: string
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              PostSubmitMessage:
+                type: string
+              PostSubmitDownloadFile:
+                type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              FormIdHashed:
+                type: string
+              AuditId:
+                type: integer
+              TimeZoneId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              FormType:
+                type: string
+              ResponseCount:
+                type: integer
+              LatestResponse:
+                type: string
+              Actions:
+                type: string
+
+  /api/forms/{formid}/{auditid}:
+    delete:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/forms/{formid}/base:
+    get:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Actions:
+                type: string
+
+  /api/forms/download/formresponses/{formid}:
+    get:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      description:
+        "Generates Xlsx document containing for responses for selected form"
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/forms/field/{formcustomfieldid}:
+    get:
+      parameters:
+        - name: formcustomfieldid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormCustomFieldId:
+                type: integer
+              CustomFieldId:
+                type: string
+              FormId:
+                type: integer
+              ObjectTypeId:
+                type: integer
+              DisplayOrder:
+                type: string
+              Name:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              DataSize:
+                type: string
+              ExistingFormCustomFieldId:
+                type: string
+                description: "Reason, why we have additional field for this is that we can't make CustomFieldId as lookup - this will cause error in api builder"
+              IsRequired:
+                type: string
+              MappingName:
+                type: string
+              StandardFieldId:
+                type: string
+              SelectListData:
+                type: string
+              Description:
+                type: string
+
+  /api/forms/field/{formid}/{formcustomfieldid}:
+    post:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: formcustomfieldid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FormCustomFieldId:
+                type: integer
+              CustomFieldId:
+                type: string
+              FormId:
+                type: integer
+              ObjectTypeId:
+                type: integer
+              DisplayOrder:
+                type: string
+              Name:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              DataSize:
+                type: string
+              ExistingFormCustomFieldId:
+                type: string
+                description: "Reason, why we have additional field for this is that we can't make CustomFieldId as lookup - this will cause error in api builder"
+              IsRequired:
+                type: string
+              MappingName:
+                type: string
+              StandardFieldId:
+                type: string
+              SelectListData:
+                type: string
+              Description:
+                type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormCustomFieldId:
+                type: integer
+              CustomFieldId:
+                type: string
+              FormId:
+                type: integer
+              ObjectTypeId:
+                type: integer
+              IsDeletable:
+                type: boolean
+              Name:
+                type: string
+              DisplayOrder:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              DataSize:
+                type: string
+              IsRequired:
+                type: string
+              MappingName:
+                type: string
+              SelectListData:
+                type: string
+              StandardFieldId:
+                type: string
+              Description:
+                type: string
+              Actions:
+                type: string
+
+  /api/forms/fieldmapping/{formcustomfieldid}:
+    get:
+      parameters:
+        - name: formcustomfieldid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormCustomFieldId:
+                type: integer
+              FormId:
+                type: integer
+              MappingName:
+                type: string
+    post:
+      parameters:
+        - name: formcustomfieldid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FormCustomFieldId:
+                type: integer
+              FormId:
+                type: integer
+              MappingName:
+                type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormCustomFieldId:
+                type: integer
+              CustomFieldId:
+                type: string
+              FormId:
+                type: integer
+              ObjectTypeId:
+                type: integer
+              IsDeletable:
+                type: boolean
+              Name:
+                type: string
+              DisplayOrder:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              DataSize:
+                type: string
+              IsRequired:
+                type: string
+              MappingName:
+                type: string
+              SelectListData:
+                type: string
+              StandardFieldId:
+                type: string
+              Description:
+                type: string
+              Actions:
+                type: string
+
+  /api/forms/fields/{formid}:
+    get:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              FormCustomFields:
+                type: string
+    post:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: formcustomfield
+          in: body
+          required: false
+          schema:
+            properties:
+              FormId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              FormCustomFields:
+                type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              FormCustomFields:
+                type: string
+
+  /api/forms/fields/typeahead/{formid}/{search}:
+    get:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: search
+          in: path
+          required: true
+          type: string
+        - name: this[]
+          in: query
+          required: false
+          type: string
+        - name: length
+          in: query
+          required: false
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/forms/formresponses/{formid}:
+    post:
+      parameters:
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              FormId:
+                type: integer
+              ResponseNotMatchToUser:
+                type: boolean
+              DateFilter:
+                type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/forms/formresponses/matchcontact/{formresponseid}:
+    get:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormResponseId:
+                type: integer
+              AuditId:
+                type: integer
+              CurrentContactId:
+                type: integer
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Email:
+                type: string
+              OrganizationName:
+                type: string
+              CreateNewContact:
+                type: boolean
+              PotentialMatches:
+                type: string
+              OrganizationMatchType:
+                type: string
+              OrganizationContactId:
+                type: string
+              Organization:
+                type: string
+    post:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FormResponseId:
+                type: integer
+              AuditId:
+                type: integer
+              CurrentContactId:
+                type: integer
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Email:
+                type: string
+              OrganizationName:
+                type: string
+              CreateNewContact:
+                type: boolean
+              PotentialMatches:
+                type: string
+              OrganizationMatchType:
+                type: string
+              OrganizationContactId:
+                type: string
+              Organization:
+                type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              FormResponseId:
+                type: integer
+              TimeZoneId:
+                type: string
+              ContactId:
+                type: string
+              OrganizationId:
+                type: string
+              FormTypeId:
+                type: string
+              InfoFormContactMatch:
+                type: string
+              InfoFormSoftwareTrialSetup:
+                type: string
+              OrganizationName:
+                type: string
+              CreatedDate:
+                type: string
+
+  /api/forms/formresponses/matchcontact/{formresponseid}/{auditid}/softwaretrialsetup:
+    delete:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              FormResponseId:
+                type: integer
+              TimeZoneId:
+                type: string
+              ContactId:
+                type: string
+              OrganizationId:
+                type: string
+              FormTypeId:
+                type: string
+              InfoFormContactMatch:
+                type: string
+              InfoFormSoftwareTrialSetup:
+                type: string
+              OrganizationName:
+                type: string
+              CreatedDate:
+                type: string
+
+  /api/forms/formresponses/matchcontact/{formresponseid}/softwaretrialsetup:
+    get:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormResponseId:
+                type: integer
+              AuditId:
+                type: integer
+              CurrentContactId:
+                type: integer
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Email:
+                type: string
+              OrganizationName:
+                type: string
+              CreateNewContact:
+                type: boolean
+              PotentialMatches:
+                type: string
+              OrganizationMatchType:
+                type: string
+              OrganizationContactId:
+                type: string
+              Organization:
+                type: string
+              MembershipTypeId:
+                type: string
+              EndDate:
+                type: string
+    post:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FormResponseId:
+                type: integer
+              AuditId:
+                type: integer
+              CurrentContactId:
+                type: integer
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Email:
+                type: string
+              OrganizationName:
+                type: string
+              CreateNewContact:
+                type: boolean
+              PotentialMatches:
+                type: string
+              OrganizationMatchType:
+                type: string
+              OrganizationContactId:
+                type: string
+              Organization:
+                type: string
+              MembershipTypeId:
+                type: string
+              EndDate:
+                type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormId:
+                type: integer
+              FormResponseId:
+                type: integer
+              TimeZoneId:
+                type: string
+              ContactId:
+                type: string
+              OrganizationId:
+                type: string
+              FormTypeId:
+                type: string
+              InfoFormContactMatch:
+                type: string
+              InfoFormSoftwareTrialSetup:
+                type: string
+              OrganizationName:
+                type: string
+              CreatedDate:
+                type: string
+
+  /api/forms/formresponses/matchcontact/matchorganization/{formresponseid}:
+    get:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/forms/items:
+    get:
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                FormId:
+                  type: integer
+                FormIdHashed:
+                  type: string
+                AuditId:
+                  type: integer
+                TimeZoneId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                FormType:
+                  type: string
+                ResponseCount:
+                  type: integer
+                LatestResponse:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/forms/lookup:
+    get:
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/forms/lookup/trialregistration:
+    get:
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/forms/response/{formresponseid}:
+    get:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FormResponseId:
+                type: integer
+              Values:
+                type: string
+    delete:
+      parameters:
+        - name: formresponseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Form
+      responses:
+        200:
+          description:
+            "OK"

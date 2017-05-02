@@ -1,0 +1,651 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone CustomField API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/customfields:
+    get:
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CustomFieldId:
+                  type: integer
+                AuditId:
+                  type: integer
+                ObjectTypeId:
+                  type: string
+                ObjectType:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                DisplayName:
+                  type: string
+                GroupName:
+                  type: string
+                CustomFieldDataTypeId:
+                  type: string
+                CustomFieldDataType:
+                  type: string
+                IsPublic:
+                  type: boolean
+                IsMemberEditable:
+                  type: boolean
+                IsRequired:
+                  type: boolean
+                IsArchived:
+                  type: boolean
+
+  /api/customfields/{customfieldid}:
+    get:
+      parameters:
+        - name: customfieldid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              CustomFieldId:
+                type: integer
+              AuditId:
+                type: integer
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              HideDescription:
+                type: boolean
+              ShowDescription:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              ExistingCustomFieldId:
+                type: string
+              ContentListId:
+                type: string
+              DirectoryId:
+                type: string
+              FormId:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              ProjectTypeId:
+                type: string
+              Name:
+                type: string
+              DisplayName:
+                type: string
+              Description:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              StandardFieldId:
+                type: string
+              CustomFieldGroupId:
+                type: string
+              DataSize:
+                type: string
+              SelectListData:
+                type: string
+              ChildCustomFields:
+                type: string
+              IsPublic:
+                type: boolean
+              IsMemberEditable:
+                type: boolean
+              IsRequired:
+                type: boolean
+              IsArchived:
+                type: boolean
+              DisplayOrder:
+                type: string
+              HasValues:
+                type: boolean
+    post:
+      parameters:
+        - name: customfieldid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              CustomFieldId:
+                type: integer
+              AuditId:
+                type: integer
+              ForceFormDisabled:
+                type: boolean
+                description: "This is required for cases when we have to disable form controls"
+              HideDescription:
+                type: boolean
+              ShowDescription:
+                type: boolean
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              ExistingCustomFieldId:
+                type: string
+              ContentListId:
+                type: string
+              DirectoryId:
+                type: string
+              FormId:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              ProjectTypeId:
+                type: string
+              Name:
+                type: string
+              DisplayName:
+                type: string
+              Description:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              StandardFieldId:
+                type: string
+              CustomFieldGroupId:
+                type: string
+              DataSize:
+                type: string
+              SelectListData:
+                type: string
+              ChildCustomFields:
+                type: string
+              IsPublic:
+                type: boolean
+              IsMemberEditable:
+                type: boolean
+              IsRequired:
+                type: boolean
+              IsArchived:
+                type: boolean
+              DisplayOrder:
+                type: string
+              HasValues:
+                type: boolean
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CustomFieldId:
+                type: integer
+              AuditId:
+                type: integer
+              ObjectTypeId:
+                type: string
+              ObjectType:
+                type: string
+              Name:
+                type: string
+              Description:
+                type: string
+              DisplayName:
+                type: string
+              GroupName:
+                type: string
+              CustomFieldDataTypeId:
+                type: string
+              CustomFieldDataType:
+                type: string
+              IsPublic:
+                type: boolean
+              IsMemberEditable:
+                type: boolean
+              IsRequired:
+                type: boolean
+              IsArchived:
+                type: boolean
+
+  /api/customfields/{customfieldid}/{auditid}:
+    delete:
+      parameters:
+        - name: customfieldid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/customfields/groups/{customfieldgroupid}:
+    get:
+      parameters:
+        - name: customfieldgroupid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CustomFieldGroupId:
+                type: integer
+              CustomFieldGroupName:
+                type: string
+              DisplayOrder:
+                type: string
+    post:
+      parameters:
+        - name: customfieldgroupid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CustomFieldGroupId:
+                type: integer
+              CustomFieldGroupName:
+                type: string
+              DisplayOrder:
+                type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              Name:
+                type: string
+              ExtraData:
+                type: string
+              CssColor:
+                type: string
+              IsSelected:
+                type: boolean
+
+  /api/customfields/groups/lookup:
+    get:
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/customfields/lookup/{searchobjecttypeid}/{contentlistid}/{directoryid}/{formid}/{membershiptypeoptionid}/{projecttypeid}:
+    get:
+      parameters:
+        - name: searchobjecttypeid
+          in: path
+          required: true
+          type: string
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: directoryid
+          in: path
+          required: true
+          type: string
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+        - name: projecttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/customfields/lookup/events:
+    get:
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/customfields/lookup/forms:
+    get:
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/customfields/lookup/memberships:
+    get:
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/customfields/lookup/membershiptype:
+    get:
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/customfields/lookup/withareas/{objecttypeid}:
+    get:
+      parameters:
+        - name: objecttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/customfields/manage/{customfieldid}/{auditid}/{objecttypeid}/{searchobjecttypeid}/{contentlistid}/{directoryid}/{formid}/{membershiptypeoptionid}/{projecttypeid}:
+    delete:
+      parameters:
+        - name: customfieldid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+        - name: objecttypeid
+          in: path
+          required: true
+          type: string
+        - name: searchobjecttypeid
+          in: path
+          required: true
+          type: string
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: directoryid
+          in: path
+          required: true
+          type: string
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+        - name: projecttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/customfields/manage/{objecttypeid}:
+    post:
+      parameters:
+        - name: objecttypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              ContentListId:
+                type: string
+              DirectoryId:
+                type: string
+              FormId:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              ProjectTypeId:
+                type: string
+              Fields:
+                type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CustomFieldId:
+                  type: integer
+                AuditId:
+                  type: integer
+                ObjectTypeId:
+                  type: string
+                ObjectType:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                DisplayName:
+                  type: string
+                GroupName:
+                  type: string
+                CustomFieldDataTypeId:
+                  type: string
+                CustomFieldDataType:
+                  type: string
+                IsPublic:
+                  type: boolean
+                IsMemberEditable:
+                  type: boolean
+                IsRequired:
+                  type: boolean
+                IsArchived:
+                  type: boolean
+
+  /api/customfields/manage/{objecttypeid}/{searchobjecttypeid}/{contentlistid}/{directoryid}/{formid}/{membershiptypeoptionid}/{projecttypeid}:
+    get:
+      parameters:
+        - name: objecttypeid
+          in: path
+          required: true
+          type: string
+        - name: searchobjecttypeid
+          in: path
+          required: true
+          type: string
+        - name: contentlistid
+          in: path
+          required: true
+          type: string
+        - name: directoryid
+          in: path
+          required: true
+          type: string
+        - name: formid
+          in: path
+          required: true
+          type: string
+        - name: membershiptypeoptionid
+          in: path
+          required: true
+          type: string
+        - name: projecttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ObjectTypeId:
+                type: string
+              SearchObjectTypeId:
+                type: string
+              ContentListId:
+                type: string
+              DirectoryId:
+                type: string
+              FormId:
+                type: string
+              MembershipTypeOptionId:
+                type: string
+              ProjectTypeId:
+                type: string
+              Fields:
+                type: string
+
+  /api/customfields/managegroups:
+    get:
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CustomFieldGroups:
+                type: string
+
+  /api/customfields/standardfields/lookup:
+    get:
+      parameters:
+        - name: model
+          in: query
+          required: false
+          type: string
+      tags:
+        - CustomField
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean

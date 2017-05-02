@@ -1,0 +1,454 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Saleable Item API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/saleableitems:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              AccountId:
+                type: string
+              ShowInactive:
+                type: boolean
+              ShowActive:
+                type: boolean
+              AccountType:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/saleableitems/{saleableitemid}:
+    get:
+      parameters:
+        - name: saleableitemid
+          in: path
+          required: true
+          type: string
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SaleableItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryListId:
+                type: integer
+              CategoryTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              Description:
+                type: string
+              ProductDescription:
+                type: string
+              AmountFrequencyDisplayTypeId:
+                type: string
+              Price:
+                type: number
+              Quantity:
+                type: number
+              AccountingTypeId:
+                type: string
+              RevenueRecognitionTypeId:
+                type: integer
+              IncomeAccountId:
+                type: string
+              ReceivablesAccountId:
+                type: string
+              DeferredIncomeAccountId:
+                type: string
+              DepositAccountId:
+                type: string
+              DefaultRevenueRecognitionMonths:
+                type: string
+              IsVoluntary:
+                type: boolean
+              ProductTaxCategoryId:
+                type: string
+              TaxSetId:
+                type: string
+              TaxSetName:
+                type: string
+              IsRecurring:
+                type: boolean
+              DocumentGenerationTemplateId:
+                type: string
+              ProductImage:
+                type: string
+              IsActive:
+                type: boolean
+              BillhighwayTemplateId:
+                type: integer
+    post:
+      parameters:
+        - name: saleableitemid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              SaleableItemId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              SaleableItemTypeId:
+                type: string
+              CategoryListId:
+                type: integer
+              CategoryTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              Description:
+                type: string
+              ProductDescription:
+                type: string
+              AmountFrequencyDisplayTypeId:
+                type: string
+              Price:
+                type: number
+              Quantity:
+                type: number
+              AccountingTypeId:
+                type: string
+              RevenueRecognitionTypeId:
+                type: integer
+              IncomeAccountId:
+                type: string
+              ReceivablesAccountId:
+                type: string
+              DeferredIncomeAccountId:
+                type: string
+              DepositAccountId:
+                type: string
+              DefaultRevenueRecognitionMonths:
+                type: string
+              IsVoluntary:
+                type: boolean
+              ProductTaxCategoryId:
+                type: string
+              TaxSetId:
+                type: string
+              TaxSetName:
+                type: string
+              IsRecurring:
+                type: boolean
+              DocumentGenerationTemplateId:
+                type: string
+              ProductImage:
+                type: string
+              IsActive:
+                type: boolean
+              BillhighwayTemplateId:
+                type: integer
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              SaleableItemId:
+                type: integer
+              ItemType:
+                type: string
+              CategoryName:
+                type: string
+              Name:
+                type: string
+              IncomeAccount:
+                type: string
+              Price:
+                type: number
+              Description:
+                type: string
+              Quantity:
+                type: number
+
+  /api/saleableitems/delete/{saleableitemid}/{auditid}:
+    delete:
+      parameters:
+        - name: saleableitemid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/saleableitems/lookup/{purchaseid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/saleableitems/lookup/event/saleableitems:
+    get:
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Quantity:
+                  type: number
+                AmountFrequencyDisplayTypeId:
+                  type: string
+                Price:
+                  type: string
+                Amount:
+                  type: string
+                BillFrequencyTypeId:
+                  type: string
+                HideOnInvoice:
+                  type: boolean
+
+  /api/saleableitems/lookup/membership/onetimefee:
+    get:
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/saleableitems/lookup/membership/recurringfee:
+    get:
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: string
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Quantity:
+                  type: number
+                AmountFrequencyDisplayTypeId:
+                  type: string
+                Price:
+                  type: string
+                Amount:
+                  type: string
+                BillFrequencyTypeId:
+                  type: string
+                HideOnInvoice:
+                  type: boolean
+
+  /api/saleableitems/lookup/salesproposal/allfees:
+    get:
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/saleableitems/lookup/salesproposal/onetimefee:
+    get:
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/saleableitems/lookup/salesproposal/recurringfee:
+    get:
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/saleableitems/lookup/storesaleableitems:
+    get:
+      tags:
+        - SaleableItem
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string

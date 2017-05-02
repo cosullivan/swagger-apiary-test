@@ -1,0 +1,1283 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Certifications API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/certifications/add/organization/{contactid}:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              CertificationTypeId:
+                type: integer
+              Number:
+                type: string
+              StartDate:
+                type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationId:
+                type: integer
+              Name:
+                type: string
+              CertificationStatusTypeId:
+                type: string
+
+  /api/certifications/add/person/{contactid}:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              CertificationTypeId:
+                type: integer
+              Number:
+                type: string
+              StartDate:
+                type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationId:
+                type: integer
+              Name:
+                type: string
+              CertificationStatusTypeId:
+                type: string
+
+  /api/certifications/contacts:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              Status:
+                type: string
+              StartDateBetween:
+                type: string
+              CompletedDateBetween:
+                type: string
+              CreditsRemainingBetween:
+                type: string
+              CertificationTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/certifications/contacts/{certificationcontactid}:
+    get:
+      parameters:
+        - name: certificationcontactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationContactId:
+                type: integer
+              AuditId:
+                type: integer
+              CertificationTypeId:
+                type: integer
+              SystemCertificationStatusId:
+                type: string
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              CertificationStartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              CompletedDate:
+                type: string
+              CertificationVersionId:
+                type: string
+    post:
+      parameters:
+        - name: certificationcontactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CertificationContactId:
+                type: integer
+              AuditId:
+                type: integer
+              CertificationTypeId:
+                type: integer
+              SystemCertificationStatusId:
+                type: string
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              CertificationStartDate:
+                type: string
+              ExpirationDate:
+                type: string
+              CompletedDate:
+                type: string
+              CertificationVersionId:
+                type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationContactId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactName:
+                type: string
+              CertificationName:
+                type: string
+              StartDate:
+                type: string
+              CreditsEarned:
+                type: string
+              CreditsRemaining:
+                type: string
+              CompletedDate:
+                type: string
+              Status:
+                type: string
+              Actions:
+                type: string
+
+  /api/certifications/contacts/{certificationcontactid}/{auditid}:
+    delete:
+      parameters:
+        - name: certificationcontactid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/contacts/{certificationcontactid}/download:
+    get:
+      parameters:
+        - name: certificationcontactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/certifications/contacts/{certificationcontactid}/saveacopy:
+    get:
+      parameters:
+        - name: certificationcontactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/contacts/export:
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              Status:
+                type: string
+              StartDateBetween:
+                type: string
+              CompletedDateBetween:
+                type: string
+              CreditsRemainingBetween:
+                type: string
+              CertificationTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/certifications/courses:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CertificationCourseId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Credits:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/certifications/courses/{certificationcourseid}:
+    get:
+      parameters:
+        - name: certificationcourseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationCourseId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Credits:
+                type: number
+    post:
+      parameters:
+        - name: certificationcourseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CertificationCourseId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Credits:
+                type: number
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationCourseId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Credits:
+                type: string
+              Actions:
+                type: string
+
+  /api/certifications/courses/{certificationcourseid}/{auditid}:
+    delete:
+      parameters:
+        - name: certificationcourseid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/courses/contacts:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CertificationCourseContactId:
+                  type: integer
+                CertificationCourseId:
+                  type: integer
+                ContactId:
+                  type: integer
+                InstructorContactId:
+                  type: string
+                AuditId:
+                  type: integer
+                CertificationCourseName:
+                  type: string
+                ContactName:
+                  type: string
+                InstructorContactName:
+                  type: string
+                EventDetailId:
+                  type: string
+                CourseDate:
+                  type: string
+                Credits:
+                  type: string
+                IsPending:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/certifications/courses/contacts/{certificationcoursecontactid}:
+    get:
+      parameters:
+        - name: certificationcoursecontactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationCourseContactId:
+                type: integer
+              AuditId:
+                type: integer
+              CertificationCourseId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              PrimaryContactId:
+                type: string
+              PrimaryContactName:
+                type: string
+              EventDetailId:
+                type: string
+              CourseDate:
+                type: string
+              Credits:
+                type: string
+              IsPending:
+                type: boolean
+    post:
+      parameters:
+        - name: certificationcoursecontactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CertificationCourseContactId:
+                type: integer
+              AuditId:
+                type: integer
+              CertificationCourseId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              PrimaryContactId:
+                type: string
+              PrimaryContactName:
+                type: string
+              EventDetailId:
+                type: string
+              CourseDate:
+                type: string
+              Credits:
+                type: string
+              IsPending:
+                type: boolean
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationCourseContactId:
+                type: integer
+              CertificationCourseId:
+                type: integer
+              ContactId:
+                type: integer
+              InstructorContactId:
+                type: string
+              AuditId:
+                type: integer
+              CertificationCourseName:
+                type: string
+              ContactName:
+                type: string
+              InstructorContactName:
+                type: string
+              EventDetailId:
+                type: string
+              CourseDate:
+                type: string
+              Credits:
+                type: string
+              IsPending:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/certifications/courses/contacts/{certificationcoursecontactid}/{auditid}:
+    delete:
+      parameters:
+        - name: certificationcoursecontactid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/courses/lookup:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/certifications/exam/{certificationexamid}:
+    get:
+      parameters:
+        - name: certificationexamid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationExamId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Code:
+                type: string
+              MaxScore:
+                type: string
+              PassingScore:
+                type: string
+              CourseItems:
+                type: string
+    post:
+      parameters:
+        - name: certificationexamid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CertificationExamId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Code:
+                type: string
+              MaxScore:
+                type: string
+              PassingScore:
+                type: string
+              CourseItems:
+                type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationExamId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              Code:
+                type: string
+              MaxScore:
+                type: string
+              PassingScore:
+                type: string
+              RequirementCoursesCount:
+                type: integer
+              Actions:
+                type: string
+
+  /api/certifications/exam/{certificationexamid}/{auditid}:
+    delete:
+      parameters:
+        - name: certificationexamid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/exam/results:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CertificationExamResultId:
+                  type: integer
+                CertificationExamId:
+                  type: integer
+                ContactId:
+                  type: integer
+                ScoredByContactId:
+                  type: string
+                AuditId:
+                  type: integer
+                ExamName:
+                  type: string
+                ContactName:
+                  type: string
+                ScoredBy:
+                  type: string
+                Score:
+                  type: number
+                DateTaken:
+                  type: string
+                Passed:
+                  type: boolean
+                Actions:
+                  type: string
+
+  /api/certifications/exam/results/{certificationexamresultid}:
+    get:
+      parameters:
+        - name: certificationexamresultid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationExamResultId:
+                type: integer
+              AuditId:
+                type: integer
+              TenantId:
+                type: integer
+              CertificationExamId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              SponsorContactId:
+                type: string
+              ScoredByContactName:
+                type: string
+              DateTaken:
+                type: string
+              Score:
+                type: integer
+              Passed:
+                type: boolean
+    post:
+      parameters:
+        - name: certificationexamresultid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CertificationExamResultId:
+                type: integer
+              AuditId:
+                type: integer
+              TenantId:
+                type: integer
+              CertificationExamId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              SponsorContactId:
+                type: string
+              ScoredByContactName:
+                type: string
+              DateTaken:
+                type: string
+              Score:
+                type: integer
+              Passed:
+                type: boolean
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationExamResultId:
+                type: integer
+              CertificationExamId:
+                type: integer
+              ContactId:
+                type: integer
+              ScoredByContactId:
+                type: string
+              AuditId:
+                type: integer
+              ExamName:
+                type: string
+              ContactName:
+                type: string
+              ScoredBy:
+                type: string
+              Score:
+                type: number
+              DateTaken:
+                type: string
+              Passed:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/certifications/exam/results/{certificationexamresultid}/{auditid}:
+    delete:
+      parameters:
+        - name: certificationexamresultid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/exams:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CertificationExamId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                Description:
+                  type: string
+                Code:
+                  type: string
+                MaxScore:
+                  type: string
+                PassingScore:
+                  type: string
+                RequirementCoursesCount:
+                  type: integer
+                Actions:
+                  type: string
+
+  /api/certifications/exams/lookup:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/certifications/types:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CertificationTypeId:
+                  type: integer
+                AuditId:
+                  type: integer
+                Name:
+                  type: string
+                IsActive:
+                  type: boolean
+                Category:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/certifications/types/{certificationtypeid}:
+    get:
+      parameters:
+        - name: certificationtypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CategoryTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              CreditsRequired:
+                type: string
+              HoursRequired:
+                type: string
+              CreditsToMaintain:
+                type: string
+              HoursToMaintain:
+                type: string
+              MonthsToComplete:
+                type: string
+              IsActive:
+                type: boolean
+    post:
+      parameters:
+        - name: certificationtypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CertificationTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              CategoryTypeId:
+                type: string
+              CategoryItemId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              CreditsRequired:
+                type: string
+              HoursRequired:
+                type: string
+              CreditsToMaintain:
+                type: string
+              HoursToMaintain:
+                type: string
+              MonthsToComplete:
+                type: string
+              IsActive:
+                type: boolean
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationTypeId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              IsActive:
+                type: boolean
+              Category:
+                type: string
+              Actions:
+                type: string
+
+  /api/certifications/types/{certificationtypeid}/{auditid}:
+    delete:
+      parameters:
+        - name: certificationtypeid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/types/lookup:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/certifications/versions:
+    get:
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                CertificationVersionId:
+                  type: integer
+                CertificationTypeId:
+                  type: integer
+                CertificationType:
+                  type: string
+                VersionName:
+                  type: string
+                AvailableDate:
+                  type: string
+                EndDate:
+                  type: string
+                Actions:
+                  type: string
+
+  /api/certifications/versions/{certificationversionid}:
+    get:
+      parameters:
+        - name: certificationversionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CertificationVersionId:
+                type: integer
+              CertificationTypeId:
+                type: integer
+              VersionName:
+                type: string
+              AvailableDate:
+                type: string
+              EndDate:
+                type: string
+    post:
+      parameters:
+        - name: certificationversionid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CertificationVersionId:
+                type: integer
+              CertificationTypeId:
+                type: integer
+              VersionName:
+                type: string
+              AvailableDate:
+                type: string
+              EndDate:
+                type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              Name:
+                type: string
+              CertificationVersionId:
+                type: integer
+              CertificationTypeId:
+                type: integer
+              CertificationType:
+                type: string
+              VersionName:
+                type: string
+              AvailableDate:
+                type: string
+              EndDate:
+                type: string
+              Actions:
+                type: string
+    delete:
+      parameters:
+        - name: certificationversionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/certifications/versions/lookup/{certificationtypeid}:
+    get:
+      parameters:
+        - name: certificationtypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Certifications
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string

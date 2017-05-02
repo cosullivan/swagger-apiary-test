@@ -1,0 +1,227 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone volunteer API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/volunteers/activities:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Volunteer
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              EventName:
+                type: string
+              EventId:
+                type: string
+              ProjectName:
+                type: string
+              ProjectId:
+                type: string
+              FundraisingCampaignId:
+                type: string
+              TotalHours:
+                type: string
+              VolunteerDateBetween:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Volunteer
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/volunteers/activities/{activityid}:
+    get:
+      parameters:
+        - name: activityid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Volunteer
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ActivityId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              OrganizationContactId:
+                type: string
+              VolunteerDate:
+                type: string
+              VolunteerHours:
+                type: integer
+              Description:
+                type: string
+              EventName:
+                type: string
+              EventId:
+                type: string
+              ProjectName:
+                type: string
+              ProjectId:
+                type: string
+              FundraisingCampaignId:
+                type: string
+    post:
+      parameters:
+        - name: activityid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ActivityId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              OrganizationContactId:
+                type: string
+              VolunteerDate:
+                type: string
+              VolunteerHours:
+                type: integer
+              Description:
+                type: string
+              EventName:
+                type: string
+              EventId:
+                type: string
+              ProjectName:
+                type: string
+              ProjectId:
+                type: string
+              FundraisingCampaignId:
+                type: string
+      tags:
+        - Volunteer
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ActivityId:
+                type: integer
+              ContactId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactName:
+                type: string
+              OrganizationContactId:
+                type: integer
+              OrganizationName:
+                type: string
+              VolunteerDate:
+                type: string
+              VolunteerHours:
+                type: integer
+              EventId:
+                type: string
+              ProjectId:
+                type: string
+              FundraisingCampaignId:
+                type: string
+              RelatedTo:
+                type: string
+              Actions:
+                type: string
+
+  /api/volunteers/activities/{activityid}/{auditid}:
+    delete:
+      parameters:
+        - name: activityid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Volunteer
+      responses:
+        200:
+          description:
+            "OK"

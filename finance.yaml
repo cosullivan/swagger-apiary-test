@@ -1,0 +1,6221 @@
+swagger: '2.0'
+info:
+  version: v1.0
+  title: GrowthZone Finance API
+  description: The API Description
+host: app.memberzone.org
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+
+  /api/finance/addcreditmemo:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CreditMemoId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              IssueDate:
+                type: string
+              Notes:
+                type: string
+              CreditItems:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CreditMemoId:
+                type: integer
+              Contact:
+                type: string
+              ReferenceNumber:
+                type: string
+              IssueDate:
+                type: string
+              Amount:
+                type: number
+              RemainingBalance:
+                type: number
+              AuditId:
+                type: integer
+
+  /api/finance/addcreditmemo/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CreditMemoId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              IssueDate:
+                type: string
+              Notes:
+                type: string
+              CreditItems:
+                type: string
+
+  /api/finance/addeditinvoice/{purchaseid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              PurchaseDate:
+                type: string
+              VoidedDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchasedByContactReadOnly:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              BillingContactId:
+                type: string
+              Total:
+                type: number
+              PurchasedFromOrganizationId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              TemplateId:
+                type: string
+              ToBePrinted:
+                type: boolean
+              ToBeEmailed:
+                type: boolean
+              Balance:
+                type: number
+              PurchaseAuditId:
+                type: integer
+              PurchaseItems:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+              InvoiceNumber:
+                type: string
+              InvoiceDate:
+                type: string
+              TermId:
+                type: string
+              DueDate:
+                type: string
+              PurchaseOrder:
+                type: string
+              AuditId:
+                type: integer
+              CssClass:
+                type: string
+    post:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              PurchaseDate:
+                type: string
+              VoidedDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchasedByContactReadOnly:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              BillingContactId:
+                type: string
+              Total:
+                type: number
+              PurchasedFromOrganizationId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              TemplateId:
+                type: string
+              ToBePrinted:
+                type: boolean
+              ToBeEmailed:
+                type: boolean
+              Balance:
+                type: number
+              PurchaseAuditId:
+                type: integer
+              PurchaseItems:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+              InvoiceNumber:
+                type: string
+              InvoiceDate:
+                type: string
+              TermId:
+                type: string
+              DueDate:
+                type: string
+              PurchaseOrder:
+                type: string
+              AuditId:
+                type: integer
+              CssClass:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              InvoiceDate:
+                type: string
+              InvoiceNumber:
+                type: string
+              PurchaseId:
+                type: integer
+              ContactId:
+                type: integer
+              InvoiceId:
+                type: integer
+              Customer:
+                type: string
+              Description:
+                type: string
+              AgingInDays:
+                type: integer
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/finance/addeditinvoiceterms/{termid}:
+    get:
+      parameters:
+        - name: termid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TermId:
+                type: integer
+              Id:
+                type: integer
+              DueDate:
+                type: string
+              Name:
+                type: string
+              DisplayText:
+                type: string
+              DefaultDueDays:
+                type: string
+              AuditId:
+                type: integer
+    post:
+      parameters:
+        - name: termid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TermId:
+                type: integer
+              Id:
+                type: integer
+              DueDate:
+                type: string
+              Name:
+                type: string
+              DisplayText:
+                type: string
+              DefaultDueDays:
+                type: string
+              AuditId:
+                type: integer
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TermId:
+                type: integer
+              Id:
+                type: integer
+              DueDate:
+                type: string
+              Name:
+                type: string
+              DisplayText:
+                type: string
+              DefaultDueDays:
+                type: string
+              AuditId:
+                type: integer
+
+  /api/finance/addeditpayment:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              ReferenceNumber:
+                type: string
+              PaymentDate:
+                type: string
+              Contact:
+                type: string
+              Amount:
+                type: number
+              DepositId:
+                type: string
+              OverpayBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/finance/addeditpayment/{paymentid}:
+    get:
+      parameters:
+        - name: paymentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+
+  /api/finance/addeditpayment/cash:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              ReferenceNumber:
+                type: string
+              PaymentDate:
+                type: string
+              Contact:
+                type: string
+              Amount:
+                type: number
+              DepositId:
+                type: string
+              OverpayBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/finance/addeditpayment/cash/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+
+  /api/finance/addeditscheduledbilling/{scheduledbillingid}:
+    get:
+      parameters:
+        - name: scheduledbillingid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ScheduledBillingId:
+                type: integer
+              MembershipActivationId:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              ContactType:
+                type: string
+              BillingContactId:
+                type: string
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              SaleableItemId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: number
+              Price:
+                type: number
+              Total:
+                type: number
+              MembershipId:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              NextBillDate:
+                type: string
+              ActiveDiscounts:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              HideOnInvoice:
+                type: boolean
+              ExpiredDiscountCount:
+                type: integer
+              ExpiredDiscounts:
+                type: string
+              TermId:
+                type: string
+              PaymentProfileId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              OriginalAnnualizedAmount:
+                type: integer
+              OriginalBillFrequencyTypeId:
+                type: string
+              AmountRemaining:
+                type: string
+              RemainingCycles:
+                type: integer
+              MaximumCycles:
+                type: integer
+              LastBillDate:
+                type: string
+              AuditId:
+                type: integer
+    post:
+      parameters:
+        - name: scheduledbillingid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ScheduledBillingId:
+                type: integer
+              MembershipActivationId:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              ContactType:
+                type: string
+              BillingContactId:
+                type: string
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              SaleableItemId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: number
+              Price:
+                type: number
+              Total:
+                type: number
+              MembershipId:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              NextBillDate:
+                type: string
+              ActiveDiscounts:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              HideOnInvoice:
+                type: boolean
+              ExpiredDiscountCount:
+                type: integer
+              ExpiredDiscounts:
+                type: string
+              TermId:
+                type: string
+              PaymentProfileId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              OriginalAnnualizedAmount:
+                type: integer
+              OriginalBillFrequencyTypeId:
+                type: string
+              AmountRemaining:
+                type: string
+              RemainingCycles:
+                type: integer
+              MaximumCycles:
+                type: integer
+              LastBillDate:
+                type: string
+              AuditId:
+                type: integer
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ScheduledBillingId:
+                type: integer
+              ContactId:
+                type: integer
+              Customer:
+                type: string
+              NextBillDate:
+                type: string
+              Membership:
+                type: string
+              BillTo:
+                type: string
+              Description:
+                type: string
+              Frequency:
+                type: string
+              HideOnInvoice:
+                type: boolean
+              Amount:
+                type: number
+              PaymentProfile:
+                type: string
+
+  /api/finance/addinvoice/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              PurchaseDate:
+                type: string
+              VoidedDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchasedByContactReadOnly:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              BillingContactId:
+                type: string
+              Total:
+                type: number
+              PurchasedFromOrganizationId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              TemplateId:
+                type: string
+              ToBePrinted:
+                type: boolean
+              ToBeEmailed:
+                type: boolean
+              Balance:
+                type: number
+              PurchaseAuditId:
+                type: integer
+              PurchaseItems:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+              InvoiceNumber:
+                type: string
+              InvoiceDate:
+                type: string
+              TermId:
+                type: string
+              DueDate:
+                type: string
+              PurchaseOrder:
+                type: string
+              AuditId:
+                type: integer
+              CssClass:
+                type: string
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              PurchaseDate:
+                type: string
+              VoidedDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchasedByContactReadOnly:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              BillingContactId:
+                type: string
+              Total:
+                type: number
+              PurchasedFromOrganizationId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              TemplateId:
+                type: string
+              ToBePrinted:
+                type: boolean
+              ToBeEmailed:
+                type: boolean
+              Balance:
+                type: number
+              PurchaseAuditId:
+                type: integer
+              PurchaseItems:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+              InvoiceNumber:
+                type: string
+              InvoiceDate:
+                type: string
+              TermId:
+                type: string
+              DueDate:
+                type: string
+              PurchaseOrder:
+                type: string
+              AuditId:
+                type: integer
+              CssClass:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              PaymentId:
+                type: integer
+              CreditMemoId:
+                type: integer
+              WriteOffId:
+                type: integer
+              RefundId:
+                type: integer
+              TransactionType:
+                type: string
+              ReferenceNumber:
+                type: string
+              DetailItems:
+                type: string
+              TransactionDate:
+                type: string
+              Amount:
+                type: number
+              ItemBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideEnterPayment:
+                type: boolean
+              HideApplyOverpayment:
+                type: boolean
+              HideApplyCredit:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              HideDownloadInvoice:
+                type: boolean
+              HideDownloadRefund:
+                type: boolean
+              HideDownloadCredit:
+                type: boolean
+              HideDownloadPayment:
+                type: boolean
+              Actions:
+                type: string
+              Voided:
+                type: boolean
+              RowClass:
+                type: string
+
+  /api/finance/addpayment/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              PaymentId:
+                type: integer
+              CreditMemoId:
+                type: integer
+              WriteOffId:
+                type: integer
+              RefundId:
+                type: integer
+              TransactionType:
+                type: string
+              ReferenceNumber:
+                type: string
+              DetailItems:
+                type: string
+              TransactionDate:
+                type: string
+              Amount:
+                type: number
+              ItemBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideEnterPayment:
+                type: boolean
+              HideApplyOverpayment:
+                type: boolean
+              HideApplyCredit:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              HideDownloadInvoice:
+                type: boolean
+              HideDownloadRefund:
+                type: boolean
+              HideDownloadCredit:
+                type: boolean
+              HideDownloadPayment:
+                type: boolean
+              Actions:
+                type: string
+              Voided:
+                type: boolean
+              RowClass:
+                type: string
+
+  /api/finance/addpayment/{contactid}/invoice/{purchaseid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+              PaymentTypeId:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              PaymentId:
+                type: integer
+              CreditMemoId:
+                type: integer
+              WriteOffId:
+                type: integer
+              RefundId:
+                type: integer
+              TransactionType:
+                type: string
+              ReferenceNumber:
+                type: string
+              DetailItems:
+                type: string
+              TransactionDate:
+                type: string
+              Amount:
+                type: number
+              ItemBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideEnterPayment:
+                type: boolean
+              HideApplyOverpayment:
+                type: boolean
+              HideApplyCredit:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              HideDownloadInvoice:
+                type: boolean
+              HideDownloadRefund:
+                type: boolean
+              HideDownloadCredit:
+                type: boolean
+              HideDownloadPayment:
+                type: boolean
+              Actions:
+                type: string
+              Voided:
+                type: boolean
+              RowClass:
+                type: string
+
+  /api/finance/addpayment/invoice/{purchaseid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+    post:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactName:
+                type: string
+              AuditId:
+                type: integer
+              PaymentTypeId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              AllowACHCheck:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              BankInfo:
+                type: string
+              TokenId:
+                type: string
+              PayerName:
+                type: string
+              Email:
+                type: string
+              Country:
+                type: string
+              CurrencyType:
+                type: string
+              IsTestBank:
+                type: boolean
+              IsSavingsAccount:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              EPaymentTransactionId:
+                type: string
+              OpenInvoices:
+                type: string
+              PaidByContactId:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              ReferenceNumber:
+                type: string
+              PaymentDate:
+                type: string
+              Contact:
+                type: string
+              Amount:
+                type: number
+              DepositId:
+                type: string
+              OverpayBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/finance/applycredit:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              CreditMemoId:
+                type: integer
+              ContactId:
+                type: integer
+              IssueDate:
+                type: string
+              RemainingBalance:
+                type: number
+              Amount:
+                type: number
+              PurchaseId:
+                type: integer
+              OpenInvoices:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              PaymentId:
+                type: integer
+              CreditMemoId:
+                type: integer
+              WriteOffId:
+                type: integer
+              RefundId:
+                type: integer
+              TransactionType:
+                type: string
+              ReferenceNumber:
+                type: string
+              DetailItems:
+                type: string
+              TransactionDate:
+                type: string
+              Amount:
+                type: number
+              ItemBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideEnterPayment:
+                type: boolean
+              HideApplyOverpayment:
+                type: boolean
+              HideApplyCredit:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              HideDownloadInvoice:
+                type: boolean
+              HideDownloadRefund:
+                type: boolean
+              HideDownloadCredit:
+                type: boolean
+              HideDownloadPayment:
+                type: boolean
+              Actions:
+                type: string
+              Voided:
+                type: boolean
+              RowClass:
+                type: string
+
+  /api/finance/applycredit/{creditmemoid}:
+    get:
+      parameters:
+        - name: creditmemoid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CreditMemoId:
+                type: integer
+              ContactId:
+                type: integer
+              IssueDate:
+                type: string
+              RemainingBalance:
+                type: number
+              Amount:
+                type: number
+              PurchaseId:
+                type: integer
+              OpenInvoices:
+                type: string
+
+  /api/finance/applyoverpayment:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              OverpayBalance:
+                type: number
+              Amount:
+                type: number
+              PurchaseId:
+                type: integer
+              OpenInvoices:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              PaymentId:
+                type: integer
+              CreditMemoId:
+                type: integer
+              WriteOffId:
+                type: integer
+              RefundId:
+                type: integer
+              TransactionType:
+                type: string
+              ReferenceNumber:
+                type: string
+              DetailItems:
+                type: string
+              TransactionDate:
+                type: string
+              Amount:
+                type: number
+              ItemBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideEnterPayment:
+                type: boolean
+              HideApplyOverpayment:
+                type: boolean
+              HideApplyCredit:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              HideDownloadInvoice:
+                type: boolean
+              HideDownloadRefund:
+                type: boolean
+              HideDownloadCredit:
+                type: boolean
+              HideDownloadPayment:
+                type: boolean
+              Actions:
+                type: string
+              Voided:
+                type: boolean
+              RowClass:
+                type: string
+
+  /api/finance/applyoverpayment/{paymentid}:
+    get:
+      parameters:
+        - name: paymentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              PaymentDate:
+                type: string
+              OverpayBalance:
+                type: number
+              Amount:
+                type: number
+              PurchaseId:
+                type: integer
+              OpenInvoices:
+                type: string
+
+  /api/finance/bankaccount:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              Token:
+                type: string
+              AccountId:
+                type: string
+              ContactId:
+                type: integer
+              OrganizationId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              IsTestBank:
+                type: boolean
+              CurrencyType:
+                type: string
+              Country:
+                type: string
+              PayerName:
+                type: string
+              IsSavingsAccount:
+                type: boolean
+              PreferredEmailAddress:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              PaymentProfileId:
+                type: integer
+              Name:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ContactId:
+                type: integer
+              OrganizationContactId:
+                type: string
+              ProfileKey:
+                type: string
+              ClientKey:
+                type: string
+              AssignedToPerson:
+                type: string
+              ProfileRawData:
+                type: string
+              PaymentProfileTypeId:
+                type: string
+              Success:
+                type: boolean
+              UserMessage:
+                type: string
+
+  /api/finance/bankaccount/verify:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PaymentProfileId:
+                type: integer
+              ProfileKey:
+                type: string
+              ClientKey:
+                type: string
+              Amount1:
+                type: number
+              Amount2:
+                type: number
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              PaymentProfileId:
+                type: integer
+              Name:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: string
+              ContactId:
+                type: integer
+              OrganizationContactId:
+                type: string
+              ProfileKey:
+                type: string
+              ClientKey:
+                type: string
+              AssignedToPerson:
+                type: string
+              ProfileRawData:
+                type: string
+              PaymentProfileTypeId:
+                type: string
+              Success:
+                type: boolean
+              UserMessage:
+                type: string
+
+  /api/finance/bankpaymentprofile/lookup/{paymentgatewayid}/{paymentprofileid}/{contactid}:
+    get:
+      parameters:
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+        - name: paymentprofileid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/finance/capturecharge/{epaymentid}/:
+    post:
+      parameters:
+        - name: epaymentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Success:
+                type: boolean
+              UserMessage:
+                type: string
+              TransactionId:
+                type: string
+              EpaymentTransactionId:
+                type: string
+              PaymentId:
+                type: string
+              PaymentProfileId:
+                type: string
+              EpaymentTransactions:
+                type: string
+
+  /api/finance/contact/{contactid}/openinvoices/{purchaseid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PurchaseId:
+                  type: integer
+                InvoiceNumber:
+                  type: string
+                PurchaseDate:
+                  type: string
+                Amount:
+                  type: number
+                Balance:
+                  type: number
+                Id:
+                  type: integer
+
+  /api/finance/contacts/{contactid}/billinghistory:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: skip
+          in: query
+          required: false
+          type: string
+        - name: pagesize
+          in: query
+          required: false
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Type:
+                  type: string
+                PurchaseId:
+                  type: integer
+                InvoiceId:
+                  type: integer
+                PaymentId:
+                  type: integer
+                CreditMemoId:
+                  type: integer
+                WriteOffId:
+                  type: integer
+                RefundId:
+                  type: integer
+                TransactionType:
+                  type: string
+                ReferenceNumber:
+                  type: string
+                DetailItems:
+                  type: string
+                TransactionDate:
+                  type: string
+                Amount:
+                  type: number
+                ItemBalance:
+                  type: number
+                FullyWrittenOff:
+                  type: boolean
+                HideEnterPayment:
+                  type: boolean
+                HideApplyOverpayment:
+                  type: boolean
+                HideApplyCredit:
+                  type: boolean
+                HideCreateRefund:
+                  type: boolean
+                HideDownloadInvoice:
+                  type: boolean
+                HideDownloadRefund:
+                  type: boolean
+                HideDownloadCredit:
+                  type: boolean
+                HideDownloadPayment:
+                  type: boolean
+                Actions:
+                  type: string
+                Voided:
+                  type: boolean
+                RowClass:
+                  type: string
+
+  /api/finance/contacts/{contactid}/financialsummary:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              ContactBalance:
+                type: string
+              ContactTaxSets:
+                type: string
+              BillingNotes:
+                type: string
+              ScheduledBilling:
+                type: string
+              PaymentProfile:
+                type: string
+              BillingHistory:
+                type: string
+
+  /api/finance/contactswithbalance/search/{search}:
+    get:
+      parameters:
+        - name: search
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/finance/contacttaxstatus:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              AuditId:
+                type: string
+              TaxSetId:
+                type: string
+              TaxSetName:
+                type: string
+              IsTaxExempt:
+                type: boolean
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              TaxSetId:
+                type: string
+              TaxSetName:
+                type: string
+              IsTaxExempt:
+                type: boolean
+
+  /api/finance/contacttaxstatus/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              AuditId:
+                type: string
+              TaxSetId:
+                type: string
+              TaxSetName:
+                type: string
+              IsTaxExempt:
+                type: boolean
+
+  /api/finance/createrefund:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              RefundDate:
+                type: string
+              Notes:
+                type: string
+              ContactId:
+                type: integer
+              EPaymentTransactionId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactName:
+                type: string
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              PaymentAmount:
+                type: number
+              RefundItems:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              PaymentId:
+                type: integer
+              CreditMemoId:
+                type: integer
+              WriteOffId:
+                type: integer
+              RefundId:
+                type: integer
+              TransactionType:
+                type: string
+              ReferenceNumber:
+                type: string
+              DetailItems:
+                type: string
+              TransactionDate:
+                type: string
+              Amount:
+                type: number
+              ItemBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideEnterPayment:
+                type: boolean
+              HideApplyOverpayment:
+                type: boolean
+              HideApplyCredit:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              HideDownloadInvoice:
+                type: boolean
+              HideDownloadRefund:
+                type: boolean
+              HideDownloadCredit:
+                type: boolean
+              HideDownloadPayment:
+                type: boolean
+              Actions:
+                type: string
+              Voided:
+                type: boolean
+              RowClass:
+                type: string
+
+  /api/finance/createrefund/{paymentid}:
+    get:
+      parameters:
+        - name: paymentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              RefundDate:
+                type: string
+              Notes:
+                type: string
+              ContactId:
+                type: integer
+              EPaymentTransactionId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactName:
+                type: string
+              PaymentDate:
+                type: string
+              CheckNumber:
+                type: string
+              PaymentAmount:
+                type: number
+              RefundItems:
+                type: string
+
+  /api/finance/createrefund/contact/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              EligiblePayments:
+                type: string
+
+  /api/finance/createwriteoff:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              WriteOffDate:
+                type: string
+              Notes:
+                type: string
+              ContactId:
+                type: integer
+              PurchaseId:
+                type: integer
+              ContactName:
+                type: string
+              PurchaseDate:
+                type: string
+              InvoiceNumber:
+                type: string
+              PurchaseTotal:
+                type: number
+              WriteOffItems:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Type:
+                type: string
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              PaymentId:
+                type: integer
+              CreditMemoId:
+                type: integer
+              WriteOffId:
+                type: integer
+              RefundId:
+                type: integer
+              TransactionType:
+                type: string
+              ReferenceNumber:
+                type: string
+              DetailItems:
+                type: string
+              TransactionDate:
+                type: string
+              Amount:
+                type: number
+              ItemBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideEnterPayment:
+                type: boolean
+              HideApplyOverpayment:
+                type: boolean
+              HideApplyCredit:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              HideDownloadInvoice:
+                type: boolean
+              HideDownloadRefund:
+                type: boolean
+              HideDownloadCredit:
+                type: boolean
+              HideDownloadPayment:
+                type: boolean
+              Actions:
+                type: string
+              Voided:
+                type: boolean
+              RowClass:
+                type: string
+
+  /api/finance/createwriteoff/{purchaseid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              WriteOffDate:
+                type: string
+              Notes:
+                type: string
+              ContactId:
+                type: integer
+              PurchaseId:
+                type: integer
+              ContactName:
+                type: string
+              PurchaseDate:
+                type: string
+              InvoiceNumber:
+                type: string
+              PurchaseTotal:
+                type: number
+              WriteOffItems:
+                type: string
+
+  /api/finance/createwriteoff/contact/{contactid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ContactName:
+                type: string
+              ContactId:
+                type: integer
+              OpenInvoices:
+                type: string
+
+  /api/finance/creditmemos:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                CreditMemoId:
+                  type: integer
+                Contact:
+                  type: string
+                ReferenceNumber:
+                  type: string
+                IssueDate:
+                  type: string
+                Amount:
+                  type: number
+                RemainingBalance:
+                  type: number
+                AuditId:
+                  type: integer
+
+  /api/finance/delivery/missinginfo:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                InvoiceNumber:
+                  type: string
+                PurchaseId:
+                  type: integer
+                ContactId:
+                  type: integer
+                AuditId:
+                  type: integer
+                ToBePrintedToggle:
+                  type: boolean
+                ToBeEmailedToggle:
+                  type: boolean
+                Contact:
+                  type: string
+                DeliveryMethod:
+                  type: string
+                IsMissingInfo:
+                  type: boolean
+                Template:
+                  type: string
+                TotalAmount:
+                  type: number
+
+  /api/finance/delivery/options:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AuditId:
+                type: integer
+              PurchaseId:
+                type: integer
+              ToBePrintedToggle:
+                type: boolean
+              ToBeEmailedToggle:
+                type: boolean
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                InvoiceNumber:
+                  type: string
+                PurchaseId:
+                  type: integer
+                ContactId:
+                  type: integer
+                AuditId:
+                  type: integer
+                ToBePrintedToggle:
+                  type: boolean
+                ToBeEmailedToggle:
+                  type: boolean
+                Contact:
+                  type: string
+                DeliveryMethod:
+                  type: string
+                IsMissingInfo:
+                  type: boolean
+                Template:
+                  type: string
+                TotalAmount:
+                  type: number
+
+  /api/finance/deposit/get/{depositid}:
+    post:
+      parameters:
+        - name: depositid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DepositId:
+                type: integer
+              AuditId:
+                type: integer
+              DepositDate:
+                type: string
+              Notes:
+                type: string
+              Payments:
+                type: string
+
+  /api/finance/deposit/save/{depositid}:
+    post:
+      parameters:
+        - name: depositid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DepositId:
+                type: integer
+              AuditId:
+                type: integer
+              DepositDate:
+                type: string
+              Notes:
+                type: string
+              Payments:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DepositId:
+                type: integer
+              DepositDate:
+                type: string
+              CountOfPayments:
+                type: string
+              Total:
+                type: number
+              CreatedBy:
+                type: string
+              Notes:
+                type: string
+
+  /api/finance/deposits:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DepositId:
+                  type: integer
+                DepositDate:
+                  type: string
+                CountOfPayments:
+                  type: string
+                Total:
+                  type: number
+                CreatedBy:
+                  type: string
+                Notes:
+                  type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              CreatedBy:
+                type: string
+              DepositDateBetween:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DepositId:
+                  type: integer
+                DepositDate:
+                  type: string
+                CountOfPayments:
+                  type: string
+                Total:
+                  type: number
+                CreatedBy:
+                  type: string
+                Notes:
+                  type: string
+
+  /api/finance/depostis/{depositid}/{auditid}:
+    get:
+      parameters:
+        - name: depositid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/depostis/{depositid}/payments:
+    get:
+      parameters:
+        - name: depositid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DepositId:
+                type: integer
+              AuditId:
+                type: integer
+              Payments:
+                type: string
+              Stub:
+                type: string
+              Total:
+                type: string
+              IsDeletable:
+                type: boolean
+
+  /api/finance/discounts/{discountid}:
+    get:
+      parameters:
+        - name: discountid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DiscountId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DiscountTypeId:
+                type: integer
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              PromoCode:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              MinToActivateDiscount:
+                type: integer
+              DiscountNewPrice:
+                type: string
+              DiscountPercent:
+                type: string
+              DiscountAmount:
+                type: string
+              UsedQuantity:
+                type: integer
+              SlidingExpirationDays:
+                type: string
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+    post:
+      parameters:
+        - name: discountid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              DiscountId:
+                type: integer
+              AuditId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DiscountTypeId:
+                type: integer
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              PromoCode:
+                type: string
+              TotalAvailable:
+                type: integer
+              LimitPerPurchase:
+                type: integer
+              MinToActivateDiscount:
+                type: integer
+              DiscountNewPrice:
+                type: string
+              DiscountPercent:
+                type: string
+              DiscountAmount:
+                type: string
+              UsedQuantity:
+                type: integer
+              SlidingExpirationDays:
+                type: string
+              CanBeUsedWithOtherDiscounts:
+                type: boolean
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DiscountId:
+                type: integer
+              Name:
+                type: string
+              DiscountType:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              TotalAvailable:
+                type: integer
+              UsedQuantity:
+                type: integer
+              Discount:
+                type: string
+
+  /api/finance/discounts/{discountid}/{auditid}:
+    delete:
+      parameters:
+        - name: discountid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/discounts/all:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              DiscountId:
+                type: string
+              DiscountTypeId:
+                type: string
+              IsActive:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/finance/discounttypes/{discounttypeid}:
+    get:
+      parameters:
+        - name: discounttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Id:
+                type: integer
+              DiscountTypeId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DiscountAccountId:
+                type: string
+              SystemDiscountTypeId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+    post:
+      parameters:
+        - name: discounttypeid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              DiscountTypeId:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DiscountAccountId:
+                type: string
+              SystemDiscountTypeId:
+                type: string
+              SaleableItemTypeId:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              DiscountTypeId:
+                type: integer
+              Name:
+                type: string
+              SystemDiscountTypeId:
+                type: string
+              DiscountAccount:
+                type: string
+              DeferredDiscountAccount:
+                type: string
+    delete:
+      parameters:
+        - name: discounttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/discounttypes/all:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                DiscountTypeId:
+                  type: integer
+                Name:
+                  type: string
+                SystemDiscountTypeId:
+                  type: string
+                DiscountAccount:
+                  type: string
+                DeferredDiscountAccount:
+                  type: string
+
+  /api/finance/discounttypes/lookup:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/finance/discounttypes/lookup/{systemdiscounttypeid}:
+    get:
+      parameters:
+        - name: systemdiscounttypeid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/finance/discounttypes/lookup/event:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Id:
+                  type: integer
+                Name:
+                  type: string
+                ExtraData:
+                  type: string
+                CssColor:
+                  type: string
+                IsSelected:
+                  type: boolean
+
+  /api/finance/download/credit/{creditmemoid}:
+    get:
+      parameters:
+        - name: creditmemoid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/finance/download/invoice/{purchaseid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/finance/download/payment/{paymentid}:
+    get:
+      parameters:
+        - name: paymentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/finance/download/refund/{refundid}:
+    get:
+      parameters:
+        - name: refundid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/finance/editinvoice/{invoiceid}:
+    post:
+      parameters:
+        - name: invoiceid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              PurchaseId:
+                type: integer
+              PurchaseDate:
+                type: string
+              VoidedDate:
+                type: string
+              PurchaseTypeId:
+                type: string
+              PurchasedByContactReadOnly:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              BillingContactId:
+                type: string
+              Total:
+                type: number
+              PurchasedFromOrganizationId:
+                type: string
+              AddressId:
+                type: string
+              EmailId:
+                type: string
+              Message:
+                type: string
+              InternalMemo:
+                type: string
+              TemplateId:
+                type: string
+              ToBePrinted:
+                type: boolean
+              ToBeEmailed:
+                type: boolean
+              Balance:
+                type: number
+              PurchaseAuditId:
+                type: integer
+              PurchaseItems:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              IsTaxExempt:
+                type: boolean
+              TaxRegionId:
+                type: string
+              ContactTaxSetRate:
+                type: number
+              ContactTaxSetFloatAmount:
+                type: number
+              InvoiceNumber:
+                type: string
+              InvoiceDate:
+                type: string
+              TermId:
+                type: string
+              DueDate:
+                type: string
+              PurchaseOrder:
+                type: string
+              AuditId:
+                type: integer
+              CssClass:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              EventAttendeeId:
+                type: integer
+              EventId:
+                type: integer
+              EventDetailId:
+                type: integer
+              PurchaseId:
+                type: integer
+              InvoiceId:
+                type: integer
+              ContactId:
+                type: integer
+              EventAttendeeStatusId:
+                type: string
+              EnableSessions:
+                type: boolean
+              EventRegistrationId:
+                type: integer
+              Status:
+                type: string
+              Name:
+                type: string
+              Organization:
+                type: string
+              InvoiceNumber:
+                type: string
+              Comments:
+                type: string
+              Price:
+                type: number
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/finance/invoices/delivery/byemail/load:
+    post:
+      parameters:
+        - name: customadvancedfilter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              MembershipStatus:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemType:
+                type: string
+              IsOpen:
+                type: boolean
+              IsClose:
+                type: boolean
+              IsCurrent:
+                type: boolean
+              IsPastDue:
+                type: boolean
+              HasCreditBalanceAvailable:
+                type: boolean
+              PastDue:
+                type: string
+              HasUnpaidVoluntaryFees:
+                type: boolean
+              IsToBeEmailedToggle:
+                type: boolean
+              IsToBePrintedToggle:
+                type: boolean
+              IsToBeEmailedToggleOrPrintedToggle:
+                type: boolean
+              Criteria:
+                type: string
+              IsEmpty:
+                type: boolean
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              GlobalFlags:
+                type: string
+              PurchasesWithUrls:
+                type: string
+              GenerateCoverLetter:
+                type: boolean
+              DeliverType:
+                type: string
+              FileFormat:
+                type: string
+              StatementDocumentGenerationTemplateId:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              CoverLetterTemplateId:
+                type: string
+              CoverLetterContactId:
+                type: string
+              Subject:
+                type: string
+              EmailBody:
+                type: string
+              Invoices:
+                type: string
+
+  /api/finance/invoices/delivery/byemail/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              GlobalFlags:
+                type: string
+              PurchasesWithUrls:
+                type: string
+              GenerateCoverLetter:
+                type: boolean
+              DeliverType:
+                type: string
+              FileFormat:
+                type: string
+              StatementDocumentGenerationTemplateId:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              CoverLetterTemplateId:
+                type: string
+              CoverLetterContactId:
+                type: string
+              Subject:
+                type: string
+              EmailBody:
+                type: string
+              Invoices:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+
+  /api/finance/invoices/delivery/email:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              TemplateId:
+                type: string
+              Subject:
+                type: string
+              EmailRecipients:
+                type: string
+              GlobalFlags:
+                type: string
+              EmailBody:
+                type: string
+              TemplateId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              PurchasesWithUrls:
+                type: string
+              EmailRecipients:
+                type: string
+              Invoices:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              TemplateId:
+                type: string
+              Subject:
+                type: string
+              EmailRecipients:
+                type: string
+              GlobalFlags:
+                type: string
+              EmailBody:
+                type: string
+              TemplateId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              PurchasesWithUrls:
+                type: string
+              EmailRecipients:
+                type: string
+              Invoices:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+
+  /api/finance/invoices/delivery/print:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              CoverLetterTemplateId:
+                type: string
+              CoverLetterContactId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              ShowOpen:
+                type: string
+              Invoices:
+                type: string
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              CoverLetterTemplateId:
+                type: string
+              CoverLetterContactId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              ShowOpen:
+                type: string
+              Invoices:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/finance/invoices/delivery/summary:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/finance/invoices/deliverymethod:
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              MembershipStatus:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemType:
+                type: string
+              IsOpen:
+                type: boolean
+              IsClose:
+                type: boolean
+              IsCurrent:
+                type: boolean
+              IsPastDue:
+                type: boolean
+              HasCreditBalanceAvailable:
+                type: boolean
+              PastDue:
+                type: string
+              HasUnpaidVoluntaryFees:
+                type: boolean
+              IsToBeEmailedToggle:
+                type: boolean
+              IsToBePrintedToggle:
+                type: boolean
+              IsToBeEmailedToggleOrPrintedToggle:
+                type: boolean
+              Criteria:
+                type: string
+              IsEmpty:
+                type: boolean
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ToBePrintedToggle:
+                type: boolean
+              ToBeEmailedToggle:
+                type: boolean
+              Invoices:
+                type: string
+
+  /api/finance/invoices/deliverymethod/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ToBePrintedToggle:
+                type: boolean
+              ToBeEmailedToggle:
+                type: boolean
+              Invoices:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/invoices/lookup/message:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/finance/invoices/print:
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              MembershipStatus:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemType:
+                type: string
+              IsOpen:
+                type: boolean
+              IsClose:
+                type: boolean
+              IsCurrent:
+                type: boolean
+              IsPastDue:
+                type: boolean
+              HasCreditBalanceAvailable:
+                type: boolean
+              PastDue:
+                type: string
+              HasUnpaidVoluntaryFees:
+                type: boolean
+              IsToBeEmailedToggle:
+                type: boolean
+              IsToBePrintedToggle:
+                type: boolean
+              IsToBeEmailedToggleOrPrintedToggle:
+                type: boolean
+              Criteria:
+                type: string
+              IsEmpty:
+                type: boolean
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              CoverLetterTemplateId:
+                type: string
+              CoverLetterContactId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              ShowOpen:
+                type: string
+              Invoices:
+                type: string
+
+  /api/finance/invoices/print/save:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              CoverLetterTemplateId:
+                type: string
+              CoverLetterContactId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              ShowOpen:
+                type: string
+              Invoices:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/finance/invoiceterms/all:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                TermId:
+                  type: integer
+                Name:
+                  type: string
+                DisplayText:
+                  type: string
+                DefaultDueDays:
+                  type: string
+
+  /api/finance/invoiceterms/all/{termid}/{auditid}:
+    delete:
+      parameters:
+        - name: termid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/invoiceterms/lookup:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/lookup:
+    get:
+      tags:
+        - Finance
+      description:
+        "Retrieves all available discount for current tenant as lookup list"
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/openinvoices:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              MembershipStatus:
+                type: string
+              SaleableItemId:
+                type: string
+              SaleableItemType:
+                type: string
+              IsOpen:
+                type: boolean
+              IsClose:
+                type: boolean
+              IsCurrent:
+                type: boolean
+              IsPastDue:
+                type: boolean
+              HasCreditBalanceAvailable:
+                type: boolean
+              PastDue:
+                type: string
+              HasUnpaidVoluntaryFees:
+                type: boolean
+              IsToBeEmailedToggle:
+                type: boolean
+              IsToBePrintedToggle:
+                type: boolean
+              IsToBeEmailedToggleOrPrintedToggle:
+                type: boolean
+              Criteria:
+                type: string
+              IsEmpty:
+                type: boolean
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/finance/overview:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              InvoiceStats:
+                type: string
+              PaymentStats:
+                type: string
+              AcctRecvStats:
+                type: string
+              HasStripeGateway:
+                type: boolean
+              HasDisputes:
+                type: boolean
+              SalesLinkBox:
+                type: string
+              ReportsLinkBox:
+                type: string
+              FinanceLinkBox:
+                type: string
+
+  /api/finance/paymentprofile:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              IsDeletable:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              IsDeleted:
+                type: boolean
+              AuditId:
+                type: integer
+              PaymentProfileTypeId:
+                type: string
+              ContactId:
+                type: integer
+              OrganizationContactId:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: integer
+              PaymentGatewayType:
+                type: string
+              Name:
+                type: string
+              ProfileKey:
+                type: string
+              ClientKey:
+                type: string
+              ProfileRawData:
+                type: string
+              CreditCardInfo:
+                type: string
+              TokenId:
+                type: string
+              CardType:
+                type: string
+              CardLast4:
+                type: string
+              CardExpMonth:
+                type: string
+              CardExpYear:
+                type: string
+              VerificationAmountOne:
+                type: string
+              VerificationAmountTwo:
+                type: string
+              Address:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryCode:
+                type: string
+              Currency:
+                type: string
+              ContactName:
+                type: string
+              Email:
+                type: string
+              IsTestCard:
+                type: boolean
+              ConfigInfoJson:
+                type: string
+              ScheduledBillingItems:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentProfileId:
+                type: integer
+              Name:
+                type: string
+              Type:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              ProfileKey:
+                type: string
+              ClientKey:
+                type: string
+
+  /api/finance/paymentprofile/{paymentprofileid}:
+    get:
+      parameters:
+        - name: paymentprofileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              IsDeletable:
+                type: boolean
+              PaymentProfileId:
+                type: integer
+              IsDeleted:
+                type: boolean
+              AuditId:
+                type: integer
+              PaymentProfileTypeId:
+                type: string
+              ContactId:
+                type: integer
+              OrganizationContactId:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              PaymentGatewayId:
+                type: integer
+              PaymentGatewayType:
+                type: string
+              Name:
+                type: string
+              ProfileKey:
+                type: string
+              ClientKey:
+                type: string
+              ProfileRawData:
+                type: string
+              CreditCardInfo:
+                type: string
+              TokenId:
+                type: string
+              CardType:
+                type: string
+              CardLast4:
+                type: string
+              CardExpMonth:
+                type: string
+              CardExpYear:
+                type: string
+              VerificationAmountOne:
+                type: string
+              VerificationAmountTwo:
+                type: string
+              Address:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryCode:
+                type: string
+              Currency:
+                type: string
+              ContactName:
+                type: string
+              Email:
+                type: string
+              IsTestCard:
+                type: boolean
+              ConfigInfoJson:
+                type: string
+              ScheduledBillingItems:
+                type: string
+    delete:
+      parameters:
+        - name: paymentprofileid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/paymentprofile/lookup/{paymentprofileid}/{contactid}/{organizationid}:
+    get:
+      parameters:
+        - name: paymentprofileid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: organizationid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                Expression:
+                  type: string
+                ElementType:
+                  type: string
+                Provider:
+                  type: string
+
+  /api/finance/payments:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              PaymentDateBetween:
+                type: string
+              PaymentTypeId:
+                type: string
+              CheckNumber:
+                type: string
+              ContactId:
+                type: string
+              Contact:
+                type: string
+              PaymentAmountBetween:
+                type: string
+              Undeposited:
+                type: boolean
+              Criteria:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/finance/payments/delete/{paymentid}/{auditid}:
+    delete:
+      parameters:
+        - name: paymentid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              ReferenceNumber:
+                type: string
+              PaymentDate:
+                type: string
+              Contact:
+                type: string
+              Amount:
+                type: number
+              DepositId:
+                type: string
+              OverpayBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/finance/payments/view/{paymentid}:
+    get:
+      parameters:
+        - name: paymentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              AuditId:
+                type: integer
+              Date:
+                type: string
+              PaymentDate:
+                type: string
+              VoidedDate:
+                type: string
+              Type:
+                type: string
+              PaymentType:
+                type: string
+              CheckNumber:
+                type: string
+              Amount:
+                type: string
+              PaymentAmount:
+                type: number
+              OverpayBalance:
+                type: number
+              Contact:
+                type: string
+              OverpaymentBalance:
+                type: string
+              Invoices:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              Lookback:
+                type: integer
+              isRemovable:
+                type: boolean
+              CssClass:
+                type: string
+
+  /api/finance/paywithcard/{contactid}/:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactName:
+                type: string
+              ContactId:
+                type: string
+              PaymentContactId:
+                type: string
+              OrganizationId:
+                type: string
+              PaymentId:
+                type: integer
+                description: "Not sure we will use this - probably delete later"
+              PaymentProfileId:
+                type: string
+              ShowGateways:
+                type: boolean
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              CreditCardInfo:
+                type: string
+              CheckNumber:
+                type: string
+              StorePaymentInfoForFuture:
+                type: boolean
+              PayByNewCard:
+                type: boolean
+              TokenId:
+                type: string
+              Capture:
+                type: string
+              SimResponse:
+                type: string
+              EPaymentTransactionId:
+                type: integer
+              DataDescriptor:
+                type: string
+              DataValue:
+                type: string
+              IsTestCard:
+                type: boolean
+              CardType:
+                type: string
+              CardLast4:
+                type: string
+              CardExpMonth:
+                type: string
+              CardExpYear:
+                type: string
+              CardCvc:
+                type: string
+              Amount:
+                type: number
+              Currency:
+                type: string
+              GatewayAmounts:
+                type: string
+              IsBankCharge:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              OpenInvoices:
+                type: string
+              ScheduledBillingItems:
+                type: string
+              Company:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Address:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryCode:
+                type: string
+              Email:
+                type: string
+              Phone:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Success:
+                type: boolean
+              UserMessage:
+                type: string
+              TransactionId:
+                type: string
+              EpaymentTransactionId:
+                type: string
+              PaymentId:
+                type: string
+              PaymentProfileId:
+                type: string
+              EpaymentTransactions:
+                type: string
+
+  /api/finance/paywithcard/{purchaseid}/{contactid}/{paymentgatewayid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactName:
+                type: string
+              ContactId:
+                type: string
+              PaymentContactId:
+                type: string
+              OrganizationId:
+                type: string
+              PaymentId:
+                type: integer
+                description: "Not sure we will use this - probably delete later"
+              PaymentProfileId:
+                type: string
+              ShowGateways:
+                type: boolean
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              CreditCardInfo:
+                type: string
+              CheckNumber:
+                type: string
+              StorePaymentInfoForFuture:
+                type: boolean
+              PayByNewCard:
+                type: boolean
+              TokenId:
+                type: string
+              Capture:
+                type: string
+              SimResponse:
+                type: string
+              EPaymentTransactionId:
+                type: integer
+              DataDescriptor:
+                type: string
+              DataValue:
+                type: string
+              IsTestCard:
+                type: boolean
+              CardType:
+                type: string
+              CardLast4:
+                type: string
+              CardExpMonth:
+                type: string
+              CardExpYear:
+                type: string
+              CardCvc:
+                type: string
+              Amount:
+                type: number
+              Currency:
+                type: string
+              GatewayAmounts:
+                type: string
+              IsBankCharge:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              OpenInvoices:
+                type: string
+              ScheduledBillingItems:
+                type: string
+              Company:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Address:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryCode:
+                type: string
+              Email:
+                type: string
+              Phone:
+                type: string
+
+  /api/finance/paywithcardmic/{purchaseid}/{currentusercontactid}/{currentuserorgcontactid}/{paymentgatewayid}:
+    get:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+        - name: currentusercontactid
+          in: path
+          required: true
+          type: string
+        - name: currentuserorgcontactid
+          in: path
+          required: true
+          type: string
+        - name: paymentgatewayid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TenantId:
+                type: integer
+              ContactName:
+                type: string
+              ContactId:
+                type: string
+              PaymentContactId:
+                type: string
+              OrganizationId:
+                type: string
+              PaymentId:
+                type: integer
+                description: "Not sure we will use this - probably delete later"
+              PaymentProfileId:
+                type: string
+              ShowGateways:
+                type: boolean
+              PaymentGatewayId:
+                type: string
+              ConfigInfoJson:
+                type: string
+              PaymentGatewayTypeId:
+                type: string
+              CreditCardInfo:
+                type: string
+              CheckNumber:
+                type: string
+              StorePaymentInfoForFuture:
+                type: boolean
+              PayByNewCard:
+                type: boolean
+              TokenId:
+                type: string
+              Capture:
+                type: string
+              SimResponse:
+                type: string
+              EPaymentTransactionId:
+                type: integer
+              DataDescriptor:
+                type: string
+              DataValue:
+                type: string
+              IsTestCard:
+                type: boolean
+              CardType:
+                type: string
+              CardLast4:
+                type: string
+              CardExpMonth:
+                type: string
+              CardExpYear:
+                type: string
+              CardCvc:
+                type: string
+              Amount:
+                type: number
+              Currency:
+                type: string
+              GatewayAmounts:
+                type: string
+              IsBankCharge:
+                type: boolean
+              PurchaseId:
+                type: integer
+                description: "Optional parameter in case we are filtering to pay for a single invoice"
+              OpenInvoices:
+                type: string
+              ScheduledBillingItems:
+                type: string
+              Company:
+                type: string
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Address:
+                type: string
+              Address2:
+                type: string
+              City:
+                type: string
+              StateProvince:
+                type: string
+              PostalCode:
+                type: string
+              CountryCode:
+                type: string
+              Email:
+                type: string
+              Phone:
+                type: string
+
+  /api/finance/processautomatedscheduledbilling/{billingdate}:
+    get:
+      parameters:
+        - name: billingdate
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                InvoiceDate:
+                  type: string
+                InvoiceNumber:
+                  type: string
+                PurchaseId:
+                  type: integer
+                ContactId:
+                  type: integer
+                InvoiceId:
+                  type: integer
+                Customer:
+                  type: string
+                Description:
+                  type: string
+                AgingInDays:
+                  type: integer
+                Balance:
+                  type: number
+                Actions:
+                  type: string
+
+  /api/finance/promocodes/lookup:
+    get:
+      tags:
+        - Finance
+      description:
+        "Retrieves all available promo codes for current tenant as lookup list"
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/purchase/delete/{purchaseid}:
+    delete:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              InvoiceDate:
+                type: string
+              InvoiceNumber:
+                type: string
+              PurchaseId:
+                type: integer
+              ContactId:
+                type: integer
+              InvoiceId:
+                type: integer
+              Customer:
+                type: string
+              Description:
+                type: string
+              AgingInDays:
+                type: integer
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/finance/refunds/{refundid}:
+    get:
+      parameters:
+        - name: refundid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              RefundId:
+                type: integer
+              AuditId:
+                type: integer
+              EPaymentTransactionId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              RefundDate:
+                type: string
+              VoidedDate:
+                type: string
+              Amount:
+                type: number
+              PaymentCheckNumber:
+                type: string
+              Notes:
+                type: string
+              Items:
+                type: string
+              Lookback:
+                type: integer
+              isRemovable:
+                type: boolean
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              CssClass:
+                type: string
+
+  /api/finance/refunds/delete/{refundid}:
+    delete:
+      parameters:
+        - name: refundid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              RefundId:
+                type: integer
+              AuditId:
+                type: integer
+              EPaymentTransactionId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              RefundDate:
+                type: string
+              VoidedDate:
+                type: string
+              Amount:
+                type: number
+              PaymentCheckNumber:
+                type: string
+              Notes:
+                type: string
+              Items:
+                type: string
+              Lookback:
+                type: integer
+              isRemovable:
+                type: boolean
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              CssClass:
+                type: string
+
+  /api/finance/scheduledbilling:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+        - name: monthsahead
+          in: query
+          required: false
+          type: integer
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              ScheduledBillingId:
+                type: string
+              SelectedDate:
+                type: string
+              Criteria:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/finance/scheduledbilling/{contactid}:
+    post:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ScheduledBillingId:
+                type: integer
+              MembershipActivationId:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              ContactType:
+                type: string
+              BillingContactId:
+                type: string
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              SaleableItemId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: number
+              Price:
+                type: number
+              Total:
+                type: number
+              MembershipId:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              NextBillDate:
+                type: string
+              ActiveDiscounts:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              HideOnInvoice:
+                type: boolean
+              ExpiredDiscountCount:
+                type: integer
+              ExpiredDiscounts:
+                type: string
+              TermId:
+                type: string
+              PaymentProfileId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              OriginalAnnualizedAmount:
+                type: integer
+              OriginalBillFrequencyTypeId:
+                type: string
+              AmountRemaining:
+                type: string
+              RemainingCycles:
+                type: integer
+              MaximumCycles:
+                type: integer
+              LastBillDate:
+                type: string
+              AuditId:
+                type: integer
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ScheduledBillingId:
+                type: integer
+              ContactId:
+                type: integer
+              NextBillDate:
+                type: string
+              Membership:
+                type: string
+              BillTo:
+                type: string
+              Description:
+                type: string
+              Frequency:
+                type: string
+              HideOnInvoice:
+                type: boolean
+              Amount:
+                type: number
+              PaymentProfile:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+
+  /api/finance/scheduledbilling/{contactid}/{scheduledbillingid}:
+    get:
+      parameters:
+        - name: contactid
+          in: path
+          required: true
+          type: string
+        - name: scheduledbillingid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              ScheduledBillingId:
+                type: integer
+              MembershipActivationId:
+                type: string
+              PurchasedByContact:
+                type: string
+              ContactId:
+                type: integer
+              ContactType:
+                type: string
+              BillingContactId:
+                type: string
+              BillingAddressId:
+                type: string
+              BillingEmailId:
+                type: string
+              SaleableItemId:
+                type: string
+              Description:
+                type: string
+              Quantity:
+                type: number
+              Price:
+                type: number
+              Total:
+                type: number
+              MembershipId:
+                type: string
+              BillFrequencyTypeId:
+                type: string
+              StartDate:
+                type: string
+              EndDate:
+                type: string
+              NextBillDate:
+                type: string
+              ActiveDiscounts:
+                type: string
+              PrintInvoice:
+                type: boolean
+              EmailInvoice:
+                type: boolean
+              HideOnInvoice:
+                type: boolean
+              ExpiredDiscountCount:
+                type: integer
+              ExpiredDiscounts:
+                type: string
+              TermId:
+                type: string
+              PaymentProfileId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              OriginalAnnualizedAmount:
+                type: integer
+              OriginalBillFrequencyTypeId:
+                type: string
+              AmountRemaining:
+                type: string
+              RemainingCycles:
+                type: integer
+              MaximumCycles:
+                type: integer
+              LastBillDate:
+                type: string
+              AuditId:
+                type: integer
+
+  /api/finance/scheduledbilling/delete/{scheduledbillingid}/{auditid}:
+    delete:
+      parameters:
+        - name: scheduledbillingid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/scheduledbillingdates/lookup:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/scheduledbillingdatesfuture/lookup:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/scheduledbillingrun:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              Id:
+                type: integer
+              MonthsAhead:
+                type: integer
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/scheduledrecognition:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                ScheduleRecognitionId:
+                  type: integer
+                NextScheduleDate:
+                  type: string
+                Contact:
+                  type: string
+                AmountRemaining:
+                  type: number
+                Cycles:
+                  type: string
+                BillFrequencyTypeId:
+                  type: string
+                BillFrequencyType:
+                  type: string
+                Description:
+                  type: string
+
+  /api/finance/statement/delivery/email:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              ContactId:
+                type: integer
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: integer
+              DisplayAllActivityEvenIfPaid:
+                type: boolean
+              StatementStartDate:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              TemplateId:
+                type: string
+              Subject:
+                type: string
+              EmailRecipients:
+                type: string
+              GlobalFlags:
+                type: string
+              EmailBody:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+
+  /api/finance/statements/delivery/email:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FromAddressId:
+                type: string
+              FromEmailAddressId:
+                type: integer
+              FromContactId:
+                type: string
+              TemplateId:
+                type: string
+              Subject:
+                type: string
+              EmailRecipients:
+                type: string
+              GlobalFlags:
+                type: string
+              EmailBody:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              NumberOfDays:
+                type: integer
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                this[]:
+                  type: string
+                Length:
+                  type: integer
+
+  /api/finance/statements/delivery/print:
+    post:
+      parameters:
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              FileFormat:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+              CoverLetterTemplateId:
+                type: string
+              CoverLetterContactId:
+                type: string
+              DocumentGenerationTemplateId:
+                type: string
+              NumberOfDays:
+                type: integer
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/finance/transactions/{accountid}/export:
+    post:
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          type: string
+        - name: model
+          in: body
+          required: false
+          schema:
+            properties:
+              AccountId:
+                type: integer
+              FileFormat:
+                type: string
+              DateRange:
+                type: string
+              CloseTransactionsPeriod:
+                type: boolean
+              FileId:
+                type: string
+              DownloadUrl:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PendingDownloadFileId:
+                type: integer
+              UrlToPoll:
+                type: string
+              Message:
+                type: string
+              EstimatedTimeInMilliseconds:
+                type: integer
+              TimeoutInMilliseconds:
+                type: integer
+
+  /api/finance/transactions/{transactionid}:
+    get:
+      parameters:
+        - name: transactionid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              TransactionId:
+                type: integer
+              TxDate:
+                type: string
+              ReferenceNumber:
+                type: string
+              Account:
+                type: string
+              Customer:
+                type: string
+              Source:
+                type: string
+              Debit:
+                type: string
+              Credit:
+                type: string
+
+  /api/finance/transactions/details/{accountid}:
+    post:
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          type: string
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              AccountId:
+                type: string
+              TransactionId:
+                type: string
+              Criteria:
+                type: string
+              DateRange:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              AccountId:
+                type: integer
+              AccountName:
+                type: string
+              Details:
+                type: string
+
+  /api/finance/transactions/summary:
+    get:
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              AccountId:
+                type: string
+              TransactionId:
+                type: string
+              Criteria:
+                type: string
+              DateRange:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Criteria:
+                type: string
+              CriteriaItems:
+                type: string
+              TotalRecordAvailable:
+                type: string
+                description: "We typically only return a subset of what is available on the server, but lets show the user what was available"
+              ModelItems:
+                type: string
+              Results:
+                type: string
+
+  /api/finance/transactions/summary/exporttoexcel:
+    post:
+      parameters:
+        - name: filter
+          in: body
+          required: false
+          schema:
+            properties:
+              Top:
+                type: string
+              Skip:
+                type: string
+              Filter:
+                type: string
+              OrderBy:
+                type: string
+              CalendarStartDate:
+                type: string
+              CalendarEndDate:
+                type: string
+              TenantId:
+                type: integer
+              AccountId:
+                type: string
+              TransactionId:
+                type: string
+              Criteria:
+                type: string
+              DateRange:
+                type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              Version:
+                type: string
+              Content:
+                type: string
+              StatusCode:
+                type: string
+              ReasonPhrase:
+                type: string
+              Headers:
+                type: string
+              RequestMessage:
+                type: string
+              IsSuccessStatusCode:
+                type: boolean
+
+  /api/finance/transactionsource/lookup:
+    get:
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            type: array
+            items:
+              properties:
+                IsSelected:
+                  type: boolean
+                PreviouslySelected:
+                  type: boolean
+                Id:
+                  type: integer
+                Name:
+                  type: string
+
+  /api/finance/viewcreditmemo/{creditmemoid}:
+    get:
+      parameters:
+        - name: creditmemoid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              CreditMemoId:
+                type: integer
+              AuditId:
+                type: integer
+              ContactId:
+                type: integer
+              ContactName:
+                type: string
+              IssueDate:
+                type: string
+              VoidedDate:
+                type: string
+              Amount:
+                type: number
+              RemainingBalance:
+                type: number
+              Notes:
+                type: string
+              CreditItems:
+                type: string
+              AppliedToInvoices:
+                type: string
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              isRemovable:
+                type: boolean
+              Lookback:
+                type: integer
+              CssClass:
+                type: string
+
+  /api/finance/viewcreditmemo/{creditmemoid}/{auditid}:
+    delete:
+      parameters:
+        - name: creditmemoid
+          in: path
+          required: true
+          type: string
+        - name: auditid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/voidcreditmemo/{creditmemoid}:
+    put:
+      parameters:
+        - name: creditmemoid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+
+  /api/finance/voidinvoice/{purchaseid}:
+    put:
+      parameters:
+        - name: purchaseid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              InvoiceDate:
+                type: string
+              InvoiceNumber:
+                type: string
+              PurchaseId:
+                type: integer
+              ContactId:
+                type: integer
+              InvoiceId:
+                type: integer
+              Customer:
+                type: string
+              Description:
+                type: string
+              AgingInDays:
+                type: integer
+              Balance:
+                type: number
+              Actions:
+                type: string
+
+  /api/finance/voidpayment/{paymentid}:
+    put:
+      parameters:
+        - name: paymentid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              PaymentId:
+                type: integer
+              ReferenceNumber:
+                type: string
+              PaymentDate:
+                type: string
+              Contact:
+                type: string
+              Amount:
+                type: number
+              DepositId:
+                type: string
+              OverpayBalance:
+                type: number
+              FullyWrittenOff:
+                type: boolean
+              HideCreateRefund:
+                type: boolean
+              Actions:
+                type: string
+
+  /api/finance/voidrefund/{refundid}:
+    put:
+      parameters:
+        - name: refundid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              RefundId:
+                type: integer
+              AuditId:
+                type: integer
+              EPaymentTransactionId:
+                type: string
+              PaymentId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              RefundDate:
+                type: string
+              VoidedDate:
+                type: string
+              Amount:
+                type: number
+              PaymentCheckNumber:
+                type: string
+              Notes:
+                type: string
+              Items:
+                type: string
+              Lookback:
+                type: integer
+              isRemovable:
+                type: boolean
+              IsDeletable:
+                type: boolean
+              IsVoidable:
+                type: boolean
+              CssClass:
+                type: string
+
+  /api/finance/writeoffs/{writeoffid}:
+    get:
+      parameters:
+        - name: writeoffid
+          in: path
+          required: true
+          type: string
+      tags:
+        - Finance
+      responses:
+        200:
+          description:
+            "OK"
+          schema:
+            properties:
+              WriteOffId:
+                type: integer
+              AuditId:
+                type: integer
+              PurchaseId:
+                type: integer
+              ContactId:
+                type: integer
+              Contact:
+                type: string
+              InvoiceNumber:
+                type: string
+              WriteOffDate:
+                type: string
+              Amount:
+                type: number
+              Notes:
+                type: string
+              Items:
+                type: string
